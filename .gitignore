@@ -1,0 +1,27 @@
+# Eclipse #
+###########
+.settings/
+*.project
+*.classpath
+*.checkstyle
+*.checkstyle
+test-output/
+target/
+test/
+
+# Exclusion #
+#############
+!*/src/test/
+!*/src/main/java/com/homersoft/wh/db/commons/test/
+
+# Java #
+########
+*.class
+
+# Packages #
+############
+*.jar
+
+# OS generated files #
+######################
+Thumbs.db
