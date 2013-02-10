@@ -37,7 +37,7 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	/**
 	 * Multicast group.
 	 */
-	private String multicastGroup = "225.1.1.1";
+	private String multicastGroup = "239.255.1.1";
 	
 	/**
 	 * Flag indicating that the thread is running.
@@ -121,8 +121,9 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 				String receivedData = new String(packet.getData());								
 				if (receivedData.contains(Command.SEARCH_COMMAND.getData())) {
 					LOG.debug("Received search packet from " + packet.getAddress() + ".");
-					
-					String responseData = new String(Command.RESPONSE_COMMAND.getData());
+										
+					String hostName = InetAddress.getLocalHost().getHostName();
+					String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
 					byte[] responseBuffer = responseData.getBytes();
 					DatagramPacket responsePacket = new DatagramPacket(responseBuffer, responseBuffer.length, 
 							InetAddress.getByName(multicastGroup), port);
@@ -130,8 +131,7 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 					
 					LOG.debug("Response packet sent.");
 				}			
-				
-				
+								
 				sleep(1);				
 			}									
 		} catch (IOException e) {

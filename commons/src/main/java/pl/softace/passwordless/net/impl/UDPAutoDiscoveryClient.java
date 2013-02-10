@@ -5,11 +5,14 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import pl.softace.passwordless.net.Command;
 import pl.softace.passwordless.net.IAutoDiscoveryClient;
+import pl.softace.passwordless.net.ServerInstance;
 
 /**
  * 
@@ -28,7 +31,7 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 	/**
 	 * Searching timeout.
 	 */
-	private static final long TIMEOUT = 10000;
+	private long timout = 5000;
 	
 	/**
 	 * Listening port.
@@ -43,15 +46,30 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 	/**
 	 * Multicast group.
 	 */
-	private String multicastGroup = "225.1.1.1";
+	private String multicastGroup = "239.255.1.1";
+		
+
+	/**
+	 * Default constructor.
+	 */
+	public UDPAutoDiscoveryClient() {
+		
+	}
 	
+	public UDPAutoDiscoveryClient(long timeout) {
+		if (timeout < 1000) {
+			this.timout = 1000;
+		} else {
+			this.timout = timeout;
+		}
+	}
 	
 	/* (non-Javadoc)
 	 * @see pl.softace.passwordless.net.IAutoDiscoveryClient#findServer()
 	 */
 	@Override
-	public final String findServer() {	
-		String ip = null;
+	public final List<ServerInstance> findServer() {	
+		List<ServerInstance> servers = new ArrayList<ServerInstance>();
 		
 		try {
 			socket = new MulticastSocket(port);
@@ -67,13 +85,15 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 				try {
 					byte receivingBuffer[] = new byte[1024];
 					DatagramPacket receivedPacket = new DatagramPacket(receivingBuffer, receivingBuffer.length);
-					socket.setSoTimeout(5);
-					socket.receive(receivedPacket);
+					socket.setSoTimeout(1);
+					socket.receive(receivedPacket);					
 					
-					
-					if (new String(receivedPacket.getData()).contains(Command.RESPONSE_COMMAND.getData())) {
-						ip = receivedPacket.getAddress().getHostAddress();
-						break;
+					String receivedMessage = new String(receivedPacket.getData());
+					if (receivedMessage != null && receivedMessage.contains(Command.RESPONSE_COMMAND.getData())) {
+						ServerInstance server = new ServerInstance();
+						server.setIp(receivedPacket.getAddress().getHostAddress());
+						server.setHostName(receivedMessage.split(": ")[1].trim());
+						servers.add(server);
 					}								
 					
 					try {
@@ -82,7 +102,7 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 						LOG.error("Exception occured.", e);
 					}
 				} catch (SocketTimeoutException e) {
-					if (System.currentTimeMillis() - startTime > TIMEOUT) {
+					if (System.currentTimeMillis() - startTime > timout) {
 						break;
 					}
 				}
@@ -94,6 +114,6 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 			LOG.error("Exception occured.", e);
 		}
 		
-		return ip;
+		return servers;
 	}
 }

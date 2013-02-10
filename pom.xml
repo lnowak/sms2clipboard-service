@@ -15,7 +15,8 @@
 	</properties>
 
 	<modules>
-		<module>commons</module>		
+		<module>commons</module>
+		<module>distribution</module>
 	</modules>
 
 	<reporting>

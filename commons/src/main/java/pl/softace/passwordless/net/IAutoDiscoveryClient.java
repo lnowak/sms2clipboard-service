@@ -1,5 +1,7 @@
 package pl.softace.passwordless.net;
 
+import java.util.List;
+
 /**
  * 
  * Interface for auto discovery client.
@@ -12,7 +14,7 @@ public interface IAutoDiscoveryClient {
 	/**
 	 * Tries to find the server.
 	 * 
-	 * @return
+	 * @return		list of found servers
 	 */
-	String findServer();
+	List<ServerInstance> findServer();
 }
