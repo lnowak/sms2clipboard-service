@@ -1,4 +1,4 @@
-package pl.softace.passwordless.net;
+package pl.softace.passwordless.net.autodiscovery;
 
 /**
  * 

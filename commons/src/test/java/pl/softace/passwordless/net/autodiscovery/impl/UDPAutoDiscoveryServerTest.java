@@ -1,4 +1,4 @@
-package pl.softace.passwordless.net.impl;
+package pl.softace.passwordless.net.autodiscovery.impl;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -7,9 +7,11 @@ import java.util.List;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
-import pl.softace.passwordless.net.IAutoDiscoveryClient;
-import pl.softace.passwordless.net.IAutoDiscoveryServer;
-import pl.softace.passwordless.net.ServerInstance;
+import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryClient;
+import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryServer;
+import pl.softace.passwordless.net.autodiscovery.ServerInstance;
+import pl.softace.passwordless.net.autodiscovery.impl.UDPAutoDiscoveryClient;
+import pl.softace.passwordless.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 
 /**
  * 

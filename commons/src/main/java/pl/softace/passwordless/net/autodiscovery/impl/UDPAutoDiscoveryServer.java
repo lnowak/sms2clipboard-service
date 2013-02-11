@@ -1,4 +1,4 @@
-package pl.softace.passwordless.net.impl;
+package pl.softace.passwordless.net.autodiscovery.impl;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -7,8 +7,8 @@ import java.net.MulticastSocket;
 
 import org.apache.log4j.Logger;
 
-import pl.softace.passwordless.net.Command;
-import pl.softace.passwordless.net.IAutoDiscoveryServer;
+import pl.softace.passwordless.net.autodiscovery.Command;
+import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryServer;
 
 /**
  * 

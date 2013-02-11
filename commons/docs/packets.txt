@@ -1,0 +1,23 @@
+0xFF 0xFFFF {0xFF 0xFFFFFFFF {TLV TLV TLV TLV ...}}
+|
+{packet start}
+	 |
+	 {length}
+			|
+			{security mode - (NONE) 0xF0, (AES) 0xF1}
+				  |
+				  {password hashcode - verified on both sides)
+				 
+				 
+PING_REQUEST
+PING_RESPONSE
+
+SMS
+CONFIRMATION
+
+PUBLIC_DB_VERSION_REQUEST
+PUBLIC_DB_VERSION_RESPONSE
+
+PRIVATE_DB_VERSION_REQUEST
+PRIVATE_DB_VERSION_RESPONSE
+
