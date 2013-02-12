@@ -14,7 +14,9 @@
 
 	<properties>
 		<version.log4j>1.2.16</version.log4j>
+		<version.slf4j-log4j12>1.7.2</version.slf4j-log4j12>
 		<version.testng>6.5.1</version.testng>
+		<version.mina>2.0.7</version.mina>		
 	</properties>
 
 	<build>
@@ -149,6 +151,16 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${version.log4j}</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${version.slf4j-log4j12}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.mina</groupId>
+			<artifactId>mina-core</artifactId>
+			<version>${version.mina}</version>
 		</dependency>
 
 		<dependency>
