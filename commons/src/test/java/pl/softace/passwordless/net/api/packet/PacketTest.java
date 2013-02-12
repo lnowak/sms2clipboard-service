@@ -44,12 +44,32 @@ public class PacketTest {
 		packet.setText("To jest testowy tekst.");
 		
 		// when
-		ByteBuffer packetBuffer = packet.encodePacket();		
+		ByteBuffer packetBuffer = packet.encodePacket("password");		
 		
 		// then
 		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
 		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
-		decodedPacket.decodeBody(packetBuffer);		
+		decodedPacket.decodeBody(packetBuffer, "password");		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link PingRequest} packet.
+	 */
+	@Test
+	public final void checkPingResponsePacket() {
+		// given
+		PingResponse packet = new PingResponse();
+		packet.setId(100);
+		packet.setStatus(0);
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, "password");		
 		Assert.assertEquals(decodedPacket, packet);
 	}
 }

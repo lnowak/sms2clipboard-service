@@ -6,6 +6,7 @@ import pl.softace.passwordless.net.api.factory.IPacketFactory;
 import pl.softace.passwordless.net.api.packet.Packet;
 import pl.softace.passwordless.net.api.packet.PacketType;
 import pl.softace.passwordless.net.api.packet.PingRequest;
+import pl.softace.passwordless.net.api.packet.PingResponse;
 
 /**
  * 
@@ -15,7 +16,7 @@ import pl.softace.passwordless.net.api.packet.PingRequest;
  *
  */
 public class PacketFactory implements IPacketFactory {
-
+	
 	/* (non-Javadoc)
 	 * @see pl.softace.passwordless.net.api.packet.IPacketFactory#createPacket(java.nio.ByteBuffer)
 	 */
@@ -28,12 +29,17 @@ public class PacketFactory implements IPacketFactory {
 			case PING_REQUEST_PACKET:
 				packet = new PingRequest();
 				break;
+			case PING_RESPONSE_PACKET:
+				packet = new PingResponse();
+				break;
 			default:
 				break;
 			}
 			
-			packet.setId(buffer.getInt());
-			packet.setBodyLength(buffer.getInt());
+			if (packet != null) {			
+				packet.setId(buffer.getInt());
+				packet.setBodyLength(buffer.getInt());
+			}
 		}
 		
 		return packet;

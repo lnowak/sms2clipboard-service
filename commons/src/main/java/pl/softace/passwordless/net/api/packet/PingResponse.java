@@ -5,40 +5,40 @@ import pl.softace.passwordless.net.api.packet.enums.PacketParameter;
 
 /**
  * 
- * Packet send to check the connection and password.
+ * Response packet generated to ping request.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class PingRequest extends ReflectedPacket {
+public class PingResponse extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = 8196090941386293865L;
+	private static final long serialVersionUID = -364782100050883380L;
 
 	/**
-	 * Ping text.
+	 * Status of the response.
 	 */
-	@PropertyParameter(parameter = PacketParameter.TEXT)
-	private String text;
+	@PropertyParameter(parameter = PacketParameter.STATUS)
+	private int status;
 	
-
+	
 	/**
 	 * Default constructor.
 	 */
-	public PingRequest() {
-		setType(PacketType.PING_REQUEST_PACKET);
-	}
-	
-	public final String getText() {
-		return text;
+	public PingResponse() {
+		setType(PacketType.PING_RESPONSE_PACKET);
 	}
 
-	public final void setText(String text) {
-		this.text = text;
+	public final int getStatus() {
+		return status;
 	}
-	
+
+	public final void setStatus(int status) {
+		this.status = status;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -48,7 +48,7 @@ public class PingRequest extends ReflectedPacket {
 		int result = 1;
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + (int) (status ^ (status >>> 32));
 		return result;
 	}
 
@@ -63,15 +63,12 @@ public class PingRequest extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingRequest other = (PingRequest) obj;
+		PingResponse other = (PingResponse) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
 			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
+		if (status != other.status)
 			return false;
 		return true;
 	}
@@ -82,12 +79,12 @@ public class PingRequest extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingRequest [id=");
+		builder.append("PingResponse [id=");
 		builder.append(getId());
 		builder.append(", type=");
 		builder.append(getType());
-		builder.append(", text=");
-		builder.append(text);
+		builder.append(", status=");
+		builder.append(status);
 		builder.append("]");
 		return builder.toString();
 	}

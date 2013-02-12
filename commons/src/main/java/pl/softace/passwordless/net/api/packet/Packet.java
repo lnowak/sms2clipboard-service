@@ -81,19 +81,19 @@ public abstract class Packet implements Serializable {
 	 * 
 	 * @return byte array
 	 */
-	public abstract ByteBuffer encodePacket();
+	public abstract ByteBuffer encodePacket(String password);
 	
 	/**
 	 * Gets and sets the packet parameters from the buffer. 
 	 * 
 	 * @param in	byte buffer
 	 */
-	public abstract void decodeBody(ByteBuffer in);
+	public abstract void decodeBody(ByteBuffer buffer, String password);
 	
 	/**
 	 * Count body length.
 	 */
-	protected abstract void countBodyLength();
+	protected abstract void countBodyLength(String password);
 	
 	/**
 	 * Checks if the packet could be decoded from the incoming number of bytes.

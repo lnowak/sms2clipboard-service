@@ -1,4 +1,5 @@
-package pl.softace.passwordless.net.api.packet;
+package pl.softace.passwordless.net.api.packet.enums;
+
 
 /**
  * 
@@ -8,54 +9,54 @@ package pl.softace.passwordless.net.api.packet;
  *
  */
 public enum PacketParameter {
-
+	
 	/**
 	 * Status of the response.
 	 */
-	STATUS				(20, 1),
+	STATUS				((byte) 20, ParameterType.INTEGER),
 	
 	/**
 	 * String text.
 	 */
-	TEXT				(21, 0);
+	TEXT				((byte) 21, ParameterType.SECURED_STRING);
 	
 	
 	/**
 	 * Parameter identifier.
 	 */
-	private int id;
+	private byte id;
 	
 	/**
 	 * Parameter length.
 	 */
-	private int length;
+	private ParameterType type;
 	
 	
 	/**
 	 * Constructor.
 	 * 
 	 * @param id			identifier
-	 * @param length		length
+	 * @param type			type
 	 */
-	private PacketParameter(int id, int length) {
+	private PacketParameter(byte id, ParameterType type) {
 		this.id = id;
-		this.length = length;
+		this.type = type;
 	}
 	
-	public final int getId() {
+	public final byte getId() {
 		return id;
 	}
 
-	public final void setId(int id) {
+	public final void setId(byte id) {
 		this.id = id;
 	}
 
-	public final int getLength() {
-		return length;
+	public final ParameterType getType() {
+		return type;
 	}
 
-	public final void setLength(int length) {
-		this.length = length;
+	public final void setType(ParameterType type) {
+		this.type = type;
 	}
 
 	/**

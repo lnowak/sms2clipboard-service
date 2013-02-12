@@ -17,7 +17,9 @@ public enum PacketType {
 	/**
 	 * Ping response packet.
 	 */
-	PING_RESPONSE_PACKET			((byte) 11);
+	PING_RESPONSE_PACKET			((byte) 11),
+	
+	TEST							((byte) 12);
 	
 	
 	/**
