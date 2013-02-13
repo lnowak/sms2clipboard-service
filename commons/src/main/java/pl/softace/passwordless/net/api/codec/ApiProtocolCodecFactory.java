@@ -48,4 +48,14 @@ public class ApiProtocolCodecFactory implements ProtocolCodecFactory {
 	public final ProtocolDecoder getDecoder(IoSession session) throws Exception {
 		return decoder;
 	}
+	
+	/**
+	 * Sets new AES password.
+	 * 
+	 * @param password		AES password
+	 */
+	public final void setAesPassword(String password) {
+		((ApiCodecEncoder) encoder).setAesPassword(password);
+		((ApiCodecDecoder) decoder).setAesPassword(password);
+	}
 }

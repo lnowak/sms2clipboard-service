@@ -1,11 +1,10 @@
-package pl.softace.passwordless.net.api;
+package pl.softace.passwordless.net.api.server;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
 import org.apache.log4j.Logger;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
-import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
 import pl.softace.passwordless.net.api.codec.ApiProtocolCodecFactory;
@@ -39,6 +38,16 @@ public class ApiServer {
 	 */
 	private NioSocketAcceptor acceptor;
 	
+	/**
+	 * Packet handler.
+	 */
+	private IPacketHandler packetHandler;
+	
+	/**
+	 * Codec factory.
+	 */
+	private ApiProtocolCodecFactory codecFactory = new ApiProtocolCodecFactory();
+	
 	
 	/**
 	 * Default constructor.
@@ -46,16 +55,33 @@ public class ApiServer {
 	public ApiServer() {
 		this.port = DEFAULT_PORT;
 	}
+		
+	public final IPacketHandler getPacketHandler() {
+		return packetHandler;
+	}
+
+	public final void setPacketHandler(IPacketHandler packetHandler) {
+		this.packetHandler = packetHandler;
+	}
+
+	/**
+	 * Sets new AES password.
+	 * 
+	 * @param password	AES password
+	 */
+	public final void setAesPassword(String password) {
+		codecFactory.setAesPassword(password);
+	}
 	
 	/**
 	 * Starts the server.
 	 */
 	public final void startServer() {
 		acceptor = new NioSocketAcceptor();
-		acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new ApiProtocolCodecFactory()));
-		acceptor.getFilterChain().addLast("logger", new LoggingFilter());
+		acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(codecFactory));
+		//acceptor.getFilterChain().addLast("logger", new LoggingFilter());
 		
-		acceptor.setHandler(new ApiServerIOHandler());
+		acceptor.setHandler(new ApiServerIOHandler(packetHandler));
 		try {
 			acceptor.bind(new InetSocketAddress(port));
 		} catch (IOException e) {

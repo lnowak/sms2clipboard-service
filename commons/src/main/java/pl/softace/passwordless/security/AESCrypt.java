@@ -70,18 +70,25 @@ public class AESCrypt {
 		    encryptedBytes = cipher.doFinal(mes);
 		} catch (NoSuchPaddingException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (BadPaddingException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (IllegalBlockSizeException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (InvalidAlgorithmParameterException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (InvalidKeyException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (NoSuchAlgorithmException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		} catch (InvalidKeySpecException e) {
 			LOG.error("Exception during AES crypting.", e);
+			throw new CryptException("Exception during AES crypting.", e);
 		}
 		
 		return encryptedBytes;
@@ -95,19 +102,26 @@ public class AESCrypt {
 		    cipher.init(Cipher.DECRYPT_MODE, generateKey(password), ivSpec);
 		    decryptedBytes = cipher.doFinal(bytes);
 		} catch (NoSuchAlgorithmException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (NoSuchPaddingException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (InvalidKeyException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (InvalidAlgorithmParameterException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (IllegalBlockSizeException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (BadPaddingException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		} catch (InvalidKeySpecException e) {
-			LOG.error("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);
+			throw new CryptException("Exception during AES decrypting.", e);
 		}
 	    
 	    return decryptedBytes;	    	   

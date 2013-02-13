@@ -23,6 +23,12 @@ public class PingResponse extends ReflectedPacket {
 	@PropertyParameter(parameter = PacketParameter.STATUS)
 	private int status;
 	
+	/**
+	 * Token used in request.
+	 */
+	@PropertyParameter(parameter = PacketParameter.TEXT)
+	private String text;
+	
 	
 	/**
 	 * Default constructor.
@@ -39,6 +45,14 @@ public class PingResponse extends ReflectedPacket {
 		this.status = status;
 	}
 
+	public final String getText() {
+		return text;
+	}
+
+	public final void setText(String text) {
+		this.text = text;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -49,6 +63,7 @@ public class PingResponse extends ReflectedPacket {
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
 		result = prime * result + (int) (status ^ (status >>> 32));
+		result = prime * result + ((getText() == null) ? 0 : getText().hashCode());
 		return result;
 	}
 
@@ -70,6 +85,11 @@ public class PingResponse extends ReflectedPacket {
 			return false;
 		if (status != other.status)
 			return false;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
+			return false;
 		return true;
 	}
 
@@ -85,6 +105,8 @@ public class PingResponse extends ReflectedPacket {
 		builder.append(getType());
 		builder.append(", status=");
 		builder.append(status);
+		builder.append(", text=");
+		builder.append(text);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -7,7 +7,7 @@ package pl.softace.passwordless.security;
  * @author lkawon@gmail.com
  *
  */
-public class CryptException extends Exception {
+public class CryptException extends RuntimeException {
 
 	/**
 	 * Serial ID.

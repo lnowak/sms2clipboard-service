@@ -1,6 +1,6 @@
 package pl.softace.passwordless;
 
-import pl.softace.passwordless.net.api.ApiServer;
+import pl.softace.passwordless.net.api.server.ApiServer;
 import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.passwordless.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 

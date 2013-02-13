@@ -67,7 +67,7 @@ public abstract class Packet implements Serializable {
 	 * 
 	 * @return byte array
 	 */
-	public final byte[] getHeader() {
+	protected final byte[] getHeader() {
 		ByteBuffer buffer = ByteBuffer.allocate(HEADER_LENGTH);
 		buffer.put(type.getId());
 		buffer.putInt(id);

@@ -5,6 +5,7 @@
 		<class name="pl.softace.passwordless.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
 		<class name="pl.softace.passwordless.security.AESCryptTest"/>
 		<class name="pl.softace.passwordless.net.api.packet.PacketTest"/>
+		<class name="pl.softace.passwordless.net.api.server.ApiServerTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
