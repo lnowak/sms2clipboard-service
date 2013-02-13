@@ -5,7 +5,6 @@ import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
-import pl.softace.passwordless.net.api.factory.IPacketFactory;
 import pl.softace.passwordless.net.api.factory.impl.PacketFactory;
 import pl.softace.passwordless.net.api.packet.Packet;
 
@@ -43,11 +42,10 @@ public class ApiCodecDecoder implements ProtocolDecoder {
 	 * org.apache.mina.filter.codec.ProtocolDecoderOutput)
 	 */
 	@Override
-	public final void decode(IoSession session, IoBuffer in, ProtocolDecoderOutput out) throws Exception {
-		Packet packet = (Packet) session.getAttribute(PACKET_STATE_KEY);
+	public final void decode(IoSession session, IoBuffer in, ProtocolDecoderOutput out) throws Exception {			
+		Packet packet = (Packet) session.getAttribute(PACKET_STATE_KEY);		
 		if (packet == null) {
-			IPacketFactory packetFactory = new PacketFactory();
-			packet = packetFactory.decodeHeader(in.buf());
+			packet = new PacketFactory().decodeHeader(in.buf());
 			if (packet != null) {
 				session.setAttribute(PACKET_STATE_KEY, packet);
 			} else {
@@ -55,9 +53,12 @@ public class ApiCodecDecoder implements ProtocolDecoder {
 			}
 		}
 		
-		if (packet.isPacketAvailable(in.buf().remaining())) {
+		if (packet.isPacketAvailable(in.buf().remaining())) {	
+			System.out.println("Decoding packet " + packet + " with " + aesPassword);
 			packet.decodeBody(in.buf(), aesPassword);
-			out.write(packet);
+			out.write(packet);			
+			
+			session.removeAttribute(PACKET_STATE_KEY);
 		}
 	}
 

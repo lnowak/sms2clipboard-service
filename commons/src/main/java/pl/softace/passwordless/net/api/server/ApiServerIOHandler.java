@@ -75,6 +75,7 @@ public class ApiServerIOHandler extends IoHandlerAdapter {
     }
     
     public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
+    	System.out.println(cause);
        if (cause instanceof ProtocolDecoderException) {
     	   LOG.debug("Closing " + session + " because of decoding exception.");
     	   session.close(true);    	   

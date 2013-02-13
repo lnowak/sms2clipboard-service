@@ -62,6 +62,7 @@ public class PacketTest {
 		PingResponse packet = new PingResponse();
 		packet.setId(100);
 		packet.setStatus(0);
+		packet.setText("test 1");
 		
 		// when
 		ByteBuffer packetBuffer = packet.encodePacket("password");		

@@ -38,6 +38,7 @@ public class ApiCodecEncoder implements ProtocolEncoder {
 	 */
 	@Override
 	public final void encode(IoSession session, Object message, ProtocolEncoderOutput out) throws Exception {
+		System.out.println("Encoding packet " + message + " with " + aesPassword);
 		ByteBuffer packetBuffer = ((Packet) message).encodePacket(aesPassword);
 		IoBuffer buffer = IoBuffer.allocate(packetBuffer.remaining());
 		buffer.put(packetBuffer);

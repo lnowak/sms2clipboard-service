@@ -64,9 +64,37 @@ public class ApiServerTest {
 	}
 	
 	/**
-	 * Tries to send ping request message to server using incorrect AES password.
+	 * Tries to send ping request message to server.
+	 * @throws InterruptedException 
 	 */
 	@Test(dependsOnMethods = "startServer")
+	public final void sendCorrectPingRequests() throws InterruptedException {
+		// given
+		ApiClient client = new ApiClient("127.0.0.1", 8080);
+		client.connect();
+		Assert.assertTrue(client.isConnected());
+		
+		// when / then
+		for (int i = 0; i < 10; i++) {
+			PingRequest request = new PingRequest();
+			request.setId(i);
+			request.setText("test " + i);
+			
+			Packet response = client.send(request);
+			Assert.assertNotNull(response);
+			Assert.assertTrue(response instanceof PingResponse);
+			Assert.assertEquals(request.getId(), ((PingResponse) response).getId());
+			Assert.assertEquals(0, ((PingResponse) response).getStatus());
+			Assert.assertEquals(request.getText(), ((PingResponse) response).getText());		
+		}				
+			
+		client.disconnect();
+	}
+	
+	/**
+	 * Tries to send ping request message to server using incorrect AES password.
+	 */
+	@Test//(dependsOnMethods = {"sendCorrectPingRequests", "sendCorrectPingRequest"} )
 	public final void sendCorrectMessageWithIncorrectAesPassword() {
 		// given
 		ApiClient client = new ApiClient("127.0.0.1", 8080);

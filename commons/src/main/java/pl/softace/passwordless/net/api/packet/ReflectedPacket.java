@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import pl.softace.passwordless.net.api.packet.annotations.PropertyParameter;
 import pl.softace.passwordless.net.api.packet.enums.PacketParameter;
 import pl.softace.passwordless.net.api.packet.enums.ParameterType;
-import pl.softace.passwordless.security.AESCrypt;
+import pl.softace.passwordless.security.AESCrypter;
 
 /**
  * 
@@ -68,12 +68,12 @@ public abstract class ReflectedPacket extends Packet {
 						buffer.put(((String) obj).getBytes());
 						break;
 					case SECURED_STRING:						
-						String text = (String) obj;
-						if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {
-							text = new String(AESCrypt.encrypt(password, text.getBytes()));
-						}						
-						buffer.putInt(text.length());
-						buffer.put(text.getBytes());
+						byte[] bytes = ((String) obj).getBytes();
+						if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {						
+							bytes = AESCrypter.encrypt(password, bytes);
+						}							
+						buffer.putInt(bytes.length);
+						buffer.put(bytes);
 						break;
 					default:
 						break;
@@ -95,7 +95,7 @@ public abstract class ReflectedPacket extends Packet {
 	public final void decodeBody(ByteBuffer buffer, String password) {
 		while (buffer.hasRemaining()) {
 			byte id = buffer.get();
-			PacketParameter packetParameter = PacketParameter.getById(id);			
+			PacketParameter packetParameter = PacketParameter.getById(id);	
 			Field field = findField(packetParameter);
 			field.setAccessible(true);
 			
@@ -111,8 +111,8 @@ public abstract class ReflectedPacket extends Packet {
 				break;
 			case SECURED_STRING:
 				bytes = new byte[buffer.getInt()];
-				buffer.get(bytes);			
-				obj = new String(AESCrypt.decrypt(password, bytes));
+				buffer.get(bytes);	
+				obj = new String(AESCrypter.decrypt(password, bytes));
 				break;
 			default:
 				break;
@@ -175,7 +175,7 @@ public abstract class ReflectedPacket extends Packet {
 						if (obj instanceof String) {
 							String text = (String) obj;
 							if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {
-								text = new String(AESCrypt.encrypt(password, text.getBytes()));
+								text = new String(AESCrypter.encrypt(password, text.getBytes()));
 							}
 							bodyLength +=  text.length() + 4 + 1;
 						}
