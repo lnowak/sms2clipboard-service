@@ -2,6 +2,8 @@ package pl.softace.passwordless.net.api.packet;
 
 import pl.softace.passwordless.net.api.packet.annotations.PropertyParameter;
 import pl.softace.passwordless.net.api.packet.enums.PacketParameter;
+import pl.softace.passwordless.net.api.packet.enums.PacketType;
+import pl.softace.passwordless.net.api.packet.enums.Status;
 
 /**
  * 
@@ -37,12 +39,12 @@ public class PingResponse extends ReflectedPacket {
 		setType(PacketType.PING_RESPONSE_PACKET);
 	}
 
-	public final int getStatus() {
-		return status;
+	public final Status getStatus() {
+		return Status.getById(status);
 	}
 
-	public final void setStatus(int status) {
-		this.status = status;
+	public final void setStatus(Status status) {
+		this.status = status.getId();
 	}
 
 	public final String getText() {
@@ -99,14 +101,14 @@ public class PingResponse extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingResponse [id=");
-		builder.append(getId());
-		builder.append(", type=");
+		builder.append("PingResponse [type=");
 		builder.append(getType());
-		builder.append(", status=");
-		builder.append(status);
+		builder.append(", id=");
+		builder.append(getId());				
 		builder.append(", text=");
 		builder.append(text);
+		builder.append(", status=");
+		builder.append(status);
 		builder.append("]");
 		return builder.toString();
 	}

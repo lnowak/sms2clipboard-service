@@ -1,4 +1,4 @@
-package pl.softace.passwordless.net.api.packet;
+package pl.softace.passwordless.net.api.packet.enums;
 
 /**
  * 
@@ -19,7 +19,15 @@ public enum PacketType {
 	 */
 	PING_RESPONSE_PACKET			((byte) 11),
 	
-	TEST							((byte) 12);
+	/**
+	 * SMS packet.
+	 */
+	SMS_PACKET						((byte) 12),
+	
+	/**
+	 * SMS confirmation.
+	 */
+	SMS_CONFIRMATION				((byte) 13);
 	
 	
 	/**
@@ -53,7 +61,7 @@ public enum PacketType {
 				return packetType;
 			}
 		}
-		
+	
 		return null;
 	}
 }

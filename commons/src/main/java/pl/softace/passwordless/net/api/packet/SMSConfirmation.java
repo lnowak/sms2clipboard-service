@@ -3,43 +3,44 @@ package pl.softace.passwordless.net.api.packet;
 import pl.softace.passwordless.net.api.packet.annotations.PropertyParameter;
 import pl.softace.passwordless.net.api.packet.enums.PacketParameter;
 import pl.softace.passwordless.net.api.packet.enums.PacketType;
+import pl.softace.passwordless.net.api.packet.enums.Status;
 
 /**
  * 
- * Packet send to check the connection and password.
+ * Response packet generated to ping request.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class PingRequest extends ReflectedPacket {
+public class SMSConfirmation extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = 8196090941386293865L;
+	private static final long serialVersionUID = -8297409281479082374L;
 
 	/**
-	 * Ping text.
+	 * Status of the response.
 	 */
-	@PropertyParameter(parameter = PacketParameter.TEXT)
-	private String text;
+	@PropertyParameter(parameter = PacketParameter.STATUS)
+	private int status;
 	
-
+	
 	/**
 	 * Default constructor.
 	 */
-	public PingRequest() {
-		setType(PacketType.PING_REQUEST_PACKET);
-	}
-	
-	public final String getText() {
-		return text;
+	public SMSConfirmation() {
+		setType(PacketType.SMS_CONFIRMATION);
 	}
 
-	public final void setText(String text) {
-		this.text = text;
+	public final Status getStatus() {
+		return Status.getById(status);
 	}
-	
+
+	public final void setStatus(Status status) {
+		this.status = status.getId();
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -49,7 +50,7 @@ public class PingRequest extends ReflectedPacket {
 		int result = 1;
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + (int) (status ^ (status >>> 32));
 		return result;
 	}
 
@@ -64,16 +65,13 @@ public class PingRequest extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingRequest other = (PingRequest) obj;
+		SMSConfirmation other = (SMSConfirmation) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
 			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
-			return false;
+		if (status != other.status)
+			return false;		
 		return true;
 	}
 
@@ -83,12 +81,12 @@ public class PingRequest extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingRequest [type=");
-		builder.append(getType());		
+		builder.append("SMSConfirmation [type=");
+		builder.append(getType());
 		builder.append(", id=");
-		builder.append(getId());
-		builder.append(", text=");
-		builder.append(text);
+		builder.append(getId());		
+		builder.append(", status=");
+		builder.append(status);
 		builder.append("]");
 		return builder.toString();
 	}

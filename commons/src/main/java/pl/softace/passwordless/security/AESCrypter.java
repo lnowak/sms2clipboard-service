@@ -6,9 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
@@ -113,28 +111,10 @@ public class AESCrypter {
 			initializeCiphers(password);		    		   
 		    encryptedBytes = encryptCipher.doFinal(message);	
 		    
-		} catch (NoSuchPaddingException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);			
-		} catch (BadPaddingException e) {
-			LOG.error("Exception during AES crypting.", e);
+		} catch (Exception e) {
 			encryptCipher = null;
-			throw new CryptException("Exception during AES crypting.", e);
-		} catch (IllegalBlockSizeException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);
-		} catch (InvalidAlgorithmParameterException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);
-		} catch (InvalidKeyException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);
-		} catch (NoSuchAlgorithmException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);
-		} catch (InvalidKeySpecException e) {
-			LOG.error("Exception during AES crypting.", e);
-			throw new CryptException("Exception during AES crypting.", e);
+			LOG.error("Exception during AES decrypting.", e);			
+			throw new CryptException("Exception during AES decrypting.", e);
 		}
 		
 		return encryptedBytes;

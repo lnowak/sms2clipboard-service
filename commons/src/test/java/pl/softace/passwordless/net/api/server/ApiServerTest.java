@@ -8,6 +8,9 @@ import pl.softace.passwordless.net.api.client.ApiClient;
 import pl.softace.passwordless.net.api.packet.Packet;
 import pl.softace.passwordless.net.api.packet.PingRequest;
 import pl.softace.passwordless.net.api.packet.PingResponse;
+import pl.softace.passwordless.net.api.packet.SMSConfirmation;
+import pl.softace.passwordless.net.api.packet.SMSPacket;
+import pl.softace.passwordless.net.api.packet.enums.Status;
 
 /**
  * 
@@ -58,7 +61,7 @@ public class ApiServerTest {
 		Assert.assertNotNull(response);
 		Assert.assertTrue(response instanceof PingResponse);
 		Assert.assertEquals(request.getId(), ((PingResponse) response).getId());
-		Assert.assertEquals(0, ((PingResponse) response).getStatus());
+		Assert.assertEquals(Status.OK, ((PingResponse) response).getStatus());
 		Assert.assertEquals(request.getText(), ((PingResponse) response).getText());
 		client.disconnect();
 	}
@@ -84,7 +87,7 @@ public class ApiServerTest {
 			Assert.assertNotNull(response);
 			Assert.assertTrue(response instanceof PingResponse);
 			Assert.assertEquals(request.getId(), ((PingResponse) response).getId());
-			Assert.assertEquals(0, ((PingResponse) response).getStatus());
+			Assert.assertEquals(Status.OK, ((PingResponse) response).getStatus());
 			Assert.assertEquals(request.getText(), ((PingResponse) response).getText());		
 		}				
 			
@@ -94,7 +97,7 @@ public class ApiServerTest {
 	/**
 	 * Tries to send ping request message to server using incorrect AES password.
 	 */
-	@Test//(dependsOnMethods = {"sendCorrectPingRequests", "sendCorrectPingRequest"} )
+	@Test
 	public final void sendCorrectMessageWithIncorrectAesPassword() {
 		// given
 		ApiClient client = new ApiClient("127.0.0.1", 8080);
@@ -111,6 +114,42 @@ public class ApiServerTest {
 		
 		// then
 		Assert.assertNull(response);
+		client.disconnect();
+	}
+	
+	/**
+	 * Tries to send ping request message to server using incorrect AES password.
+	 */
+	@Test(dependsOnMethods = "startServer")
+	public final void sendSMSPacketAfterPingRequest() {
+		// given
+		ApiClient client = new ApiClient("127.0.0.1", 8080);
+		client.connect();
+		Assert.assertTrue(client.isConnected());
+		
+		PingRequest pingRequest = new PingRequest();
+		pingRequest.setId(1);
+		pingRequest.setText("text");
+		
+		Packet response = client.send(pingRequest);
+		
+		Assert.assertNotNull(response);
+		Assert.assertTrue(response instanceof PingResponse);
+		Assert.assertEquals(pingRequest.getId(), ((PingResponse) response).getId());
+		Assert.assertEquals(Status.OK, ((PingResponse) response).getStatus());
+		Assert.assertEquals(pingRequest.getText(), ((PingResponse) response).getText());
+		
+		SMSPacket smsPacket = new SMSPacket();
+		smsPacket.setId(1);
+		smsPacket.setText("text");
+		
+		response = client.send(smsPacket);
+		
+		// then
+		Assert.assertNotNull(smsPacket);
+		Assert.assertTrue(response instanceof SMSConfirmation);
+		Assert.assertEquals(smsPacket.getId(), ((SMSConfirmation) response).getId());
+		Assert.assertEquals(Status.OK, ((SMSConfirmation) response).getStatus());
 		client.disconnect();
 	}
 	

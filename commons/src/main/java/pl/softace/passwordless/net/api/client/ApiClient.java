@@ -138,17 +138,18 @@ public class ApiClient extends IoHandlerAdapter {
 	 */
 	public final Packet send(Packet packet) {
 		Packet response = null;		
-		
-		ioSession.write(packet);	
-		long startTime = System.currentTimeMillis();
-		do {
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				LOG.error("Exception occured.", e);
-			}
-			response = queue.poll();
-		} while (response == null  && ioSession.isConnected() && (System.currentTimeMillis() - startTime < RECEIVE_TIMEOUT));
+		if (ioSession != null && ioSession.isConnected()) {
+			ioSession.write(packet);	
+			long startTime = System.currentTimeMillis();
+			do {
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					LOG.error("Exception occured.", e);
+				}
+				response = queue.poll();
+			} while (response == null  && ioSession.isConnected() && (System.currentTimeMillis() - startTime < RECEIVE_TIMEOUT));
+		}
 		
 		return response;
 	}

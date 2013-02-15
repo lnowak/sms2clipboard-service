@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import pl.softace.passwordless.net.api.factory.IPacketFactory;
 import pl.softace.passwordless.net.api.factory.impl.PacketFactory;
+import pl.softace.passwordless.net.api.packet.enums.Status;
 
 /**
  * 
@@ -54,15 +55,55 @@ public class PacketTest {
 	}
 	
 	/**
-	 * Check {@link PingRequest} packet.
+	 * Check {@link PingResponse} packet.
 	 */
 	@Test
 	public final void checkPingResponsePacket() {
 		// given
 		PingResponse packet = new PingResponse();
 		packet.setId(100);
-		packet.setStatus(0);
+		packet.setStatus(Status.OK);
 		packet.setText("test 1");
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, "password");		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link SMSPacket} packet.
+	 */
+	@Test
+	public final void checkSMSPacket() {
+		// given
+		SMSPacket packet = new SMSPacket();
+		packet.setId(100);
+		packet.setText("test 1");
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, "password");		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link SMSConfirmation} packet.
+	 */
+	@Test
+	public final void checkSMSConfirmation() {
+		// given
+		SMSConfirmation packet = new SMSConfirmation();
+		packet.setId(100);
+		packet.setStatus(Status.OK);
 		
 		// when
 		ByteBuffer packetBuffer = packet.encodePacket("password");		

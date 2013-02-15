@@ -173,11 +173,11 @@ public abstract class ReflectedPacket extends Packet {
 					}
 					if (obj != null) {
 						if (obj instanceof String) {
-							String text = (String) obj;
-							if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {
-								text = new String(AESCrypter.encrypt(password, text.getBytes()));
-							}
-							bodyLength +=  text.length() + 4 + 1;
+							byte[] bytes = ((String) obj).getBytes();
+							if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {						
+								bytes = AESCrypter.encrypt(password, bytes);
+							}							
+							bodyLength +=  bytes.length + 4 + 1;
 						}
 					}
 				}

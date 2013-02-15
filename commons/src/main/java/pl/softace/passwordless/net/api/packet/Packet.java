@@ -3,6 +3,8 @@ package pl.softace.passwordless.net.api.packet;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 
+import pl.softace.passwordless.net.api.packet.enums.PacketType;
+
 /**
  * 
  * Super class for all of the packets sent from between client and server.

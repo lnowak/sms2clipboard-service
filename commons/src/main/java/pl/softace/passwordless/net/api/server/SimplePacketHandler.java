@@ -9,12 +9,12 @@ import pl.softace.passwordless.net.api.packet.enums.Status;
 
 /**
  * 
- * Test packet handler.
+ * Simple packet handler used for testing.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class TestPacketHandler implements IPacketHandler {
+public class SimplePacketHandler implements IPacketHandler {
 
 	/* (non-Javadoc)
 	 * @see pl.softace.passwordless.net.api.server.IPacketHandler#handlePacket(pl.softace.passwordless.net.api.packet.Packet)

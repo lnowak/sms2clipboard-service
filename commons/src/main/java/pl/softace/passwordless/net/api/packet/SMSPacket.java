@@ -6,32 +6,32 @@ import pl.softace.passwordless.net.api.packet.enums.PacketType;
 
 /**
  * 
- * Packet send to check the connection and password.
+ * Implementation of the SMS packet.
  * 
- * @author lkawon@gmail.com
+ * @author lkaown@gmail.com
  *
  */
-public class PingRequest extends ReflectedPacket {
+public class SMSPacket extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = 8196090941386293865L;
+	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Ping text.
+	 * SMS text.
 	 */
 	@PropertyParameter(parameter = PacketParameter.TEXT)
 	private String text;
 	
-
-	/**
-	 * Default constructor.
-	 */
-	public PingRequest() {
-		setType(PacketType.PING_REQUEST_PACKET);
-	}
 	
+	/**
+	 * Constructor.
+	 */
+	public SMSPacket() {
+		setType(PacketType.SMS_PACKET);
+	}
+
 	public final String getText() {
 		return text;
 	}
@@ -64,7 +64,7 @@ public class PingRequest extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingRequest other = (PingRequest) obj;
+		SMSPacket other = (SMSPacket) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
@@ -83,7 +83,7 @@ public class PingRequest extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingRequest [type=");
+		builder.append("SMSPacket [type=");
 		builder.append(getType());		
 		builder.append(", id=");
 		builder.append(getId());

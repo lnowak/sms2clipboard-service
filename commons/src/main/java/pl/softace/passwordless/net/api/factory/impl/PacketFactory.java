@@ -4,9 +4,11 @@ import java.nio.ByteBuffer;
 
 import pl.softace.passwordless.net.api.factory.IPacketFactory;
 import pl.softace.passwordless.net.api.packet.Packet;
-import pl.softace.passwordless.net.api.packet.PacketType;
 import pl.softace.passwordless.net.api.packet.PingRequest;
 import pl.softace.passwordless.net.api.packet.PingResponse;
+import pl.softace.passwordless.net.api.packet.SMSConfirmation;
+import pl.softace.passwordless.net.api.packet.SMSPacket;
+import pl.softace.passwordless.net.api.packet.enums.PacketType;
 
 /**
  * 
@@ -31,6 +33,12 @@ public class PacketFactory implements IPacketFactory {
 				break;
 			case PING_RESPONSE_PACKET:
 				packet = new PingResponse();
+				break;
+			case SMS_PACKET:
+				packet = new SMSPacket();
+				break;
+			case SMS_CONFIRMATION:
+				packet = new SMSConfirmation();
 				break;
 			default:
 				break;

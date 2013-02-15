@@ -54,7 +54,6 @@ public class ApiCodecDecoder implements ProtocolDecoder {
 		}
 		
 		if (packet.isPacketAvailable(in.buf().remaining())) {	
-			System.out.println("Decoding packet " + packet + " with " + aesPassword);
 			packet.decodeBody(in.buf(), aesPassword);
 			out.write(packet);			
 			
