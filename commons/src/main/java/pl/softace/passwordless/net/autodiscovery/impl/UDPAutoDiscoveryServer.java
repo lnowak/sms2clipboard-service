@@ -5,7 +5,8 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.autodiscovery.Command;
 import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryServer;
@@ -22,7 +23,7 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(UDPAutoDiscoveryServer.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UDPAutoDiscoveryServer.class);
 	
 	/**
 	 * Listening port.

@@ -14,7 +14,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -28,7 +29,7 @@ public class AESCrypter {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(AESCrypter.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AESCrypter.class);
 	
 	/**
 	 * Salt used to crypt / decrypt.
@@ -94,7 +95,7 @@ public class AESCrypter {
 	    	decryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 	    	decryptCipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(ALGORITHM_PARAMETERS));
 	    	
-	    	System.out.println("Ciphers reinicialized using password " + password + ".");
+	    	LOG.debug("Ciphers reinicialized using password " + password + ".");
 	    }
 	}
 	

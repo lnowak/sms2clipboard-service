@@ -15,6 +15,11 @@ public enum ParameterType {
 	INTEGER				(4),
 	
 	/**
+	 * Long type.
+	 */
+	LONG				(8),
+	
+	/**
 	 * String type.
 	 */
 	STRING				(0),

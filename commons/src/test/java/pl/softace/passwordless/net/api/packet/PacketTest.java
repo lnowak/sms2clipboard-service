@@ -83,6 +83,8 @@ public class PacketTest {
 		// given
 		SMSPacket packet = new SMSPacket();
 		packet.setId(100);
+		packet.setTimestamp(System.currentTimeMillis());
+		packet.setSource("123123123");
 		packet.setText("test 1");
 		
 		// when

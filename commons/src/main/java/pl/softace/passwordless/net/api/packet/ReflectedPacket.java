@@ -3,7 +3,8 @@ package pl.softace.passwordless.net.api.packet;
 import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.api.packet.annotations.PropertyParameter;
 import pl.softace.passwordless.net.api.packet.enums.PacketParameter;
@@ -22,7 +23,7 @@ public abstract class ReflectedPacket extends Packet {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(ReflectedPacket.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ReflectedPacket.class);
 	
 	/**
 	 * Serial ID.
@@ -62,6 +63,9 @@ public abstract class ReflectedPacket extends Packet {
 					switch (propertyParameter.parameter().getType()) {
 					case INTEGER:
 						buffer.putInt((Integer) obj);
+						break;
+					case LONG:
+						buffer.putLong((Long) obj);
 						break;
 					case STRING:
 						buffer.putInt(((String) obj).length());
@@ -103,6 +107,9 @@ public abstract class ReflectedPacket extends Packet {
 			switch (packetParameter.getType()) {
 			case INTEGER:
 				obj = buffer.getInt();
+				break;
+			case LONG:
+				obj = buffer.getLong();
 				break;
 			case STRING:
 				byte[] bytes = new byte[buffer.getInt()];

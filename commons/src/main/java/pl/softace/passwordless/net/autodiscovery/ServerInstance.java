@@ -9,8 +9,14 @@ package pl.softace.passwordless.net.autodiscovery;
  */
 public class ServerInstance {
 
+	/**
+	 * IP address.
+	 */
 	private String ip;
 	
+	/**
+	 * Name of the host.
+	 */
 	private String hostName;
 	
 	

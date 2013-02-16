@@ -19,6 +19,18 @@ public class SMSPacket extends ReflectedPacket {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * Timestamp.
+	 */
+	@PropertyParameter(parameter = PacketParameter.TIMESTAMP)
+	private long timestamp;
+	
+	/**
+	 * Source.
+	 */
+	@PropertyParameter(parameter = PacketParameter.SMS_SOURCE)
+	private String source;
+	
+	/**
 	 * SMS text.
 	 */
 	@PropertyParameter(parameter = PacketParameter.TEXT)
@@ -40,6 +52,22 @@ public class SMSPacket extends ReflectedPacket {
 		this.text = text;
 	}
 	
+	public final long getTimestamp() {
+		return timestamp;
+	}
+
+	public final void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public final String getSource() {
+		return source;
+	}
+
+	public final void setSource(String source) {
+		this.source = source;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -49,7 +77,9 @@ public class SMSPacket extends ReflectedPacket {
 		int result = 1;
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
+		result = prime * result + (int) (timestamp ^ (timestamp >>> 32));
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
 		return result;
 	}
 
@@ -74,6 +104,13 @@ public class SMSPacket extends ReflectedPacket {
 				return false;
 		} else if (!text.equals(other.text))
 			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
+			return false;
+		if (timestamp != other.timestamp)
+			return false;
 		return true;
 	}
 
@@ -87,6 +124,10 @@ public class SMSPacket extends ReflectedPacket {
 		builder.append(getType());		
 		builder.append(", id=");
 		builder.append(getId());
+		builder.append(", timestamp=");
+		builder.append(timestamp);
+		builder.append(", source=");
+		builder.append(source);
 		builder.append(", text=");
 		builder.append(text);
 		builder.append("]");

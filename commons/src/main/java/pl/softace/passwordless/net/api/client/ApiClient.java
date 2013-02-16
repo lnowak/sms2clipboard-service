@@ -4,13 +4,14 @@ import java.net.InetSocketAddress;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.core.future.CloseFuture;
 import org.apache.mina.core.future.ConnectFuture;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.api.codec.ApiProtocolCodecFactory;
 import pl.softace.passwordless.net.api.packet.Packet;
@@ -27,7 +28,7 @@ public class ApiClient extends IoHandlerAdapter {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(ApiClient.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ApiClient.class);
 	
 	/**
 	 * Connect timeout.

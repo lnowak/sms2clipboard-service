@@ -13,10 +13,10 @@
 	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
-		<version.log4j>1.2.16</version.log4j>
 		<version.slf4j-log4j12>1.7.2</version.slf4j-log4j12>
 		<version.testng>6.5.1</version.testng>
 		<version.mina>2.0.7</version.mina>		
+		<version.slf4j>1.7.2</version.slf4j>
 	</properties>
 
 	<build>
@@ -146,12 +146,12 @@
 		</plugins>
 	</reporting>
 
-	<dependencies>		    	    				   				
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${version.log4j}</version>
-		</dependency>		
+	<dependencies>		
+	    <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${version.slf4j}</version>
+		</dependency>    	    				   				
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>

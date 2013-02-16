@@ -18,7 +18,17 @@ public enum PacketParameter {
 	/**
 	 * String text.
 	 */
-	TEXT				((byte) 21, ParameterType.SECURED_STRING);
+	TEXT				((byte) 21, ParameterType.SECURED_STRING),
+	
+	/**
+	 * Source of the SMS.
+	 */
+	SMS_SOURCE			((byte) 22, ParameterType.SECURED_STRING),
+	
+	/**
+	 * Timestamp of the SMS.
+	 */
+	TIMESTAMP			((byte) 23, ParameterType.LONG);
 	
 	
 	/**

@@ -8,7 +8,8 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.autodiscovery.Command;
 import pl.softace.passwordless.net.autodiscovery.IAutoDiscoveryClient;
@@ -26,7 +27,7 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(UDPAutoDiscoveryClient.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UDPAutoDiscoveryClient.class);
 	
 	/**
 	 * Searching timeout.

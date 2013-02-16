@@ -3,9 +3,10 @@ package pl.softace.passwordless.net.api.server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.api.codec.ApiProtocolCodecFactory;
 
@@ -21,7 +22,9 @@ public class ApiServer {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(ApiServer.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ApiServer.class);
+	
+	
 	
 	/**
 	 * Default port.

@@ -26,6 +26,8 @@ public class Client {
 			if (pingResponse != null && ((PingResponse) pingResponse).getStatus().equals(Status.OK)) {
 				SMSPacket smsPacket = new SMSPacket();
 				smsPacket.setId(10);
+				smsPacket.setTimestamp(System.currentTimeMillis());
+				smsPacket.setSource("123123123");
 				smsPacket.setText("sms text");
 				Packet smsConfirmation = apiClient.send(smsPacket);
 				System.out.println(smsConfirmation);

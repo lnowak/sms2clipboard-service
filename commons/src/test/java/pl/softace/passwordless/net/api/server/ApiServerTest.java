@@ -141,6 +141,8 @@ public class ApiServerTest {
 		
 		SMSPacket smsPacket = new SMSPacket();
 		smsPacket.setId(1);
+		smsPacket.setTimestamp(System.currentTimeMillis());
+		smsPacket.setSource("123123123");
 		smsPacket.setText("text");
 		
 		response = client.send(smsPacket);

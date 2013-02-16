@@ -1,9 +1,10 @@
 package pl.softace.passwordless.net.api.server;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolDecoderException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.softace.passwordless.net.api.packet.Packet;
 
@@ -19,7 +20,7 @@ public class ApiServerIOHandler extends IoHandlerAdapter {
 	/**
 	 * Log4j logger.
 	 */
-	private static final Logger LOG = Logger.getLogger(ApiServerIOHandler.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ApiServerIOHandler.class);
 	
 	/**
 	 * Packet handler.
@@ -75,7 +76,6 @@ public class ApiServerIOHandler extends IoHandlerAdapter {
     }
     
     public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
-    	System.out.println(cause);
        if (cause instanceof ProtocolDecoderException) {
     	   LOG.debug("Closing " + session + " because of decoding exception.");
     	   session.close(true);    	   
