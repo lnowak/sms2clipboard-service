@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>sms-clipboard-service</artifactId>
+	<artifactId>sms2clipboard-service</artifactId>
 	<groupId>com.softace</groupId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Password Less Service</name>
+	<name>SMS2Clipboard Service</name>
 	<url></url>
 
 	<properties>
@@ -16,6 +16,7 @@
 
 	<modules>
 		<module>commons</module>
+		<module>sms2clipboard</module>
 		<module>distribution</module>
 	</modules>
 

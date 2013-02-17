@@ -2,10 +2,11 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-		<class name="pl.softace.passwordless.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
-		<class name="pl.softace.passwordless.security.AESCryptTest"/>
-		<class name="pl.softace.passwordless.net.api.packet.PacketTest"/>
-		<class name="pl.softace.passwordless.net.api.server.ApiServerTest"/>
+		<class name="pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
+		<class name="pl.softace.sms2clipboard.security.AESCryptTest"/>
+		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>
+		<class name="pl.softace.sms2clipboard.net.api.server.ApiServerTest"/>
+		<class name="pl.softace.sms2clipboard.template.SMSTemplate"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

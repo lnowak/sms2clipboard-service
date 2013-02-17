@@ -42,12 +42,12 @@
 									<fileset dir="${basedir}/scripts" />
 								</copy>
 								<copy todir="${basedir}/target/lib">
-									<fileset dir="${basedir}/../commons/target">
-										<include name="commons*.jar" />
+									<fileset dir="${basedir}/../sms2clipboard/target">
+										<include name="sms2clipboard*.jar" />
 									</fileset>									
 								</copy>
 								<copy todir="${basedir}/target/lib/dependencies">
-									<fileset dir="${basedir}/../commons/target/dependencies">
+									<fileset dir="${basedir}/../sms2clipboard/target/dependencies">
 										<include name="*.jar" />
 									</fileset>								
 								</copy>
@@ -57,7 +57,7 @@
 									</fileset>
 								</copy>
 								<zip
-									destfile="${basedir}/password-less-service-${project.version}.zip"
+									destfile="${basedir}/sms2clipboard-service-${project.version}.zip"
 									basedir="${basedir}/target" />
 							</tasks>
 						</configuration>
