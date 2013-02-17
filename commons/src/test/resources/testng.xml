@@ -6,7 +6,8 @@
 		<class name="pl.softace.sms2clipboard.security.AESCryptTest"/>
 		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>
 		<class name="pl.softace.sms2clipboard.net.api.server.ApiServerTest"/>
-		<class name="pl.softace.sms2clipboard.template.SMSTemplate"/>
+		<class name="pl.softace.sms2clipboard.template.SMSTemplateTest"/>
+		<class name="pl.softace.sms2clipboard.template.SMSTemplateManagerTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

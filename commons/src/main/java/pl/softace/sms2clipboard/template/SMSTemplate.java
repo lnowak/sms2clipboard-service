@@ -72,6 +72,7 @@ public class SMSTemplate {
 	public final boolean matchText(String text) {
 		String tempRegex = smsRegex.replaceAll(PASSWORD_TAG, passwordRegex);
 		Pattern pattern = Pattern.compile(tempRegex);
+		
 		return pattern.matcher(text).matches();
 	}
 	

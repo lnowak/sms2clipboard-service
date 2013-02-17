@@ -1,5 +1,8 @@
 package pl.softace.sms2clipboard.gui;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import pl.softace.sms2clipboard.net.api.packet.Packet;
 import pl.softace.sms2clipboard.net.api.packet.PingRequest;
 import pl.softace.sms2clipboard.net.api.packet.PingResponse;
@@ -8,6 +11,7 @@ import pl.softace.sms2clipboard.net.api.packet.SMSPacket;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
 import pl.softace.sms2clipboard.net.api.server.IPacketHandler;
 import pl.softace.sms2clipboard.template.SMSTemplate;
+import pl.softace.sms2clipboard.template.SMSTemplateManager;
 
 /**
  * 
@@ -18,6 +22,12 @@ import pl.softace.sms2clipboard.template.SMSTemplate;
  */
 public class SMS2ClipboardPacketHandler implements IPacketHandler {
 
+	/**
+	 * SLF4J logger.
+	 */
+	private static final Logger LOG = LoggerFactory.getLogger(SMS2ClipboardPacketHandler.class);
+	
+	
 	/* (non-Javadoc)
 	 * @see pl.softace.sms2clipboard.net.api.server.IPacketHandler#handlePacket(
 	 * pl.softace.sms2clipboard.net.api.packet.Packet)
@@ -53,13 +63,15 @@ public class SMS2ClipboardPacketHandler implements IPacketHandler {
 	 * @param sms		SMS packet
 	 */
 	private final void handleSMS(SMSPacket sms) {
-		SMSTemplate smsTemplate = new SMSTemplate();
-		smsTemplate.setSource("3388");
-		smsTemplate.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ mTransfer z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD} mBank.");
-		smsTemplate.setPasswordRegex("\\\\d+");
+		SMSTemplateManager.getInstance().reload();
 		
 		String smsText = sms.getText();
+		SMSTemplate smsTemplate = SMSTemplateManager.getInstance().findSMSTemplate(smsText);				
 		
-		SMSJFrame.showSMS(smsTemplate, smsText);
+		if (smsTemplate != null) {	
+			SMSJFrame.showSMS(smsTemplate, smsText);
+		} else {
+			LOG.debug("Template not found for " + sms + ".");
+		}
 	}
 }

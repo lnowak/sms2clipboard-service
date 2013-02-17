@@ -28,7 +28,7 @@ public class Client {
 				smsPacket.setId(10);
 				smsPacket.setTimestamp(System.currentTimeMillis());
 				smsPacket.setSource("3388");
-				smsPacket.setText("Operaca nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.");
+				smsPacket.setText("Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.");
 				Packet smsConfirmation = apiClient.send(smsPacket);
 				System.out.println(smsConfirmation);
 			}

@@ -56,6 +56,11 @@
 										<include name="log4j.xml" />
 									</fileset>
 								</copy>
+								<copy todir="${basedir}/target">
+									<fileset dir="${basedir}/../commons">
+										<include name="templates.db" />
+									</fileset>									
+								</copy>
 								<zip
 									destfile="${basedir}/sms2clipboard-service-${project.version}.zip"
 									basedir="${basedir}/target" />

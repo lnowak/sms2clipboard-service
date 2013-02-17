@@ -25,6 +25,7 @@ public class SMSTemplateTest {
 		smsTemplate.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ mTransfer z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD} mBank.");
 		smsTemplate.setPasswordRegex("\\\\d+");
 		
+		//String smsText =   "Operacja nr 7 z dn. 17-02-2013 Przelew z rach.: ...55060959 na rach.: 7920...603022 kwota: 58,00 PLN haslo: 63797283 mBank.";
 		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
 		//String smsText = "Operacja nr 3 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 5711...463178 kwota: 104,53 PLN haslo: 85674966 mBank.";
 		
