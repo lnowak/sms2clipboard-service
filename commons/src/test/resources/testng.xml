@@ -2,6 +2,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
+        <class name="pl.softace.sms2clipboard.config.ConfigurationManagerTest"/>
 		<class name="pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
 		<class name="pl.softace.sms2clipboard.security.AESCryptTest"/>
 		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>

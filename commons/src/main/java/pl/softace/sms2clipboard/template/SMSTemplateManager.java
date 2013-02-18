@@ -8,21 +8,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.crypto.NoSuchPaddingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pl.softace.sms2clipboard.security.AESCrypter;
+import pl.softace.sms2clipboard.security.CryptException;
 
 /**
  * 
@@ -141,16 +138,27 @@ public class SMSTemplateManager {
 	}
 	
 	/**
-	 * Reloads templates from file.
+	 * Load templates from decrypted file.
 	 */
-	public final synchronized void reload() {		
+	public final synchronized void loadFromFile() {
+		loadFromFile(true, DB_FILENAME);
+	}
+	
+	/**
+	 * Load templates from encrypted file.
+	 */
+	public final synchronized void loadFromFile(boolean encrypted, String fileName) {		
 		LOG.debug("Start reloading templates.");
 		
 		templates.clear();
 		try {
-			FileInputStream fis = new FileInputStream(new File(DB_FILENAME));
+			FileInputStream fis = new FileInputStream(new File(fileName));
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			crypter.decrypt(fis, baos);
+			if (encrypted) {
+				crypter.decrypt(fis, baos);
+			} else {
+				copy(fis, baos);
+			}
 			
 			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 			BufferedReader reader = new BufferedReader(new InputStreamReader(bais));
@@ -173,24 +181,23 @@ public class SMSTemplateManager {
 		LOG.debug("Reloading templates finished (" + templates.size() + ").");
 	}
 	
-	public static void main(String[] args) throws InvalidKeyException, InvalidAlgorithmParameterException, InvalidKeySpecException, NoSuchAlgorithmException, NoSuchPaddingException {		
-		SMSTemplateManager manager = new SMSTemplateManager();			
-				
-		SMSTemplate template = new SMSTemplate();
-		template.setSource("3388");
-		template.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ mTransfer z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD} mBank.");
-		template.setPasswordRegex("\\\\d+");
-		manager.getTemplates().add(template);
-		
-		template = new SMSTemplate();
-		template.setSource("3388");
-		template.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ Przelew z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD} mBank.");
-		template.setPasswordRegex("\\\\d+");
-		manager.getTemplates().add(template);
-		
-		manager.saveToFile();
-				
-		manager.reload();
-		System.out.println(manager.getTemplates());
+	/**
+	 * Copy input stream to output.
+	 * 
+	 * @param in			input stream
+	 * @param out			output stream
+	 */
+	public void copy(InputStream in, OutputStream out) {
+		byte[] buf = new byte[1024];
+		try {
+			int numRead = 0;
+			while ((numRead = in.read(buf)) >= 0) {
+				out.write(buf, 0, numRead);
+			}
+			out.close();
+		}  catch (Exception e) {
+			LOG.error("Exception during AES decrypting.", e);			
+			throw new CryptException("Exception during AES decrypting.", e);
+		}
 	}
 }

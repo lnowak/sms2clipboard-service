@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,6 +37,11 @@ public class SMSJFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = -808936437971092539L;
 
+	/**
+	 * Icon.
+	 */
+	private static final String ICON = "images/icon.png";
+	
 	/**
 	 * A HREF tag.
 	 */
@@ -181,7 +187,7 @@ public class SMSJFrame extends JFrame {
 	 * @param smsTemplate		SMS template
 	 * @param smsText			SMS text
 	 */
-	public static final void showSMS(final SMSTemplate smsTemplate, final String smsText) {
+	public static final void createAndShow(final SMSTemplate smsTemplate, final String smsText) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
@@ -205,11 +211,12 @@ public class SMSJFrame extends JFrame {
 				double width = screenSize.getWidth();
 				double height = screenSize.getHeight();
 				
-				SMSJFrame test = new SMSJFrame(smsTemplate, smsText);
-				test.setResizable(false);
-				test.setSize(400, 145);
-				test.setLocation((int) width / 2 - test.getWidth() / 2, (int) height / 2 - test.getHeight() / 2);				
-				test.setVisible(true);
+				SMSJFrame smsJFrame = new SMSJFrame(smsTemplate, smsText);
+				smsJFrame.setIconImage(new ImageIcon(ICON).getImage());				
+				smsJFrame.setResizable(false);
+				smsJFrame.setSize(400, 145);
+				smsJFrame.setLocation((int) width / 2 - smsJFrame.getWidth() / 2, (int) height / 2 - smsJFrame.getHeight() / 2);				
+				smsJFrame.setVisible(true);
 			}
 		});
 	}
@@ -226,6 +233,6 @@ public class SMSJFrame extends JFrame {
 		
 		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
 		
-		SMSJFrame.showSMS(smsTemplate, smsText);
+		SMSJFrame.createAndShow(smsTemplate, smsText);
 	}
 }

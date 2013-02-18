@@ -59,7 +59,13 @@
 								<copy todir="${basedir}/target/config">
 									<fileset dir="${basedir}/../commons/config">
 										<include name="templates.db" />
+										<include name="config.data" />
 									</fileset>									
+								</copy>
+								<copy todir="${basedir}/target/images">
+									<fileset dir="${basedir}/../sms2clipboard/images">
+										<include name="*.png" />
+									</fileset>								
 								</copy>
 								<zip
 									destfile="${basedir}/sms2clipboard-service-${project.version}.zip"
