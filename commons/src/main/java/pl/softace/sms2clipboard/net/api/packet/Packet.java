@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 
 import pl.softace.sms2clipboard.net.api.packet.enums.PacketType;
+import pl.softace.sms2clipboard.security.AESCrypter;
 
 /**
  * 
@@ -83,19 +84,19 @@ public abstract class Packet implements Serializable {
 	 * 
 	 * @return byte array
 	 */
-	public abstract ByteBuffer encodePacket(String password);
+	public abstract ByteBuffer encodePacket(AESCrypter crypter);
 	
 	/**
 	 * Gets and sets the packet parameters from the buffer. 
 	 * 
 	 * @param in	byte buffer
 	 */
-	public abstract void decodeBody(ByteBuffer buffer, String password);
+	public abstract void decodeBody(ByteBuffer buffer, AESCrypter crypter);
 	
 	/**
 	 * Count body length.
 	 */
-	protected abstract void countBodyLength(String password);
+	protected abstract void countBodyLength(AESCrypter crypter);
 	
 	/**
 	 * Checks if the packet could be decoded from the incoming number of bytes.

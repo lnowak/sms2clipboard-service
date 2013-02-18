@@ -15,6 +15,7 @@ import pl.softace.sms2clipboard.net.api.packet.PingResponse;
 import pl.softace.sms2clipboard.net.api.packet.SMSConfirmation;
 import pl.softace.sms2clipboard.net.api.packet.SMSPacket;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
+import pl.softace.sms2clipboard.security.AESCrypter;
 
 /**
  * 
@@ -45,17 +46,18 @@ public class PacketTest {
 	@Test
 	public final void checkPingRequestPacket() {
 		// given
+		AESCrypter crypter = new AESCrypter("password");		
 		PingRequest packet = new PingRequest();
 		packet.setId(100);
 		packet.setText("To jest testowy tekst.");
 		
 		// when
-		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
 		
 		// then
 		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
 		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
-		decodedPacket.decodeBody(packetBuffer, "password");		
+		decodedPacket.decodeBody(packetBuffer, crypter);		
 		Assert.assertEquals(decodedPacket, packet);
 	}
 	
@@ -65,18 +67,19 @@ public class PacketTest {
 	@Test
 	public final void checkPingResponsePacket() {
 		// given
+		AESCrypter crypter = new AESCrypter("password");	
 		PingResponse packet = new PingResponse();
 		packet.setId(100);
 		packet.setStatus(Status.OK);
 		packet.setText("test 1");
 		
 		// when
-		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
 		
 		// then
 		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
 		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
-		decodedPacket.decodeBody(packetBuffer, "password");		
+		decodedPacket.decodeBody(packetBuffer, crypter);		
 		Assert.assertEquals(decodedPacket, packet);
 	}
 	
@@ -86,6 +89,7 @@ public class PacketTest {
 	@Test
 	public final void checkSMSPacket() {
 		// given
+		AESCrypter crypter = new AESCrypter("password");
 		SMSPacket packet = new SMSPacket();
 		packet.setId(100);
 		packet.setTimestamp(System.currentTimeMillis());
@@ -93,12 +97,12 @@ public class PacketTest {
 		packet.setText("test 1");
 		
 		// when
-		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
 		
 		// then
 		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
 		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
-		decodedPacket.decodeBody(packetBuffer, "password");		
+		decodedPacket.decodeBody(packetBuffer, crypter);		
 		Assert.assertEquals(decodedPacket, packet);
 	}
 	
@@ -108,17 +112,18 @@ public class PacketTest {
 	@Test
 	public final void checkSMSConfirmation() {
 		// given
+		AESCrypter crypter = new AESCrypter("password");
 		SMSConfirmation packet = new SMSConfirmation();
 		packet.setId(100);
 		packet.setStatus(Status.OK);
 		
 		// when
-		ByteBuffer packetBuffer = packet.encodePacket("password");		
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
 		
 		// then
 		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
 		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
-		decodedPacket.decodeBody(packetBuffer, "password");		
+		decodedPacket.decodeBody(packetBuffer, crypter);		
 		Assert.assertEquals(decodedPacket, packet);
 	}
 }

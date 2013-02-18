@@ -7,6 +7,7 @@ import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
 import pl.softace.sms2clipboard.net.api.factory.impl.PacketFactory;
 import pl.softace.sms2clipboard.net.api.packet.Packet;
+import pl.softace.sms2clipboard.security.AESCrypter;
 
 /**
  * 
@@ -23,17 +24,20 @@ public class ApiCodecDecoder implements ProtocolDecoder {
 	private static final String PACKET_STATE_KEY = ApiCodecDecoder.class.getName() + ".STATE";
 
 	/**
-	 * AES password.
+	 * AES crypter.
 	 */
-	private String aesPassword = "sms2clipboard";
+	private AESCrypter crypter;
 	
 	
-	public final String getAesPassword() {
-		return aesPassword;
+	/**
+	 * Default constructor.
+	 */
+	public ApiCodecDecoder() {
+		crypter = new AESCrypter();
 	}
 
-	public final void setAesPassword(String aesPassword) {
-		this.aesPassword = aesPassword;
+	public final void setAesPassword(String password) {
+		crypter = new AESCrypter(password);
 	}
 
 	/* (non-Javadoc)
@@ -54,7 +58,7 @@ public class ApiCodecDecoder implements ProtocolDecoder {
 		}
 		
 		if (packet.isPacketAvailable(in.buf().remaining())) {	
-			packet.decodeBody(in.buf(), aesPassword);
+			packet.decodeBody(in.buf(), crypter);
 			out.write(packet);			
 			
 			session.removeAttribute(PACKET_STATE_KEY);

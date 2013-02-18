@@ -8,28 +8,32 @@ import org.apache.mina.filter.codec.ProtocolEncoder;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 
 import pl.softace.sms2clipboard.net.api.packet.Packet;
+import pl.softace.sms2clipboard.security.AESCrypter;
 
 /**
  * 
  * Protocol codec encoder for API server and client.
  * 
- * @author Lukasz
+ * @author lkawon@gmail.com
  *
  */
 public class ApiCodecEncoder implements ProtocolEncoder {
 
 	/**
-	 * AES password.
+	 * AES crypter.
 	 */
-	private String aesPassword = "sms2clipboard";
+	private AESCrypter crypter;
 	
 	
-	public final String getAesPassword() {
-		return aesPassword;
+	/**
+	 * Default constructor.
+	 */
+	public ApiCodecEncoder() {
+		crypter = new AESCrypter();
 	}
 
-	public final void setAesPassword(String aesPassword) {
-		this.aesPassword = aesPassword;
+	public final void setAesPassword(String password) {
+		crypter = new AESCrypter(password);
 	}
 
 	/* (non-Javadoc)
@@ -38,7 +42,7 @@ public class ApiCodecEncoder implements ProtocolEncoder {
 	 */
 	@Override
 	public final void encode(IoSession session, Object message, ProtocolEncoderOutput out) throws Exception {
-		ByteBuffer packetBuffer = ((Packet) message).encodePacket(aesPassword);
+		ByteBuffer packetBuffer = ((Packet) message).encodePacket(crypter);
 		IoBuffer buffer = IoBuffer.allocate(packetBuffer.remaining());
 		buffer.put(packetBuffer);
 		buffer.flip();

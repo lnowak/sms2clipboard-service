@@ -1,5 +1,7 @@
 package pl.softace.sms2clipboard.security;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -7,6 +9,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 
 import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
+import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
@@ -32,10 +36,15 @@ public class AESCrypter {
 	private static final Logger LOG = LoggerFactory.getLogger(AESCrypter.class);
 	
 	/**
+	 * Default password.
+	 */
+	private static final String DEAFULT_AES_PASSWORD = "sms2clipboard";
+	
+	/**
 	 * Salt used to crypt / decrypt.
 	 */
 	private static final String SALT = "AES Crypt SALT"; 
-		
+	
 	/**
 	 * AES algorithm parameters.
 	 */
@@ -45,17 +54,36 @@ public class AESCrypter {
 	/**
 	 * Encryption password used to check if cipher needs to be reinitialized.
 	 */
-	private static String password;
+	private String password;
 	
 	/**
 	 * Cipher used for decrypting.
 	 */
-	private static Cipher decryptCipher;
+	private Cipher decryptCipher;
 	
 	/**
 	 * Cipher used for encryption.
 	 */
-	private static Cipher encryptCipher;
+	private Cipher encryptCipher;
+	
+	
+	/**
+	 * Default constructor.
+	 */
+	public AESCrypter() {
+		password = DEAFULT_AES_PASSWORD;
+		initializeCiphers();
+	}
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param password		AES password
+	 */
+	public AESCrypter(String password) {
+		this.password = password;
+		initializeCiphers();
+	}
 	
 	/**
 	 * Generates key from password.
@@ -65,13 +93,13 @@ public class AESCrypter {
 	 * @throws InvalidKeySpecException 
 	 * @throws NoSuchAlgorithmException 
 	 */
-	private static final SecretKey generateKey(String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+	private final SecretKey generateKey(String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
 		SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 		KeySpec spec = new PBEKeySpec(password.toCharArray(), SALT.getBytes(), 65536, 128);
 		SecretKey tmp = factory.generateSecret(spec);
 		return new SecretKeySpec(tmp.getEncoded(), "AES");
 	}	
-	
+
 	/**
 	 * Initializes ciphers if needed.
 	 * 
@@ -82,21 +110,27 @@ public class AESCrypter {
 	 * @throws InvalidKeyException 
 	 * @throws NoSuchPaddingException 
 	 */
-	private static final void initializeCiphers(String password) throws InvalidKeyException, InvalidAlgorithmParameterException, 
-	InvalidKeySpecException, NoSuchAlgorithmException, NoSuchPaddingException {				
-	    if (encryptCipher == null || decryptCipher == null || password == null || !AESCrypter.password.equals(password)) {
-	    	AESCrypter.password = password;
+	public final void initializeCiphers() {
+		try {
+			if (encryptCipher == null || decryptCipher == null) {
+		    	SecretKey key = generateKey(password);
+		    	
+		    	if (encryptCipher == null) {
+		    		encryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		    		encryptCipher.init(Cipher.ENCRYPT_MODE, key , new IvParameterSpec(ALGORITHM_PARAMETERS));
+		    	}
+		    	
+		    	if (decryptCipher == null) {
+		    		decryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		    		decryptCipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(ALGORITHM_PARAMETERS));
+		    	}
+			}
 	    	
-	    	SecretKey key = generateKey(password);
-	    	
-	    	encryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-	    	encryptCipher.init(Cipher.ENCRYPT_MODE, key , new IvParameterSpec(ALGORITHM_PARAMETERS));
-	    	
-	    	decryptCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-	    	decryptCipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(ALGORITHM_PARAMETERS));
-	    	
-	    	LOG.debug("Ciphers reinicialized using password " + password + ".");
-	    }
+	    	LOG.debug("Ciphers inicialized with password " + password + ".");
+		} catch (Exception e) {		
+			LOG.error("Exception during AES decrypting.", e);			
+			throw new CryptException("Exception during AES ciphers initialization.", e);
+		}
 	}
 	
 	/**
@@ -106,12 +140,11 @@ public class AESCrypter {
 	 * @param message			message to encrypt
 	 * @return					encrypted message
 	 */
-	public static final byte[] encrypt(String password, byte[] message) {
+	public final byte[] encrypt(byte[] message) {
 		byte [] encryptedBytes = null;
-		try {
-			initializeCiphers(password);		    		   
-		    encryptedBytes = encryptCipher.doFinal(message);	
-		    
+		try {	    		
+			initializeCiphers();
+		    encryptedBytes = encryptCipher.doFinal(message);			    
 		} catch (Exception e) {
 			encryptCipher = null;
 			LOG.error("Exception during AES decrypting.", e);			
@@ -128,18 +161,62 @@ public class AESCrypter {
 	 * @param bytes			encoded message
 	 * @return				decoded message
 	 */
-	public static final byte[] decrypt(String password, byte[] bytes) {
+	public final byte[] decrypt(byte[] bytes) {
 		byte [] decryptedBytes = null;		
-		try {						
-			initializeCiphers(password);			
-		    decryptedBytes = decryptCipher.doFinal(bytes);		    
-		    
-		} catch (Exception e) {
+		try {			
+			initializeCiphers();
+		    decryptedBytes = decryptCipher.doFinal(bytes);		    		    
+		} catch (Exception e) {			
 			decryptCipher = null;
 			LOG.error("Exception during AES decrypting.", e);			
 			throw new CryptException("Exception during AES decrypting.", e);
 		}
 	    
 	    return decryptedBytes;	    	   
+	}
+	
+	/**
+	 * 
+	 * Encrypts input stream.
+	 * 
+	 * @param in			input stream
+	 * @param out			output stream
+	 */
+	public void encrypt(InputStream in, OutputStream out) {	
+		byte[] buf = new byte[1024];
+		try {
+			out = new CipherOutputStream(out, encryptCipher);
+	
+			int numRead = 0;
+			while ((numRead = in.read(buf)) >= 0) {
+				out.write(buf, 0, numRead);
+			}
+			out.close();
+		} catch (Exception e) {
+			LOG.error("Exception during AES crypting.", e);			
+			throw new CryptException("Exception during AES crypting.", e);
+		}
+	}
+
+	/**
+	 * Decrypts input stream.
+	 * 
+	 * @param in			input stream
+	 * @param out			output stream
+	 */
+	public void decrypt(InputStream in, OutputStream out) {
+		byte[] buf = new byte[1024];
+		try {
+			in = new CipherInputStream(in, decryptCipher);
+	
+			int numRead = 0;
+			while ((numRead = in.read(buf)) >= 0) {
+				out.write(buf, 0, numRead);
+			}
+			out.close();
+		}  catch (Exception e) {
+			LOG.error("Exception during AES decrypting.", e);			
+			throw new CryptException("Exception during AES decrypting.", e);
+		}
 	}
 }

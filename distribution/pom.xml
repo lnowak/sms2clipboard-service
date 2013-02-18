@@ -56,8 +56,8 @@
 										<include name="log4j.xml" />
 									</fileset>
 								</copy>
-								<copy todir="${basedir}/target">
-									<fileset dir="${basedir}/../commons">
+								<copy todir="${basedir}/target/config">
+									<fileset dir="${basedir}/../commons/config">
 										<include name="templates.db" />
 									</fileset>									
 								</copy>

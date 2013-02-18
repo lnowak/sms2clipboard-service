@@ -20,12 +20,12 @@ public class AESCryptTest {
 	@Test
 	public final void crytpAndDecryptText() {
 		// given
-		String password = "password";
+		AESCrypter crypter = new AESCrypter("password");		
 		String text = "To jest tekst do zaszyfrowania i odszyfrowania za pomocą algorytmu AES.";
 		
 		// when
-		byte[] decryptedBytes = AESCrypter.encrypt(password, text.getBytes());
-		byte[] encryptedBytes = AESCrypter.decrypt(password, decryptedBytes);	
+		byte[] decryptedBytes = crypter.encrypt(text.getBytes());
+		byte[] encryptedBytes = crypter.decrypt(decryptedBytes);	
 		
 		// then
 		Assert.assertNotNull(decryptedBytes);
@@ -39,7 +39,7 @@ public class AESCryptTest {
 	@Test
 	public final void crytpAndDecrypTextManyTimes() {		
 		// given
-		String password = "password";
+		AESCrypter crypter = new AESCrypter("password");
 		String text = "To jest tekst do zaszyfrowania i odszyfrowania za pomocą algorytmu AES.";
 			
 		long startTime = System.currentTimeMillis();
@@ -47,8 +47,8 @@ public class AESCryptTest {
 			// when
 			String targetText = text + i;
 						
-			byte[] decryptedBytes = AESCrypter.encrypt(password, targetText.getBytes());
-			byte[] encryptedBytes = AESCrypter.decrypt(password, decryptedBytes);				
+			byte[] decryptedBytes = crypter.encrypt(targetText.getBytes());
+			byte[] encryptedBytes = crypter.decrypt(decryptedBytes);				
 			
 			// then
 			Assert.assertNotNull(decryptedBytes);			
@@ -71,8 +71,9 @@ public class AESCryptTest {
 				
 		for (int i = 0; i < 10; i++) {
 			// when
-			byte[] decryptedBytes = AESCrypter.encrypt(password + i, text.getBytes());
-			byte[] encryptedBytes = AESCrypter.decrypt(password + i, decryptedBytes);	
+			AESCrypter crypter = new AESCrypter(password + i);
+			byte[] decryptedBytes = crypter.encrypt(text.getBytes());
+			byte[] encryptedBytes = crypter.decrypt(decryptedBytes);	
 			
 			// then
 			Assert.assertNotNull(decryptedBytes);

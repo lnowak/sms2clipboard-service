@@ -36,8 +36,8 @@ public abstract class ReflectedPacket extends Packet {
 	 * 
 	 * @return byte array
 	 */
-	public final ByteBuffer encodePacket(String password) {
-		countBodyLength(password);
+	public final ByteBuffer encodePacket(AESCrypter crypter) {
+		countBodyLength(crypter);
 		
 		ByteBuffer buffer = ByteBuffer.allocate(Packet.HEADER_LENGTH + getBodyLength());		
 		buffer.put(getHeader());						
@@ -74,7 +74,7 @@ public abstract class ReflectedPacket extends Packet {
 					case SECURED_STRING:						
 						byte[] bytes = ((String) obj).getBytes();
 						if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {						
-							bytes = AESCrypter.encrypt(password, bytes);
+							bytes = crypter.encrypt(bytes);
 						}							
 						buffer.putInt(bytes.length);
 						buffer.put(bytes);
@@ -96,7 +96,7 @@ public abstract class ReflectedPacket extends Packet {
 	 * 
 	 * @param buffer	byte buffer
 	 */
-	public final void decodeBody(ByteBuffer buffer, String password) {
+	public final void decodeBody(ByteBuffer buffer, AESCrypter crypter) {
 		while (buffer.hasRemaining()) {
 			byte id = buffer.get();
 			PacketParameter packetParameter = PacketParameter.getById(id);	
@@ -119,7 +119,7 @@ public abstract class ReflectedPacket extends Packet {
 			case SECURED_STRING:
 				bytes = new byte[buffer.getInt()];
 				buffer.get(bytes);	
-				obj = new String(AESCrypter.decrypt(password, bytes));
+				obj = new String(crypter.decrypt(bytes));
 				break;
 			default:
 				break;
@@ -159,7 +159,7 @@ public abstract class ReflectedPacket extends Packet {
 	/**
 	 * Count body length.
 	 */
-	protected final void countBodyLength(String password) {
+	protected final void countBodyLength(AESCrypter crypter) {
 		int bodyLength = 0;		
 		for (Field field: getClass().getDeclaredFields()) {
 			field.setAccessible(true);	
@@ -182,7 +182,7 @@ public abstract class ReflectedPacket extends Packet {
 						if (obj instanceof String) {
 							byte[] bytes = ((String) obj).getBytes();
 							if (propertyParameter.parameter().getType().equals(ParameterType.SECURED_STRING)) {						
-								bytes = AESCrypter.encrypt(password, bytes);
+								bytes = crypter.encrypt(bytes);
 							}							
 							bodyLength +=  bytes.length + 4 + 1;
 						}

@@ -1,5 +1,6 @@
 package pl.softace.sms2clipboard.template;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +11,12 @@ import java.util.regex.Pattern;
  * @author lkawon@gmail.com
  *
  */
-public class SMSTemplate {
+public class SMSTemplate implements Serializable {
+
+	/**
+	 * Serial ID.
+	 */
+	private static final long serialVersionUID = -480781114016723085L;
 
 	/**
 	 * Tag used for password.
@@ -138,5 +144,66 @@ public class SMSTemplate {
 		}
 		
 		return suffix;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public final int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((passwordRegex == null) ? 0 : passwordRegex.hashCode());
+		result = prime * result
+				+ ((smsRegex == null) ? 0 : smsRegex.hashCode());
+		result = prime * result + ((source == null) ? 0 : source.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public final boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SMSTemplate other = (SMSTemplate) obj;
+		if (passwordRegex == null) {
+			if (other.passwordRegex != null)
+				return false;
+		} else if (!passwordRegex.equals(other.passwordRegex))
+			return false;
+		if (smsRegex == null) {
+			if (other.smsRegex != null)
+				return false;
+		} else if (!smsRegex.equals(other.smsRegex))
+			return false;
+		if (source == null) {
+			if (other.source != null)
+				return false;
+		} else if (!source.equals(other.source))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public final String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("SMSTemplate [source=");
+		builder.append(source);
+		builder.append(", smsRegex=");
+		builder.append(smsRegex);
+		builder.append(", passwordRegex=");
+		builder.append(passwordRegex);
+		builder.append("]");
+		return builder.toString();
 	}
 }
