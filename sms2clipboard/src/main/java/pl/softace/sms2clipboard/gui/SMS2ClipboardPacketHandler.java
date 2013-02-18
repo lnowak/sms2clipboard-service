@@ -69,7 +69,7 @@ public class SMS2ClipboardPacketHandler implements IPacketHandler {
 		SMSTemplate smsTemplate = SMSTemplateManager.getInstance().findSMSTemplate(smsText);				
 		
 		if (smsTemplate != null) {	
-			SMSJFrame.createAndShow(smsTemplate, smsText);
+			SMSFrame.createAndShow(smsTemplate, smsText);
 		} else {
 			LOG.debug("Template not found for " + sms + ".");
 		}

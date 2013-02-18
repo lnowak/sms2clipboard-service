@@ -52,6 +52,21 @@ public class SMS2ClipboardTray {
 		        TrayIcon trayIcon = new TrayIcon(ImageIO.read(new File(TRAY_ICON)), "SMS2Clipboard Service", popup);
 		        SystemTray tray = SystemTray.getSystemTray();
 		        
+		        // settings menu
+		        MenuItem settingsItem = new MenuItem("Settings");
+		        settingsItem.addActionListener(new ActionListener() {
+					
+					/* (non-Javadoc)
+					 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+					 */
+					@Override
+					public final void actionPerformed(ActionEvent arg0) {
+						SettingsFrame.createAndShow();
+						
+					}
+				});
+		        popup.add(settingsItem);
+		        
 		        // about menu
 		        MenuItem aboutItem = new MenuItem("About");
 		        aboutItem.addActionListener(new ActionListener() {
@@ -61,12 +76,11 @@ public class SMS2ClipboardTray {
 					 */
 					@Override
 					public final void actionPerformed(ActionEvent arg0) {
-						AboutJFrame.createAndShow();
+						AboutFrame.createAndShow();
 						
 					}
 				});
-		        popup.add(aboutItem);
-		        
+		        popup.add(aboutItem);		        
 		        popup.addSeparator();
 		        
 		        // exit menu

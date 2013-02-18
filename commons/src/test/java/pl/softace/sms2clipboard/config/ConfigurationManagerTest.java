@@ -21,6 +21,7 @@ public class ConfigurationManagerTest {
 		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
 		configuration.setPassword("password");
 		configuration.setTemplatesDBVersion("1.0.0");
+		configuration.setUpdateDelay(60 * 60 * 1000);
 		
 		// when
 		ConfigurationManager.getInstance().saveToFile();

@@ -12,8 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+
+import pl.softace.sms2clipboard.config.Configuration;
+import pl.softace.sms2clipboard.config.ConfigurationManager;
 
 /**
  * 
@@ -22,7 +23,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author lkawon@gmail.com
  *
  */
-public class AboutJFrame extends JFrame {
+public class AboutFrame extends JFrame {
 
 	/**
 	 * Serial ID.
@@ -64,17 +65,23 @@ public class AboutJFrame extends JFrame {
 	/**
 	 * Constructor.
 	 */
-	public AboutJFrame() {				
+	public AboutFrame() {				
 		setTitle("About");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// version
 		JPanel textPanel = new JPanel();
-		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.LINE_AXIS));		
-		JLabel titleLabel = new JLabel(htmlIfy("<h4>SMS2Clipboard Service " + getClass().getPackage().getImplementationVersion() + "</h4>"));
-		textPanel.add(titleLabel);		
-		textPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));		
+		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));		
+		JLabel appVersionLabel = new JLabel(htmlIfy("SMS2Clipboard Service " + getClass().getPackage().getImplementationVersion() + "."));
+		textPanel.add(appVersionLabel);				
 		
+		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
+		if (configuration != null) {
+			JLabel dbVersionLabel = new JLabel(htmlIfy("Database version " + configuration.getTemplatesDBVersion() + "."));
+			textPanel.add(dbVersionLabel);		
+		}
+		
+		textPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 2, 10));
 		Container contentPane = getContentPane();
 		contentPane.add(textPanel, BorderLayout.CENTER);		
 		
@@ -104,19 +111,7 @@ public class AboutJFrame extends JFrame {
 	/**
 	 * Shows the SMS in JFrame window.
 	 */
-	public static final void createAndShow() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
-		
+	public static final void createAndShow() {		
 		SwingUtilities.invokeLater(new Runnable() {
 
 			/* (non-Javadoc)
@@ -128,7 +123,7 @@ public class AboutJFrame extends JFrame {
 				double width = screenSize.getWidth();
 				double height = screenSize.getHeight();
 				
-				AboutJFrame aboutJFrame = new AboutJFrame();
+				AboutFrame aboutJFrame = new AboutFrame();
 				aboutJFrame.setIconImage(new ImageIcon(ICON).getImage());
 				aboutJFrame.setResizable(false);				
 				aboutJFrame.setLocation((int) width / 2 - aboutJFrame.getWidth() / 2, (int) height / 2 - aboutJFrame.getHeight() / 2);				
@@ -142,6 +137,6 @@ public class AboutJFrame extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {		
-		AboutJFrame.createAndShow();
+		AboutFrame.createAndShow();
 	}
 }

@@ -26,6 +26,11 @@ public class Configuration implements Serializable {
 	 */
 	private String password;
 	
+	/**
+	 * Update delay.
+	 */
+	private long updateDelay;
+	
 	
 	/**
 	 * Default constructor.
@@ -50,6 +55,14 @@ public class Configuration implements Serializable {
 		this.password = password;
 	}
 
+	public final long getUpdateDelay() {
+		return updateDelay;
+	}
+
+	public final void setUpdateDelay(long updateDelay) {
+		this.updateDelay = updateDelay;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -63,6 +76,7 @@ public class Configuration implements Serializable {
 				* result
 				+ ((templatesDBVersion == null) ? 0 : templatesDBVersion
 						.hashCode());
+		result = prime * result + (int) (updateDelay ^ (updateDelay >>> 32));
 		return result;
 	}
 
@@ -88,6 +102,8 @@ public class Configuration implements Serializable {
 				return false;
 		} else if (!templatesDBVersion.equals(other.templatesDBVersion))
 			return false;
+		if (updateDelay != other.updateDelay)
+			return false;
 		return true;
 	}
 
@@ -101,6 +117,8 @@ public class Configuration implements Serializable {
 		builder.append(templatesDBVersion);
 		builder.append(", password=");
 		builder.append(password);
+		builder.append(", updateDelay=");
+		builder.append(updateDelay);
 		builder.append("]");
 		return builder.toString();
 	}

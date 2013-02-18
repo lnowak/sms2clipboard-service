@@ -1,5 +1,8 @@
 package pl.softace.sms2clipboard;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -78,6 +81,19 @@ public class SMS2Clipboard {
 	 * @param args		arguments
 	 */
 	public static void main(String[] args) {
+		// set look and feel
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
 		// main object
 		final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();
 		sms2Clipboard.startAutoDiscovery();

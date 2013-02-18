@@ -18,8 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import pl.softace.sms2clipboard.template.SMSTemplate;
 
@@ -30,7 +28,7 @@ import pl.softace.sms2clipboard.template.SMSTemplate;
  * @author lkawon@gmail.com
  *
  */
-public class SMSJFrame extends JFrame {
+public class SMSFrame extends JFrame {
 
 	/**
 	 * Serial ID.
@@ -86,7 +84,7 @@ public class SMSJFrame extends JFrame {
 	/**
 	 * Constructor.
 	 */
-	public SMSJFrame(SMSTemplate smsTemplate, String smsText) {
+	public SMSFrame(SMSTemplate smsTemplate, String smsText) {
 		this.smsTemplate = smsTemplate;
 		this.smsText = smsText;
 		
@@ -122,7 +120,7 @@ public class SMSJFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JButton button = (JButton) e.getSource();
-				SMSJFrame smsJFrame = (SMSJFrame) SwingUtilities.getRoot(button);
+				SMSFrame smsJFrame = (SMSFrame) SwingUtilities.getRoot(button);
 				
 				String password = smsJFrame.getSmsTemplate().getSMSPassword(smsJFrame.getSmsText());
 				StringSelection stringSelection = new StringSelection(password);
@@ -187,19 +185,7 @@ public class SMSJFrame extends JFrame {
 	 * @param smsTemplate		SMS template
 	 * @param smsText			SMS text
 	 */
-	public static final void createAndShow(final SMSTemplate smsTemplate, final String smsText) {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e) {
-			e.printStackTrace();
-		}
-		
+	public static final void createAndShow(final SMSTemplate smsTemplate, final String smsText) {			
 		SwingUtilities.invokeLater(new Runnable() {
 
 			/* (non-Javadoc)
@@ -211,7 +197,7 @@ public class SMSJFrame extends JFrame {
 				double width = screenSize.getWidth();
 				double height = screenSize.getHeight();
 				
-				SMSJFrame smsJFrame = new SMSJFrame(smsTemplate, smsText);
+				SMSFrame smsJFrame = new SMSFrame(smsTemplate, smsText);
 				smsJFrame.setIconImage(new ImageIcon(ICON).getImage());				
 				smsJFrame.setResizable(false);
 				smsJFrame.setSize(400, 145);
@@ -233,6 +219,6 @@ public class SMSJFrame extends JFrame {
 		
 		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
 		
-		SMSJFrame.createAndShow(smsTemplate, smsText);
+		SMSFrame.createAndShow(smsTemplate, smsText);
 	}
 }
