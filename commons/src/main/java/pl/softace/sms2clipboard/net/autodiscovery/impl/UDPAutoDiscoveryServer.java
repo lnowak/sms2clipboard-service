@@ -38,7 +38,7 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	/**
 	 * Multicast group.
 	 */
-	private String multicastGroup = "239.255.1.1";
+	private String multicastGroup = "239.255.255.128";
 	
 	/**
 	 * Flag indicating that the thread is running.
