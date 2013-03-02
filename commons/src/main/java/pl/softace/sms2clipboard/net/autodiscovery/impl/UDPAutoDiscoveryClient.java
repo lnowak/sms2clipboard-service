@@ -3,7 +3,9 @@ package pl.softace.sms2clipboard.net.autodiscovery.impl;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
+import java.net.SocketAddress;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,12 +74,26 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 	public final List<ServerInstance> findServer() {	
 		List<ServerInstance> servers = new ArrayList<ServerInstance>();
 		
-		try {
-			socket = new MulticastSocket(port);
+		try {			
+			SocketAddress address = new InetSocketAddress(InetAddress.getLocalHost(), port);
+			socket = new MulticastSocket(address);
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
 											
-			byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();
-			DatagramPacket requestPacket = new DatagramPacket(requestBuffer, requestBuffer.length, 
+			//byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();
+			StringBuilder builder = new StringBuilder();
+			builder.append("M-SEARCH * HTTP/1.1\r\n");
+			builder.append("Host:");
+			builder.append(multicastGroup);
+			builder.append(":");
+			builder.append(port);
+			builder.append("\r\n");
+			builder.append("ST:urn:schemas-upnp-org:device:InternetGatewayDevice:1\r\n");
+			builder.append("Man:\"ssdp:discover\"\r\n");
+			builder.append(Command.SEARCH_COMMAND.getData());
+			builder.append("\r\n");
+			builder.append("MX:3\r\n");
+			
+			DatagramPacket requestPacket = new DatagramPacket(builder.toString().getBytes(), builder.toString().getBytes().length, 
 					InetAddress.getByName(multicastGroup), port);
 			socket.send(requestPacket);
 	
@@ -87,8 +103,7 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 					byte receivingBuffer[] = new byte[1024];
 					DatagramPacket receivedPacket = new DatagramPacket(receivingBuffer, receivingBuffer.length);
 					socket.setSoTimeout(1);
-					socket.receive(receivedPacket);					
-					
+					socket.receive(receivedPacket);											
 					String receivedMessage = new String(receivedPacket.getData());
 					if (receivedMessage != null && receivedMessage.contains(Command.RESPONSE_COMMAND.getData())) {
 						ServerInstance server = new ServerInstance();

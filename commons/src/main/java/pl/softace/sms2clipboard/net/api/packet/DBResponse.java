@@ -1,23 +1,27 @@
 package pl.softace.sms2clipboard.net.api.packet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pl.softace.sms2clipboard.net.api.packet.annotations.PropertyParameter;
 import pl.softace.sms2clipboard.net.api.packet.enums.PacketParameter;
 import pl.softace.sms2clipboard.net.api.packet.enums.PacketType;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
+import pl.softace.sms2clipboard.template.SMSTemplate;
 
 /**
  * 
- * Response packet generated to ping request.
+ * Response packet generated to template DB version request.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class PingResponse extends ReflectedPacket {
+public class DBResponse extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = -364782100050883380L;
+	private static final long serialVersionUID = -17263928731649874L;
 
 	/**
 	 * Status of the response.
@@ -26,17 +30,17 @@ public class PingResponse extends ReflectedPacket {
 	private int status;
 	
 	/**
-	 * Token used in request.
+	 * All SMS templates from DB.
 	 */
-	@PropertyParameter(parameter = PacketParameter.SECURED_TEXT)
-	private String text;
+	@PropertyParameter(parameter = PacketParameter.TEMPLATE_LIST)
+	private List<SMSTemplate> templates = new ArrayList<SMSTemplate>();
 	
 	
 	/**
 	 * Default constructor.
 	 */
-	public PingResponse() {
-		setType(PacketType.PING_RESPONSE_PACKET);
+	public DBResponse() {
+		setType(PacketType.DB_RESPONSE);
 	}
 
 	public final Status getStatus() {
@@ -47,12 +51,12 @@ public class PingResponse extends ReflectedPacket {
 		this.status = status.getId();
 	}
 
-	public final String getText() {
-		return text;
+	public final List<SMSTemplate> getTemplates() {
+		return templates;
 	}
 
-	public final void setText(String text) {
-		this.text = text;
+	public final void setTemplates(List<SMSTemplate> templates) {
+		this.templates = templates;
 	}
 
 	/* (non-Javadoc)
@@ -65,7 +69,6 @@ public class PingResponse extends ReflectedPacket {
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
 		result = prime * result + (int) (status ^ (status >>> 32));
-		result = prime * result + ((getText() == null) ? 0 : getText().hashCode());
 		return result;
 	}
 
@@ -80,17 +83,12 @@ public class PingResponse extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingResponse other = (PingResponse) obj;
+		DBResponse other = (DBResponse) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
 			return false;
 		if (status != other.status)
-			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
 			return false;
 		return true;
 	}
@@ -101,12 +99,10 @@ public class PingResponse extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingResponse [type=");
+		builder.append("DBResponse [type=");
 		builder.append(getType());
 		builder.append(", id=");
-		builder.append(getId());				
-		builder.append(", text=");
-		builder.append(text);
+		builder.append(getId());
 		builder.append(", status=");
 		builder.append(status);
 		builder.append("]");

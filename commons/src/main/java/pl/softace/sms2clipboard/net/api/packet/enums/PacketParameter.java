@@ -13,22 +13,47 @@ public enum PacketParameter {
 	/**
 	 * Status of the response.
 	 */
-	STATUS				((byte) 20, ParameterType.INTEGER),
+	STATUS						((byte) 20, ParameterType.INTEGER),
 	
 	/**
 	 * String text.
 	 */
-	TEXT				((byte) 21, ParameterType.SECURED_STRING),
+	TEXT						((byte) 21, ParameterType.STRING),
+	
+	/**
+	 * String text.
+	 */
+	SECURED_TEXT				((byte) 22, ParameterType.SECURED_STRING),
 	
 	/**
 	 * Source of the SMS.
 	 */
-	SMS_SOURCE			((byte) 22, ParameterType.SECURED_STRING),
+	SMS_SOURCE					((byte) 23, ParameterType.SECURED_STRING),
 	
 	/**
 	 * Timestamp of the SMS.
 	 */
-	TIMESTAMP			((byte) 23, ParameterType.LONG);
+	TIMESTAMP					((byte) 24, ParameterType.LONG),
+	
+	/**
+	 * Secured with AES list of object.
+	 */
+	TEMPLATE_LIST				((byte) 25, ParameterType.SECURED_SMS_TEMPLATES_LIST),
+	
+	/**
+	 * Template source.
+	 */
+	TEMPLATE_SOURCE				((byte) 26, ParameterType.STRING),
+	
+	/**
+	 * Template SMS regex.
+	 */
+	TEMPLATE_SMS_REGEX			((byte) 27, ParameterType.STRING),
+	
+	/**
+	 * Template password regex.
+	 */
+	TEMPLATE_PASSWORD_REGEX		((byte) 28, ParameterType.STRING);
 	
 	
 	/**

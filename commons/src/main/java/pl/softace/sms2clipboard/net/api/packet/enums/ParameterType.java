@@ -12,37 +12,37 @@ public enum ParameterType {
 	/**
 	 * Integer type.
 	 */
-	INTEGER				(4),
+	INTEGER									(4),
 	
 	/**
 	 * Long type.
 	 */
-	LONG				(8),
+	LONG									(8),
 	
 	/**
 	 * String type.
 	 */
-	STRING				(0),
+	STRING									(0),
 	
 	/**
 	 * String secured with AES encryption.
 	 */
-	SECURED_STRING		(0),
+	SECURED_STRING							(0),
 	
 	/**
 	 * List of strings.
 	 */
-	STRING_LIST			(0),
+	SECURED_SMS_TEMPLATES_LIST				(0),
 	
 	/**
 	 * Boolean type.
 	 */
-	BOOLEAN				(1),
+	BOOLEAN									(1),
 	
 	/**
 	 * Character type.
 	 */
-	CHARACTER			(1);
+	CHARACTER								(1);
 	
 	
 	/**

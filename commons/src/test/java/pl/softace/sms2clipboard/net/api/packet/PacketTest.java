@@ -16,6 +16,7 @@ import pl.softace.sms2clipboard.net.api.packet.SMSConfirmation;
 import pl.softace.sms2clipboard.net.api.packet.SMSPacket;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
 import pl.softace.sms2clipboard.security.AESCrypter;
+import pl.softace.sms2clipboard.template.SMSTemplate;
 
 /**
  * 
@@ -116,6 +117,92 @@ public class PacketTest {
 		SMSConfirmation packet = new SMSConfirmation();
 		packet.setId(100);
 		packet.setStatus(Status.OK);
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, crypter);		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link DBVersionRequest} packet.
+	 */
+	@Test
+	public final void checkDBVersionRequest() {
+		// given
+		AESCrypter crypter = new AESCrypter("password");
+		DBVersionRequest packet = new DBVersionRequest();
+		packet.setId(100);		
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, crypter);		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link DBVersionResponse} packet.
+	 */
+	@Test
+	public final void checkDBVersionResponse() {
+		// given
+		AESCrypter crypter = new AESCrypter("password");
+		DBVersionResponse packet = new DBVersionResponse();
+		packet.setId(100);		
+		packet.setVersion("version");
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, crypter);		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link DBRequest} packet.
+	 */
+	@Test
+	public final void checkDBRequest() {
+		// given
+		AESCrypter crypter = new AESCrypter("password");
+		DBRequest packet = new DBRequest();
+		packet.setId(100);		
+		
+		// when
+		ByteBuffer packetBuffer = packet.encodePacket(crypter);		
+		
+		// then
+		Packet decodedPacket = packetFactory.decodeHeader(packetBuffer);	
+		Assert.assertTrue(decodedPacket.isPacketAvailable(packetBuffer.remaining()));
+		decodedPacket.decodeBody(packetBuffer, crypter);		
+		Assert.assertEquals(decodedPacket, packet);
+	}
+	
+	/**
+	 * Check {@link DBResponse} packet.
+	 */
+	@Test
+	public final void checkDBResponse() {
+		// given
+		AESCrypter crypter = new AESCrypter("password");
+		DBResponse packet = new DBResponse();
+		packet.setId(100);		
+				
+		packet.getTemplates().add(new SMSTemplate("source1", "sms regex 1", "password regex bla bla bla 1"));
+		packet.getTemplates().add(new SMSTemplate("source2", "sms regex 2", "password regex bla bla bla 2"));
+		packet.getTemplates().add(new SMSTemplate("source3", "sms regex 3", "password regex bla bla bla 3"));
+		packet.getTemplates().add(new SMSTemplate("source4", "sms regex 4", "password regex bla bla bla 4"));
 		
 		// when
 		ByteBuffer packetBuffer = packet.encodePacket(crypter);		

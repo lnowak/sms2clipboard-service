@@ -3,7 +3,9 @@ package pl.softace.sms2clipboard.net.autodiscovery.impl;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
+import java.net.SocketAddress;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,8 +76,12 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	 */
 	@Override
 	public final void startServer() {
-		try {
-			socket = new MulticastSocket(port);
+		try {			
+			InetAddress inetAddress = InetAddress.getLocalHost();
+			LOG.debug("Found interface: " + inetAddress + ".");
+			
+			SocketAddress address = new InetSocketAddress(inetAddress, port);
+			socket = new MulticastSocket(address);
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
 		} catch (IOException e) {
 			LOG.error("Exception occured.", e);
@@ -124,10 +130,19 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 					LOG.debug("Received search packet from " + packet.getAddress() + ".");
 										
 					String hostName = InetAddress.getLocalHost().getHostName();
-					String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
-					byte[] responseBuffer = responseData.getBytes();
-					DatagramPacket responsePacket = new DatagramPacket(responseBuffer, responseBuffer.length, 
-							InetAddress.getByName(multicastGroup), port);
+					//String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
+					//byte[] responseBuffer = responseData.getBytes();
+					
+					StringBuilder builder = new StringBuilder();
+					builder.append("NOTIFY * HTTP/1.1\r\n");
+					builder.append("Host:239.255.255.250:1900\r\n");
+					builder.append(Command.RESPONSE_COMMAND.getData());
+					builder.append(": ");
+					builder.append(hostName);
+					builder.append("\r\n");
+					
+					DatagramPacket responsePacket = new DatagramPacket(builder.toString().getBytes(), 
+							builder.toString().getBytes().length, InetAddress.getByName(multicastGroup), port);
 					socket.send(responsePacket);
 					
 					LOG.debug("Response packet sent.");

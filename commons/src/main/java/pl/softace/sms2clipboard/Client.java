@@ -12,8 +12,12 @@ import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient;
 
 public class Client {
 
-	public static void main(String[] args) {		
-		IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
+	public static void main(String[] args) {	
+		ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
+		apiClient.connect();
+		
+		
+		/*IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
 		for (ServerInstance serverInstance : autoDiscoveryClient.findServer()) {
 			ApiClient apiClient = new ApiClient(serverInstance.getIp(), 8080);
 			apiClient.connect();
@@ -34,6 +38,6 @@ public class Client {
 			}
 			
 			apiClient.disconnect();
-		}
+		}*/
 	}
 }

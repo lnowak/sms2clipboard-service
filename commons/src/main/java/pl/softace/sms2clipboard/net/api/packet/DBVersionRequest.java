@@ -1,43 +1,26 @@
 package pl.softace.sms2clipboard.net.api.packet;
 
-import pl.softace.sms2clipboard.net.api.packet.annotations.PropertyParameter;
-import pl.softace.sms2clipboard.net.api.packet.enums.PacketParameter;
 import pl.softace.sms2clipboard.net.api.packet.enums.PacketType;
 
 /**
  * 
- * Packet send to check the connection and password.
+ * Request send to determine the template DB version.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class PingRequest extends ReflectedPacket {
+public class DBVersionRequest extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = 8196090941386293865L;
-
-	/**
-	 * Ping text.
-	 */
-	@PropertyParameter(parameter = PacketParameter.SECURED_TEXT)
-	private String text;
-	
+	private static final long serialVersionUID = -2342651416484289769L;
 
 	/**
 	 * Default constructor.
 	 */
-	public PingRequest() {
-		setType(PacketType.PING_REQUEST_PACKET);
-	}
-	
-	public final String getText() {
-		return text;
-	}
-
-	public final void setText(String text) {
-		this.text = text;
+	public DBVersionRequest() {
+		setType(PacketType.DB_VERSION_REQUEST);
 	}
 	
 	/* (non-Javadoc)
@@ -49,7 +32,6 @@ public class PingRequest extends ReflectedPacket {
 		int result = 1;
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
 
@@ -64,15 +46,10 @@ public class PingRequest extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingRequest other = (PingRequest) obj;
+		DBVersionRequest other = (DBVersionRequest) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
-			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
 			return false;
 		return true;
 	}
@@ -83,12 +60,10 @@ public class PingRequest extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingRequest [type=");
+		builder.append("DBVersionRequest [type=");
 		builder.append(getType());		
 		builder.append(", id=");
 		builder.append(getId());
-		builder.append(", text=");
-		builder.append(text);
 		builder.append("]");
 		return builder.toString();
 	}

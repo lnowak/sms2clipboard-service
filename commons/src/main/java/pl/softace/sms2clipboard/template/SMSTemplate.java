@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import pl.softace.sms2clipboard.net.api.packet.ReflectedPacket;
+import pl.softace.sms2clipboard.net.api.packet.annotations.PropertyParameter;
+import pl.softace.sms2clipboard.net.api.packet.enums.PacketParameter;
+import pl.softace.sms2clipboard.net.api.packet.enums.PacketType;
+
 /**
  * 
  * Object representing SMS template used to recognize SMS and parse password.
@@ -11,7 +16,7 @@ import java.util.regex.Pattern;
  * @author lkawon@gmail.com
  *
  */
-public class SMSTemplate implements Serializable {
+public class SMSTemplate extends ReflectedPacket implements Serializable {
 
 	/**
 	 * Serial ID.
@@ -26,23 +31,34 @@ public class SMSTemplate implements Serializable {
 	/**
 	 * Source number of the SMS.
 	 */
+	@PropertyParameter(parameter = PacketParameter.TEMPLATE_SOURCE)
 	private String source;
 	
 	/**
 	 * SMS regex.
 	 */
+	@PropertyParameter(parameter = PacketParameter.TEMPLATE_SMS_REGEX)
 	private String smsRegex;
 	
 	/**
 	 * Password regex.
 	 */
+	@PropertyParameter(parameter = PacketParameter.TEMPLATE_PASSWORD_REGEX)
 	private String passwordRegex;
+	
 	
 	/**
 	 * Default constructor.
 	 */
 	public SMSTemplate() {
-		
+		setType(PacketType.SMS_TEMPLATE);
+	}
+	
+	public SMSTemplate(String source, String smsRegex, String passwordRegex) {
+		setType(PacketType.SMS_TEMPLATE);
+		this.source = source;
+		this.smsRegex = smsRegex;
+		this.passwordRegex = passwordRegex;
 	}
 	
 	public final String getSource() {

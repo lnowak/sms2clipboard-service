@@ -27,7 +27,32 @@ public enum PacketType {
 	/**
 	 * SMS confirmation.
 	 */
-	SMS_CONFIRMATION				((byte) 13);
+	SMS_CONFIRMATION				((byte) 13),
+	
+	/**
+	 * Template DB version request.
+	 */
+	DB_VERSION_REQUEST				((byte) 14),
+	
+	/**
+	 * Template DB version response.
+	 */
+	DB_VERSION_RESPONSE				((byte) 15),
+	
+	/**
+	 * Template DB request.
+	 */
+	DB_REQUEST						((byte) 16),
+	
+	/**
+	 * Template DB response.
+	 */
+	DB_RESPONSE						((byte) 17),
+	
+	/**
+	 * SMS template.
+	 */
+	SMS_TEMPLATE					((byte) 18);
 	
 	
 	/**

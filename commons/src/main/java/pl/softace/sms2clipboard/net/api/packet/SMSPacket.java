@@ -16,7 +16,7 @@ public class SMSPacket extends ReflectedPacket {
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2384712387418934729L;
 
 	/**
 	 * Timestamp.
@@ -33,7 +33,7 @@ public class SMSPacket extends ReflectedPacket {
 	/**
 	 * SMS text.
 	 */
-	@PropertyParameter(parameter = PacketParameter.TEXT)
+	@PropertyParameter(parameter = PacketParameter.SECURED_TEXT)
 	private String text;
 	
 	

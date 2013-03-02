@@ -7,17 +7,17 @@ import pl.softace.sms2clipboard.net.api.packet.enums.Status;
 
 /**
  * 
- * Response packet generated to ping request.
+ * Response packet generated to template DB version request.
  * 
  * @author lkawon@gmail.com
  *
  */
-public class PingResponse extends ReflectedPacket {
+public class DBVersionResponse extends ReflectedPacket {
 
 	/**
 	 * Serial ID.
 	 */
-	private static final long serialVersionUID = -364782100050883380L;
+	private static final long serialVersionUID = -17263928731649874L;
 
 	/**
 	 * Status of the response.
@@ -29,14 +29,14 @@ public class PingResponse extends ReflectedPacket {
 	 * Token used in request.
 	 */
 	@PropertyParameter(parameter = PacketParameter.SECURED_TEXT)
-	private String text;
+	private String version;
 	
 	
 	/**
 	 * Default constructor.
 	 */
-	public PingResponse() {
-		setType(PacketType.PING_RESPONSE_PACKET);
+	public DBVersionResponse() {
+		setType(PacketType.DB_VERSION_RESPONSE);
 	}
 
 	public final Status getStatus() {
@@ -47,12 +47,12 @@ public class PingResponse extends ReflectedPacket {
 		this.status = status.getId();
 	}
 
-	public final String getText() {
-		return text;
+	public final String getVersion() {
+		return version;
 	}
 
-	public final void setText(String text) {
-		this.text = text;
+	public final void setVersion(String version) {
+		this.version = version;
 	}
 
 	/* (non-Javadoc)
@@ -65,7 +65,7 @@ public class PingResponse extends ReflectedPacket {
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
 		result = prime * result + (int) (status ^ (status >>> 32));
-		result = prime * result + ((getText() == null) ? 0 : getText().hashCode());
+		result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
 		return result;
 	}
 
@@ -80,17 +80,17 @@ public class PingResponse extends ReflectedPacket {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PingResponse other = (PingResponse) obj;
+		DBVersionResponse other = (DBVersionResponse) obj;
 		if (getId() != other.getId())
 			return false;
 		if (getType() != other.getType())
 			return false;
 		if (status != other.status)
 			return false;
-		if (text == null) {
-			if (other.text != null)
+		if (version == null) {
+			if (other.version != null)
 				return false;
-		} else if (!text.equals(other.text))
+		} else if (!version.equals(other.version))
 			return false;
 		return true;
 	}
@@ -101,12 +101,12 @@ public class PingResponse extends ReflectedPacket {
 	@Override
 	public final String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("PingResponse [type=");
+		builder.append("DBVersionResponse [type=");
 		builder.append(getType());
 		builder.append(", id=");
 		builder.append(getId());				
-		builder.append(", text=");
-		builder.append(text);
+		builder.append(", version=");
+		builder.append(version);
 		builder.append(", status=");
 		builder.append(status);
 		builder.append("]");

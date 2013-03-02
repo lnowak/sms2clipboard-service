@@ -5,6 +5,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import pl.softace.sms2clipboard.net.api.client.ApiClient;
+import pl.softace.sms2clipboard.net.api.packet.DBRequest;
+import pl.softace.sms2clipboard.net.api.packet.DBResponse;
+import pl.softace.sms2clipboard.net.api.packet.DBVersionRequest;
+import pl.softace.sms2clipboard.net.api.packet.DBVersionResponse;
 import pl.softace.sms2clipboard.net.api.packet.Packet;
 import pl.softace.sms2clipboard.net.api.packet.PingRequest;
 import pl.softace.sms2clipboard.net.api.packet.PingResponse;
@@ -153,6 +157,60 @@ public class ApiServerTest {
 		Assert.assertTrue(response instanceof SMSConfirmation);
 		Assert.assertEquals(smsPacket.getId(), ((SMSConfirmation) response).getId());
 		Assert.assertEquals(Status.OK, ((SMSConfirmation) response).getStatus());
+		client.disconnect();
+	}
+	
+	/**
+	 * Tries to send DB version request to server.
+	 * @throws InterruptedException 
+	 */
+	@Test(dependsOnMethods = "startServer")
+	public final void sendDBVersionRequest() throws InterruptedException {
+		// given
+		ApiClient client = new ApiClient("127.0.0.1", 8080);
+		client.connect();
+		Assert.assertTrue(client.isConnected());
+		
+		// when
+		DBVersionRequest request = new DBVersionRequest();
+		request.setId(1);
+			
+		Packet response = client.send(request);
+		
+		// then
+		Assert.assertNotNull(response);
+		Assert.assertTrue(response instanceof DBVersionResponse);
+		Assert.assertEquals(request.getId(), ((DBVersionResponse) response).getId());
+		Assert.assertEquals(Status.OK, ((DBVersionResponse) response).getStatus());
+		Assert.assertEquals("version", ((DBVersionResponse) response).getVersion());						
+			
+		client.disconnect();
+	}
+	
+	/**
+	 * Tries to send DB  request to server.
+	 * @throws InterruptedException 
+	 */
+	@Test(dependsOnMethods = "startServer")
+	public final void sendDBRequest() throws InterruptedException {
+		// given
+		ApiClient client = new ApiClient("127.0.0.1", 8080);
+		client.connect();
+		Assert.assertTrue(client.isConnected());
+		
+		// when
+		DBRequest request = new DBRequest();
+		request.setId(1);
+			
+		Packet response = client.send(request);
+		
+		// then
+		Assert.assertNotNull(response);
+		Assert.assertTrue(response instanceof DBResponse);
+		Assert.assertEquals(request.getId(), ((DBResponse) response).getId());
+		Assert.assertEquals(Status.OK, ((DBResponse) response).getStatus());
+		Assert.assertEquals(2, ((DBResponse) response).getTemplates().size());				
+			
 		client.disconnect();
 	}
 	
