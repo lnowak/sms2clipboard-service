@@ -27,6 +27,11 @@ public class SMS2ClipboardTray {
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(SMS2ClipboardTray.class);
 	
+	/**
+	 * Tray icon.
+	 */
+	private TrayIcon trayIcon;
+	
 	
 	/**
 	 * Constructor.
@@ -36,13 +41,29 @@ public class SMS2ClipboardTray {
 	}
 	
 	/**
+	 * Sets info icon and tooltip.
+	 */
+	public final void setInfoIcon() {
+		trayIcon.setImage(Icon.getImage(Icon.FRONT_INFO_16));
+		trayIcon.setToolTip("New version of database is available.");
+	}
+	
+	/**
+	 * Sets standard icon and tooltip.
+	 */
+	public final void setStandardIcon() {
+		trayIcon.setImage(Icon.getImage(Icon.FRONT_STANDARD_16));
+		trayIcon.setToolTip("SMS2Clipboard.");
+	}
+	
+	/**
 	 * Creates and initializes the tray.
 	 */
 	public final void initalize() {
 		if (SystemTray.isSupported()) {         
 			try {			
 				PopupMenu popup = new PopupMenu();
-		        TrayIcon trayIcon = new TrayIcon(Icon.getImage(Icon.FRONT_STANDARD_16), "SMS2Clipboard Service", popup);
+		        trayIcon = new TrayIcon(Icon.getImage(Icon.FRONT_STANDARD_16), "SMS2Clipboard", popup);
 		        SystemTray tray = SystemTray.getSystemTray();
 		        
 		        // settings menu

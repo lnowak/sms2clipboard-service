@@ -261,7 +261,9 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	public final void finished(ErrorCode errorCode) {
 		if (errorCode.equals(ErrorCode.FINISHED)) {
 			if (versionInfo != null) {
-				SMSTemplateManager.getInstance().replaceVersion(versionInfo.getVersion());
+				if (SMSTemplateManager.getInstance().replaceVersion(versionInfo.getVersion())) {
+					SMS2Clipboard.TRAY.setStandardIcon();
+				}
 			}
 		}
 		

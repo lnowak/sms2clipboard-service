@@ -15,6 +15,7 @@ import pl.softace.sms2clipboard.net.api.server.ApiServer;
 import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 import pl.softace.sms2clipboard.template.SMSTemplateManager;
+import pl.softace.sms2clipboard.update.UpdateCheckingThread;
 
 /**
  * 
@@ -33,7 +34,7 @@ public class SMS2Clipboard {
 	/**
 	 * Tray icon.
 	 */
-	private SMS2ClipboardTray tray;
+	public static SMS2ClipboardTray TRAY;
 	
 	/**
 	 * Auto discovery server.
@@ -45,13 +46,18 @@ public class SMS2Clipboard {
 	 */
 	private ApiServer apiServer;
 	
+	/**
+	 * Update checking thread.
+	 */
+	private UpdateCheckingThread updateCheckingThread;
+	
 	
 	/**
 	 * Default constructor. Loads configuration and templates database.
 	 */
 	public SMS2Clipboard() {
 		ConfigurationManager.getInstance();
-		SMSTemplateManager.getInstance();
+		SMSTemplateManager.getInstance();		
 	}
 	
 	/**
@@ -75,11 +81,19 @@ public class SMS2Clipboard {
 	}
 	
 	/**
+	 * Starts checking thread.
+	 */
+	public final void startUpdateCheckingThread() {
+		updateCheckingThread = new UpdateCheckingThread();
+		updateCheckingThread.start();
+	}
+	
+	/**
 	 * Shows the tray icon.
 	 */
 	public final void showTrayIcon() {
-		tray = new SMS2ClipboardTray();
-		tray.initalize();
+		TRAY = new SMS2ClipboardTray();
+		TRAY.initalize();
 	}
 	
 	/**
@@ -114,6 +128,7 @@ public class SMS2Clipboard {
 			sms2Clipboard.startAutoDiscovery();
 			sms2Clipboard.startApiServer();	
 			sms2Clipboard.showTrayIcon();
+			sms2Clipboard.startUpdateCheckingThread();
 			
 			
 			// shutdown handler
@@ -128,6 +143,7 @@ public class SMS2Clipboard {
 	            	
 	                sms2Clipboard.autoDiscoveryServer.stopServer();
 	                sms2Clipboard.apiServer.stopServer();
+	                sms2Clipboard.updateCheckingThread.setRunning(false);
 	                
 	                LOG.debug("Shutdown finished.");
 	                
