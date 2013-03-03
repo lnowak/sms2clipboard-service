@@ -20,6 +20,6 @@
 
 	<logger name="pl.softace">
 		<level value="debug" />
-		<appender-ref ref="stdout" />
+		<appender-ref ref="log" />
 	</logger>
 </log4j:configuration>

@@ -78,7 +78,6 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	public final void startServer() {
 		try {			
 			InetAddress inetAddress = InetAddress.getLocalHost();
-			LOG.debug("Found interface: " + inetAddress + ".");
 			
 			SocketAddress address = new InetSocketAddress(inetAddress, port);
 			socket = new MulticastSocket(address);

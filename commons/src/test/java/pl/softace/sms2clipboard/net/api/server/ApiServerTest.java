@@ -1,5 +1,7 @@
 package pl.softace.sms2clipboard.net.api.server;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -15,7 +17,6 @@ import pl.softace.sms2clipboard.net.api.packet.PingResponse;
 import pl.softace.sms2clipboard.net.api.packet.SMSConfirmation;
 import pl.softace.sms2clipboard.net.api.packet.SMSPacket;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
-import pl.softace.sms2clipboard.net.api.server.ApiServer;
 
 /**
  * 
@@ -25,7 +26,7 @@ import pl.softace.sms2clipboard.net.api.server.ApiServer;
  *
  */
 public class ApiServerTest {
-
+	
 	/**
 	 * API server.
 	 */
@@ -34,9 +35,10 @@ public class ApiServerTest {
 	
 	/**
 	 * Starts the server.
+	 * @throws IOException 
 	 */
 	@Test
-	public final void startServer() {
+	public final void startServer() throws IOException {
 		// given
 		apiServer = new ApiServer();
 		apiServer.setPacketHandler(new TestPacketHandler());
@@ -102,9 +104,9 @@ public class ApiServerTest {
 	/**
 	 * Tries to send ping request message to server using incorrect AES password.
 	 */
-	@Test
+	@Test(dependsOnMethods = "startServer")
 	public final void sendCorrectMessageWithIncorrectAesPassword() {
-		// given
+		// given		
 		ApiClient client = new ApiClient("127.0.0.1", 8080);
 		client.setAesPassword("password");
 		client.connect();

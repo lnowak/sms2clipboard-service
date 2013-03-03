@@ -67,6 +67,7 @@ public class SMSTemplateManager {
 	 */
 	public SMSTemplateManager() {
 		crypter = new AESCrypter();
+		loadFromFile();
 	}
 	
 	public final List<SMSTemplate> getTemplates() {
@@ -165,6 +166,7 @@ public class SMSTemplateManager {
 			} else {
 				copy(fis, baos);
 			}
+			fis.close();
 			
 			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 			BufferedReader reader = new BufferedReader(new InputStreamReader(bais));

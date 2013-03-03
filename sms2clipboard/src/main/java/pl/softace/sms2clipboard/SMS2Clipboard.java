@@ -1,5 +1,7 @@
 package pl.softace.sms2clipboard;
 
+import java.io.IOException;
+
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -48,8 +50,8 @@ public class SMS2Clipboard {
 	 * Default constructor. Loads configuration and templates database.
 	 */
 	public SMS2Clipboard() {
-		ConfigurationManager.getInstance().loadFromFile();
-		SMSTemplateManager.getInstance().loadFromFile();
+		ConfigurationManager.getInstance();
+		SMSTemplateManager.getInstance();
 	}
 	
 	/**
@@ -62,8 +64,9 @@ public class SMS2Clipboard {
 	
 	/**
 	 * Starts API server.
+	 * @throws IOException 
 	 */
-	public final void startApiServer() {
+	public final void startApiServer() throws IOException {
 		// TODO: search for free socket
 		
 		apiServer = new ApiServer();
@@ -105,27 +108,36 @@ public class SMS2Clipboard {
 	public static void main(String[] args) {	
 		setUILookAndFeel();
 		
-		// main object
-		final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();		
-		sms2Clipboard.startAutoDiscovery();
-		sms2Clipboard.startApiServer();	
-		sms2Clipboard.showTrayIcon();
-		
-		// shutdown handler
-		Runtime.getRuntime().addShutdownHook(new Thread(){
+		try {
+			// main object
+			final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();		
+			sms2Clipboard.startAutoDiscovery();
+			sms2Clipboard.startApiServer();	
+			sms2Clipboard.showTrayIcon();
 			
-            /* (non-Javadoc)
-             * @see java.lang.Thread#run()
-             */
-            @Override
-            public final void run(){
-            	LOG.debug("Shutdown application.");
-            	
-                sms2Clipboard.autoDiscoveryServer.stopServer();
-                sms2Clipboard.apiServer.stopServer();
-                
-                LOG.debug("Shutdown finished.");
-            }
-        });
+			
+			// shutdown handler
+			Runtime.getRuntime().addShutdownHook(new Thread(){
+				
+	            /* (non-Javadoc)
+	             * @see java.lang.Thread#run()
+	             */
+	            @Override
+	            public final void run(){
+	            	LOG.debug("Shutdown application.");
+	            	
+	                sms2Clipboard.autoDiscoveryServer.stopServer();
+	                sms2Clipboard.apiServer.stopServer();
+	                
+	                LOG.debug("Shutdown finished.");
+	                
+	                System.exit(0);
+	            }
+	        });
+			
+		} catch (IOException e) {
+			LOG.error("Exception while starting application.", e);
+			System.exit(-1);
+		}				
 	}
 }

@@ -78,18 +78,15 @@ public class ApiServer {
 	
 	/**
 	 * Starts the server.
+	 * @throws IOException 
 	 */
-	public final void startServer() {
+	public final void startServer() throws IOException {
 		acceptor = new NioSocketAcceptor();
 		acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(codecFactory));
 		//acceptor.getFilterChain().addLast("logger", new LoggingFilter());
 		
 		acceptor.setHandler(new ApiServerIOHandler(packetHandler));
-		try {
-			acceptor.bind(new InetSocketAddress(port));
-		} catch (IOException e) {
-			LOG.error("Exception in server.", e);
-		}
+		acceptor.bind(new InetSocketAddress(port));
 		
 		LOG.debug("Server started on port " + port + ".");
 	}
