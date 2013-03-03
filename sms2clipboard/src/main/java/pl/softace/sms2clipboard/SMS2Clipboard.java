@@ -6,11 +6,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pl.softace.sms2clipboard.gui.SMS2ClipboardPacketHandler;
+import pl.softace.sms2clipboard.config.ConfigurationManager;
 import pl.softace.sms2clipboard.gui.SMS2ClipboardTray;
+import pl.softace.sms2clipboard.net.SMS2ClipboardPacketHandler;
 import pl.softace.sms2clipboard.net.api.server.ApiServer;
 import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
+import pl.softace.sms2clipboard.template.SMSTemplateManager;
 
 /**
  * 
@@ -43,10 +45,11 @@ public class SMS2Clipboard {
 	
 	
 	/**
-	 * Default constructor.
+	 * Default constructor. Loads configuration and templates database.
 	 */
 	public SMS2Clipboard() {
-		
+		ConfigurationManager.getInstance().loadFromFile();
+		SMSTemplateManager.getInstance().loadFromFile();
 	}
 	
 	/**
@@ -61,6 +64,8 @@ public class SMS2Clipboard {
 	 * Starts API server.
 	 */
 	public final void startApiServer() {
+		// TODO: search for free socket
+		
 		apiServer = new ApiServer();
 		apiServer.setPacketHandler(new SMS2ClipboardPacketHandler());
 		apiServer.startServer();
@@ -92,10 +97,10 @@ public class SMS2Clipboard {
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
-		}
+		}				
 		
 		// main object
-		final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();
+		final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();		
 		sms2Clipboard.startAutoDiscovery();
 		sms2Clipboard.startApiServer();	
 		sms2Clipboard.showTrayIcon();

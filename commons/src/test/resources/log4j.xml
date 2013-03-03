@@ -22,8 +22,8 @@
 		<level value="debug" />
 		<appender-ref ref="stdout" />
 	</logger>
-	<logger name="org.apache">
+	<!-- logger name="org.apache">
 		<level value="debug" />
 		<appender-ref ref="stdout" />
-	</logger>
+	</logger -->
 </log4j:configuration>

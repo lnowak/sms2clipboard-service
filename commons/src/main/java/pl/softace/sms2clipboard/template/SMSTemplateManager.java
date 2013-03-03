@@ -36,6 +36,11 @@ public class SMSTemplateManager {
 	private static final Logger LOG = LoggerFactory.getLogger(SMSTemplateManager.class);
 	
 	/**
+	 * Temporary file for database.
+	 */
+	public static final String DB_TEMP_FILE_NAME = "./config/temp.db";
+	
+	/**
 	 * File containing all templates.
 	 */
 	private static final String DB_FILENAME = "./config/templates.db";

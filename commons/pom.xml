@@ -17,6 +17,7 @@
 		<version.testng>6.5.1</version.testng>
 		<version.mina>2.0.7</version.mina>		
 		<version.slf4j>1.7.2</version.slf4j>
+		<version.httpclient>4.2.3</version.httpclient>
 	</properties>
 
 	<build>
@@ -161,6 +162,11 @@
 			<groupId>org.apache.mina</groupId>
 			<artifactId>mina-core</artifactId>
 			<version>${version.mina}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${version.httpclient}</version>
 		</dependency>
 
 		<dependency>

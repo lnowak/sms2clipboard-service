@@ -9,6 +9,7 @@
 		<class name="pl.softace.sms2clipboard.net.api.server.ApiServerTest"/>
 		<class name="pl.softace.sms2clipboard.template.SMSTemplateTest"/>
 		<class name="pl.softace.sms2clipboard.template.SMSTemplateManagerTest"/>
+		<class name="pl.softace.sms2clipboard.net.http.impl.S3DBClientTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
