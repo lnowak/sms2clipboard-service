@@ -18,6 +18,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import pl.softace.sms2clipboard.config.ConfigurationManager;
 import pl.softace.sms2clipboard.security.AESCrypter;
 import pl.softace.sms2clipboard.security.CryptException;
 
@@ -204,5 +205,32 @@ public class SMSTemplateManager {
 			LOG.error("Exception during AES decrypting.", e);			
 			throw new CryptException("Exception during AES decrypting.", e);
 		}
+	}
+	
+	/**
+	 * Replace database file.
+	 * 
+	 * @param fileName		new database file
+	 */
+	public synchronized boolean replaceVersion(String version) {
+		boolean replaced = false;
+		
+		File oldDatabase = new File(DB_FILENAME);
+		File oldDatabaseBackup = new File(DB_FILENAME + ".bak");
+		File newDatbase = new File(DB_TEMP_FILE_NAME);
+		
+		// backup
+		if (oldDatabaseBackup.exists()) {
+			oldDatabaseBackup.delete();
+		}
+		oldDatabase.renameTo(oldDatabaseBackup);
+		replaced = newDatbase.renameTo(oldDatabase);
+		if (replaced) {
+			loadFromFile();
+			ConfigurationManager.getInstance().getConfiguration().setTemplatesDBVersion(version);
+			ConfigurationManager.getInstance().saveToFile();
+		}
+		
+		return replaced; 
 	}
 }

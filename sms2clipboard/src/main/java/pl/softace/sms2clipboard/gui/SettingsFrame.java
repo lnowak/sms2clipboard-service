@@ -6,9 +6,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,8 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import pl.softace.sms2clipboard.config.Configuration;
 import pl.softace.sms2clipboard.config.ConfigurationManager;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import pl.softace.sms2clipboard.utils.Icon;
 
 /**
  * 
@@ -34,16 +34,23 @@ public class SettingsFrame extends JFrame {
 	 * Serial ID.
 	 */
 	private static final long serialVersionUID = -7546802544820039121L;
-
-	/**
-	 * Icon.
-	 */
-	private static final String ICON = "images/icon.png";
 	
+	/**
+	 * Main panel.
+	 */
 	private JPanel contentPane;
+	
+	/**
+	 * Text field with password.
+	 */
 	private JTextField textFieldPassword;
+	
+	/**
+	 * Text field with update delay.
+	 */
 	private JTextField textFieldUpdateDelay;
 
+	
 	/**
 	 * Create the frame.
 	 */
@@ -136,7 +143,7 @@ public class SettingsFrame extends JFrame {
 					double height = screenSize.getHeight();
 					
 					SettingsFrame frame = new SettingsFrame();
-					frame.setIconImage(new ImageIcon(ICON).getImage());
+					frame.setIconImages(Icon.getFrameIcons());
 					frame.setResizable(false);				
 					frame.setLocation((int) width / 2 - frame.getWidth() / 2, (int) height / 2 - frame.getHeight() / 2);
 					frame.setVisible(true);

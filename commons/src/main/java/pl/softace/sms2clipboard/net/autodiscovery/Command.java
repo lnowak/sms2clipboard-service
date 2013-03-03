@@ -5,12 +5,12 @@ public enum Command {
 	/**
 	 * Command send by client to search for servers.
 	 */
-	SEARCH_COMMAND		("PASSWORD-LESS-SERVER-SEARCH"),
+	SEARCH_COMMAND		("SMS2CLIPBOARD-SERVER-SEARCH"),
 	
 	/**
 	 * Command send by server in response to search command.
 	 */
-	RESPONSE_COMMAND	("PASSWORD-LESS-SERVER-INSTANCE");
+	RESPONSE_COMMAND	("SMS2CLIPBOARD-SERVER-INSTANCE");
 	
 	
 	/**

@@ -7,13 +7,11 @@ import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import pl.softace.sms2clipboard.utils.Icon;
 
 /**
  * 
@@ -28,11 +26,6 @@ public class SMS2ClipboardTray {
 	 * SLF4J logger/
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(SMS2ClipboardTray.class);
-	
-	/**
-	 * Tray icon.
-	 */
-	private static final String TRAY_ICON = "images/icon.png";
 	
 	
 	/**
@@ -49,7 +42,7 @@ public class SMS2ClipboardTray {
 		if (SystemTray.isSupported()) {         
 			try {			
 				PopupMenu popup = new PopupMenu();
-		        TrayIcon trayIcon = new TrayIcon(ImageIO.read(new File(TRAY_ICON)), "SMS2Clipboard Service", popup);
+		        TrayIcon trayIcon = new TrayIcon(Icon.getImage(Icon.FRONT_STANDARD_16), "SMS2Clipboard Service", popup);
 		        SystemTray tray = SystemTray.getSystemTray();
 		        
 		        // settings menu
@@ -66,6 +59,21 @@ public class SMS2ClipboardTray {
 					}
 				});
 		        popup.add(settingsItem);
+		        
+		        // update menu
+		        MenuItem updateItem = new MenuItem("Check for update");
+		        updateItem.addActionListener(new ActionListener() {
+					
+					/* (non-Javadoc)
+					 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+					 */
+					@Override
+					public final void actionPerformed(ActionEvent arg0) {
+						DBUpdateFrame.createAndShow();
+						
+					}
+				});
+		        popup.add(updateItem);
 		        
 		        // about menu
 		        MenuItem aboutItem = new MenuItem("About");
@@ -99,8 +107,6 @@ public class SMS2ClipboardTray {
 		        
 		        trayIcon.setPopupMenu(popup);		        
 				tray.add(trayIcon);			
-			} catch (IOException e) {
-				LOG.error("Error with tray icon.", e);
 			} catch (AWTException e) {
 				LOG.error("Error with tray icon.", e);
 			}

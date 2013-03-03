@@ -79,21 +79,9 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 			socket = new MulticastSocket(address);
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
 											
-			//byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();
-			StringBuilder builder = new StringBuilder();
-			builder.append("M-SEARCH * HTTP/1.1\r\n");
-			builder.append("Host:");
-			builder.append(multicastGroup);
-			builder.append(":");
-			builder.append(port);
-			builder.append("\r\n");
-			builder.append("ST:urn:schemas-upnp-org:device:InternetGatewayDevice:1\r\n");
-			builder.append("Man:\"ssdp:discover\"\r\n");
-			builder.append(Command.SEARCH_COMMAND.getData());
-			builder.append("\r\n");
-			builder.append("MX:3\r\n");
+			byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();			
 			
-			DatagramPacket requestPacket = new DatagramPacket(builder.toString().getBytes(), builder.toString().getBytes().length, 
+			DatagramPacket requestPacket = new DatagramPacket(requestBuffer, requestBuffer.length, 
 					InetAddress.getByName(multicastGroup), port);
 			socket.send(requestPacket);
 	

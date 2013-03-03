@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,11 +24,15 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import pl.softace.sms2clipboard.SMS2Clipboard;
+import pl.softace.sms2clipboard.config.ConfigurationManager;
 import pl.softace.sms2clipboard.net.http.DBVersionInfo;
 import pl.softace.sms2clipboard.net.http.ErrorCode;
 import pl.softace.sms2clipboard.net.http.IDBClient;
 import pl.softace.sms2clipboard.net.http.IDownloadListener;
 import pl.softace.sms2clipboard.net.http.impl.S3DBClient;
+import pl.softace.sms2clipboard.template.SMSTemplateManager;
+import pl.softace.sms2clipboard.utils.Icon;
 
 /**
  * 
@@ -46,14 +49,14 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	private static final long serialVersionUID = 2158347433231559828L;
 	
 	/**
-	 * Icon.
+	 * Regex used to set title label for new version.
 	 */
-	private static final String ICON = "images/icon.png";
+	private static final String NEW_VERSION_TITLE_REGEX = "New version ${VERSION} published at ${DATE} is available.";
 	
 	/**
-	 * Regex used to set title label.
+	 * Regex used to set title label for latest version.
 	 */
-	private static final String TITLE_REGEX = "New version ${VERSION} published at ${DATE} is available.";
+	private static final String LATEST_VERSION_TITLE_REGEX = "You have the latest version ${VERSION} published at ${DATE}.";
 	
 	/**
 	 * Version tag.
@@ -70,14 +73,30 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	 */
 	private DBVersionInfo versionInfo;
 	
+	/**
+	 * Main content panel.
+	 */
 	private JPanel contentPane;
 	
+	/**
+	 * Progress bar.
+	 */
 	private JProgressBar progressBar; 
 	
 	/**
 	 * Update button.
 	 */
 	private JButton btnUpdate; 
+	
+	/**
+	 * Title label.
+	 */
+	private JLabel titleLabel; 
+	
+	/**
+	 * Text area for changes.
+	 */
+	private JTextArea changesTextArea;
 	
 	/**
 	 * Flag for download indication.
@@ -101,13 +120,11 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	/**
 	 * Create the frame.
 	 */
-	public DBUpdateFrame() {
-		getVersionInfo();
-		
+	public DBUpdateFrame() {				
 		setResizable(false);
 		setTitle("Database update");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 290);
+		//setBounds(100, 100, 450, 290);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -121,17 +138,9 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		gbl_versionPanel.rowHeights = new int[]{14, 14, 150, 0, 0};
 		gbl_versionPanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_versionPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		versionPanel.setLayout(gbl_versionPanel);
+		versionPanel.setLayout(gbl_versionPanel);				
 		
-		// TODO: check actual version and the latest
-		String titleLabelText = TITLE_REGEX;
-		if (versionInfo != null) {			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
-			titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));
-		}
-		
-		JLabel titleLabel = new JLabel(titleLabelText);	
+		titleLabel = new JLabel("Update service is temporairly unavailabel. Please try again later.");	
 		titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		GridBagConstraints gbc_titleLabel = new GridBagConstraints();
 		gbc_titleLabel.insets = new Insets(0, 0, 5, 0);
@@ -157,15 +166,12 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		gbc_scrollPane.gridy = 2;
 		versionPanel.add(scrollPane, gbc_scrollPane);
 		
-		JTextArea changesTextArea = new JTextArea();
+		changesTextArea = new JTextArea();
 		changesTextArea.setEditable(false);
 		scrollPane.setViewportView(changesTextArea);
 		changesTextArea.setRows(1);
 		changesTextArea.setLineWrap(true);
-		changesTextArea.setFont(new Font("Arial", Font.PLAIN, 11));
-		if (versionInfo != null) {
-			changesTextArea.setText(versionInfo.getDescription());
-		}
+		changesTextArea.setFont(new Font("Arial", Font.PLAIN, 11));		
 		
 		JPanel updatePanel = new JPanel();
 		updatePanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -176,7 +182,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		updatePanel.add(progressBar);
 		updatePanel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		btnUpdate = new JButton("Update");
+		btnUpdate = new JButton("Close");
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (btnUpdate.getText().equals("Update")) {
@@ -185,22 +191,57 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 						@Override
 						public void run() {
 							IDBClient client = new S3DBClient();
-							client.downloadDatabase("2.0.0", updateFrame);
+							client.downloadDatabase(versionInfo.getVersion(), updateFrame);
 						}
 					}.start();
 					btnUpdate.setText("Cancel");
-				} else {
+				} else if (btnUpdate.getText().equals("Cancel")) {
 					download = false;
 					btnUpdate.setText("Update");
+				} else if (btnUpdate.getText().equals("Close")) {
+					dispose();
 				}
 			}
 		});
 		btnUpdate.setAlignmentX(Component.CENTER_ALIGNMENT);
-		updatePanel.add(btnUpdate);
+		updatePanel.add(btnUpdate);		
 		
+		
+		setMinimumSize(new Dimension(450, 0));
 		pack();
 	}
 
+	/**
+	 * Checks the version at S3 and sets components texts.
+	 */
+	private final void checkVersion() {
+		getVersionInfo();
+		
+		if (versionInfo != null) {
+			if (!versionInfo.getVersion().equals(ConfigurationManager.getInstance().getConfiguration().getTemplatesDBVersion())) {			
+				String titleLabelText = NEW_VERSION_TITLE_REGEX;
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
+				titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));			
+				titleLabel.setText(titleLabelText);
+				
+				changesTextArea.setText(versionInfo.getDescription());
+				
+				btnUpdate.setText("Update");
+			} else {
+				String titleLabelText = LATEST_VERSION_TITLE_REGEX;
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
+				titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));			
+				titleLabel.setText(titleLabelText);
+				
+				changesTextArea.setText(versionInfo.getDescription());
+				
+				btnUpdate.setText("Close");
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see pl.softace.sms2clipboard.net.http.IProgressListener#setProgress(int)
 	 */
@@ -218,8 +259,14 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	 */
 	@Override
 	public final void finished(ErrorCode errorCode) {
-		// TODO: replace downloaded file with the one used and reload templates and save new version in configuration
-		// TODO: close window or display error status
+		if (errorCode.equals(ErrorCode.FINISHED)) {
+			if (versionInfo != null) {
+				SMSTemplateManager.getInstance().replaceVersion(versionInfo.getVersion());
+			}
+		}
+		
+		// check again to display status
+		checkVersion();
 	}
 	
 	/**
@@ -233,10 +280,12 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 					double width = screenSize.getWidth();
 					double height = screenSize.getHeight();
 					
-					DBUpdateFrame frame = new DBUpdateFrame();
-					frame.setIconImage(new ImageIcon(ICON).getImage());
+					DBUpdateFrame frame = new DBUpdateFrame();					
+					frame.setIconImages(Icon.getFrameIcons());
 					frame.setResizable(false);				
 					frame.setLocation((int) width / 2 - frame.getWidth() / 2, (int) height / 2 - frame.getHeight() / 2);
+					
+					frame.checkVersion();
 					frame.setVisible(true);					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -249,6 +298,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		SMS2Clipboard.setUILookAndFeel();
 		DBUpdateFrame.createAndShow();
 	}
 }

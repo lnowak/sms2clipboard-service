@@ -79,13 +79,10 @@ public class SMS2Clipboard {
 		tray.initalize();
 	}
 	
-	
 	/**
-	 * Main method of the class.
-	 * 
-	 * @param args		arguments
+	 * Sets the UI look and feel.
 	 */
-	public static void main(String[] args) {
+	public static final void setUILookAndFeel() {
 		// set look and feel
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -97,7 +94,16 @@ public class SMS2Clipboard {
 			e.printStackTrace();
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
-		}				
+		}	
+	}
+	
+	/**
+	 * Main method of the class.
+	 * 
+	 * @param args		arguments
+	 */
+	public static void main(String[] args) {	
+		setUILookAndFeel();
 		
 		// main object
 		final SMS2Clipboard sms2Clipboard = new SMS2Clipboard();		

@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import pl.softace.sms2clipboard.template.SMSTemplate;
+import pl.softace.sms2clipboard.utils.Icon;
+import pl.softace.sms2clipboard.utils.StringUtils;
 
 /**
  * 
@@ -34,37 +35,6 @@ public class SMSFrame extends JFrame {
 	 * Serial ID.
 	 */
 	private static final long serialVersionUID = -808936437971092539L;
-
-	/**
-	 * Icon.
-	 */
-	private static final String ICON = "images/icon.png";
-	
-	/**
-	 * A HREF tag.
-	 */
-	private static final String A_HREF = "<a href=\"";
-	
-	/**
-	 * Close HREF tag.
-	 */
-	private static final String HREF_CLOSED = "\">";
-	
-	
-	/**
-	 * HREF end tag.
-	 */
-	private static final String HREF_END = "</a>";
-	
-	/**
-	 * HTML tag.
-	 */
-	private static final String HTML = "<html>";
-	
-	/**
-	 * HTML end tag. 
-	 */
-	private static final String HTML_END = "</html>";
 	
 	/**
 	 * Title of the label.
@@ -101,10 +71,10 @@ public class SMSFrame extends JFrame {
 		
 		StringBuilder text = new StringBuilder();
 		text.append(smsTemplate.getSMSPrefix(smsText));
-		text.append(linkIfy(smsTemplate.getSMSPassword(smsText)));
+		text.append(StringUtils.linkIfy(smsTemplate.getSMSPassword(smsText)));
 		text.append(smsTemplate.getSMSSuffix(smsText));
 		
-		JLabel smsLabel = new JLabel(htmlIfy(text.toString()));		
+		JLabel smsLabel = new JLabel(StringUtils.htmlIfy(text.toString()));		
 		smsPanel.add(smsLabel);
 		smsPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		
@@ -160,26 +130,6 @@ public class SMSFrame extends JFrame {
 	}
 	
 	/**
-	 * Wraps string with a href tag.
-	 * 
-	 * @param string		string to wrap
-	 * @return				wrapped string
-	 */
-	private static String linkIfy(String string) {
-		return A_HREF.concat(string).concat(HREF_CLOSED).concat(string).concat(HREF_END);
-	}
-
-	/**
-	 * Wrap string with html tag.
-	 * 
-	 * @param string		string to wrap
-	 * @return				wrapped string
-	 */
-	private static String htmlIfy(String string) {
-		return HTML.concat(string).concat(HTML_END);
-	}
-	
-	/**
 	 * Shows the SMS in JFrame window.
 	 * 
 	 * @param smsTemplate		SMS template
@@ -198,7 +148,7 @@ public class SMSFrame extends JFrame {
 				double height = screenSize.getHeight();
 				
 				SMSFrame smsJFrame = new SMSFrame(smsTemplate, smsText);
-				smsJFrame.setIconImage(new ImageIcon(ICON).getImage());				
+				smsJFrame.setIconImages(Icon.getFrameIcons());				
 				smsJFrame.setResizable(false);
 				smsJFrame.setSize(400, 145);
 				smsJFrame.setLocation((int) width / 2 - smsJFrame.getWidth() / 2, (int) height / 2 - smsJFrame.getHeight() / 2);				

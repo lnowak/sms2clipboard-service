@@ -130,19 +130,11 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 					LOG.debug("Received search packet from " + packet.getAddress() + ".");
 										
 					String hostName = InetAddress.getLocalHost().getHostName();
-					//String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
-					//byte[] responseBuffer = responseData.getBytes();
+					String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
+					byte[] responseBuffer = responseData.getBytes();
 					
-					StringBuilder builder = new StringBuilder();
-					builder.append("NOTIFY * HTTP/1.1\r\n");
-					builder.append("Host:239.255.255.250:1900\r\n");
-					builder.append(Command.RESPONSE_COMMAND.getData());
-					builder.append(": ");
-					builder.append(hostName);
-					builder.append("\r\n");
-					
-					DatagramPacket responsePacket = new DatagramPacket(builder.toString().getBytes(), 
-							builder.toString().getBytes().length, InetAddress.getByName(multicastGroup), port);
+					DatagramPacket responsePacket = new DatagramPacket(responseBuffer, 
+							responseBuffer.length, InetAddress.getByName(multicastGroup), port);
 					socket.send(responsePacket);
 					
 					LOG.debug("Response packet sent.");

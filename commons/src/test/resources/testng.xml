@@ -3,13 +3,13 @@
   <test name="Test">
     <classes>
         <class name="pl.softace.sms2clipboard.config.ConfigurationManagerTest"/>
+        <class name="pl.softace.sms2clipboard.net.http.impl.S3DBClientTest"/>
 		<class name="pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
 		<class name="pl.softace.sms2clipboard.security.AESCryptTest"/>
-		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>
-		<class name="pl.softace.sms2clipboard.net.api.server.ApiServerTest"/>
+		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>		
 		<class name="pl.softace.sms2clipboard.template.SMSTemplateTest"/>
 		<class name="pl.softace.sms2clipboard.template.SMSTemplateManagerTest"/>
-		<class name="pl.softace.sms2clipboard.net.http.impl.S3DBClientTest"/>
+		<class name="pl.softace.sms2clipboard.net.api.server.ApiServerTest"/>		
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
