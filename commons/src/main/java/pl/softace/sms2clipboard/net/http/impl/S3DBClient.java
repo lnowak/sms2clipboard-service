@@ -12,7 +12,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,7 +66,7 @@ public class S3DBClient implements IDBClient {
 		HttpClient httpClient = new DefaultHttpClient();
 		try {			
 			HttpGet httpGet = new HttpGet(VERSION_URL);
-			ResponseHandler<String> responseHandler = new BasicResponseHandler();
+			ResponseHandler<String> responseHandler = new UTF8BasicResponseHandler();
 			String responseBody = httpClient.execute(httpGet, responseHandler);
 			versionInfo = parseResponse(responseBody);
 		} catch (Exception e) {

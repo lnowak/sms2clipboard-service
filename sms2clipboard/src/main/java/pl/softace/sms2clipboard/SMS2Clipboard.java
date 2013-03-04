@@ -147,13 +147,12 @@ public class SMS2Clipboard {
 	                
 	                LOG.debug("Shutdown finished.");
 	                
-	                System.exit(0);
+	                //System.exit(0);
 	            }
 	        });
 			
 		} catch (IOException e) {
 			LOG.error("Exception while starting application.", e);
-			System.exit(-1);
 		}				
 	}
 }

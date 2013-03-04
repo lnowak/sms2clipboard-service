@@ -1,2 +1,3 @@
 3388;Operacja nr \d+ z dn. [\d-]+ mTransfer z rach.: ...\d+ na rach.: \d+...\d+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.;\\d+
 3388;Operacja nr \d+ z dn. [\d-]+ Przelew z rach.: ...\d+ na rach.: \d+...\d+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.;\\d+
+Alior Bank: Doladowanie telefonu nr \d+; Kwota [\d,]+ PLN; Kod SMS nr \d+ z dn. [\d-]+: ${PASSWORD};\\d+

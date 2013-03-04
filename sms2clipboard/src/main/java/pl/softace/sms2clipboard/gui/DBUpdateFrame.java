@@ -224,7 +224,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 				titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
 				titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));			
 				titleLabel.setText(titleLabelText);
-				
+								
 				changesTextArea.setText(versionInfo.getDescription());
 				
 				btnUpdate.setText("Update");

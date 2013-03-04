@@ -39,12 +39,14 @@ public class SMSTemplateManagerTest {
 		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
 		
 		// when
-		SMSTemplateManager.getInstance().loadFromFile(false, "./config/templates.txt");
+		SMSTemplateManager.getInstance().loadFromFile(false, "./config/templates.txt");		
 		SMSTemplate smsTemplate = SMSTemplateManager.getInstance().findSMSTemplate(smsText);
 		String password = smsTemplate.getSMSPassword(smsText);
 		
 		// then
 		Assert.assertNotNull(smsTemplate);
 		Assert.assertEquals(password, "98066528");
+		
+		SMSTemplateManager.getInstance().saveToFile();
 	}
 }
