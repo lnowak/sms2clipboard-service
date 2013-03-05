@@ -37,6 +37,11 @@ public class SMSTemplateManager {
 	private static final Logger LOG = LoggerFactory.getLogger(SMSTemplateManager.class);
 	
 	/**
+	 * Template delimiter.
+	 */
+	private static final String DELIMITER = "\\|";
+	
+	/**
 	 * Temporary file for database.
 	 */
 	public static final String DB_TEMP_FILE_NAME = "./config/temp.db";
@@ -106,11 +111,12 @@ public class SMSTemplateManager {
 	 * @param text		SMS text
 	 * @return			SMS template
 	 */
-	public final synchronized SMSTemplate findSMSTemplate(String text) {
+	public final synchronized SMSTemplate findSMSTemplate(String source, String text) {
 		SMSTemplate template = null;
 		for (SMSTemplate temp : templates) {
-			if (temp.matchText(text)) {
+			if (temp.getSource().equals(source) && temp.matchText(text)) {				
 				template = temp;
+				break;
 			}
 		}
 		
@@ -124,10 +130,11 @@ public class SMSTemplateManager {
 		LOG.debug("Start saving templates to file (" + templates.size() + ".");
 		
 		try {			
+			String delimiter = convertDelimiterForSaving(DELIMITER);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(baos));
 			for (SMSTemplate template : templates) {
-				String line = template.getSource() + ";" + template.getSmsRegex() + ";" + template.getPasswordRegex();				
+				String line = template.getSource() + delimiter + template.getSmsRegex() + delimiter	+ template.getPasswordRegex();				
 				writer.write(line);				
 				writer.write("\r\n");
 			}
@@ -173,7 +180,7 @@ public class SMSTemplateManager {
 			
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				String tokens[] = line.split(";");
+				String tokens[] = line.split(DELIMITER);
 				SMSTemplate template = new SMSTemplate();
 				template.setSource(tokens[0]);
 				template.setSmsRegex(tokens[1]);
@@ -234,5 +241,20 @@ public class SMSTemplateManager {
 		}
 		
 		return replaced; 
+	}
+	
+	/**
+	 * Converts delimiter for saving to file.
+	 * 
+	 * @param delimiter		delimiter to covert
+	 * @return				converted delimiter
+	 */
+	private String convertDelimiterForSaving(String delimiter) {
+		String converterdDelimiter = delimiter;
+		if (delimiter.contains("\\")) {
+			converterdDelimiter = delimiter.replaceAll("\\\\", "");
+		} 
+		
+		return converterdDelimiter;
 	}
 }

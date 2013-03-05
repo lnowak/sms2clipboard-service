@@ -54,9 +54,11 @@ public class SMSFrame extends JFrame {
 	/**
 	 * Constructor.
 	 */
-	public SMSFrame(SMSTemplate smsTemplate, String smsText) {
+	public SMSFrame(SMSTemplate smsTemplate, String smsSource, String smsText) {
 		this.smsTemplate = smsTemplate;
 		this.smsText = smsText;
+		
+		//TODO: smsSource
 		
 		setTitle("SMS2Clipboard");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -135,7 +137,7 @@ public class SMSFrame extends JFrame {
 	 * @param smsTemplate		SMS template
 	 * @param smsText			SMS text
 	 */
-	public static final void createAndShow(final SMSTemplate smsTemplate, final String smsText) {			
+	public static final void createAndShow(final SMSTemplate smsTemplate, final String smsSource, final String smsText) {			
 		SwingUtilities.invokeLater(new Runnable() {
 
 			/* (non-Javadoc)
@@ -147,7 +149,7 @@ public class SMSFrame extends JFrame {
 				double width = screenSize.getWidth();
 				double height = screenSize.getHeight();
 				
-				SMSFrame smsJFrame = new SMSFrame(smsTemplate, smsText);
+				SMSFrame smsJFrame = new SMSFrame(smsTemplate, smsSource, smsText);
 				smsJFrame.setIconImages(Icon.getFrameIcons());				
 				smsJFrame.setResizable(false);
 				smsJFrame.setSize(400, 145);
@@ -169,6 +171,6 @@ public class SMSFrame extends JFrame {
 		
 		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
 		
-		SMSFrame.createAndShow(smsTemplate, smsText);
+		SMSFrame.createAndShow(smsTemplate, "3388", smsText);
 	}
 }

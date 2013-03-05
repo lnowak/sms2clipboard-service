@@ -82,10 +82,11 @@ public class SMS2ClipboardPacketHandler implements IPacketHandler {
 		smsConfirmation.setStatus(Status.UNKNOWN_ERROR);
 		
 		String smsText = sms.getText();	
-		SMSTemplate smsTemplate = SMSTemplateManager.getInstance().findSMSTemplate(smsText);				
+		String smsSource = sms.getSource();
+		SMSTemplate smsTemplate = SMSTemplateManager.getInstance().findSMSTemplate(smsSource, smsText);				
 		
 		if (smsTemplate != null) {	
-			SMSFrame.createAndShow(smsTemplate, smsText);
+			SMSFrame.createAndShow(smsTemplate, smsSource, smsText);
 			smsConfirmation.setStatus(Status.OK);
 		} else {
 			LOG.debug("Template not found for " + sms + ".");

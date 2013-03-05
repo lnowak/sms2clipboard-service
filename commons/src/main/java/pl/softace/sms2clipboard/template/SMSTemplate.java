@@ -135,7 +135,11 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 			Matcher suffixMatcher = Pattern.compile(suffixRegex).matcher(text);		
 			
 			if (prefixMatcher.find() && suffixMatcher.find()) {
-				password = text.substring(prefixMatcher.end(), suffixMatcher.start());
+				int end = suffixMatcher.start();
+				if (suffixRegex.length() == 0) {
+					end = text.length();
+				}
+				password = text.substring(prefixMatcher.end(), end);
 			}
 		}
 		
