@@ -1,0 +1,1232 @@
+10 mar 2013 23:41:46,037 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:46,040 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:108 - Loading configuration from file.
+10 mar 2013 23:41:46,048 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:124 - Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] loaded from file.
+10 mar 2013 23:41:46,048 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:85 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file.
+10 mar 2013 23:41:46,052 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:101 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file finished.
+10 mar 2013 23:41:46,052 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:108 - Loading configuration from file.
+10 mar 2013 23:41:46,053 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:124 - Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] loaded from file.
+10 mar 2013 23:41:48,295 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:48,296 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:48,298 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:48,299 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:48,300 [main] ERROR pl.softace.sms2clipboard.template.SMSTemplateManager:193 - Exception during templates reloading.
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.loadFromFile(SMSTemplateManager.java:186)
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.loadFromFile(SMSTemplateManager.java:158)
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.replaceVersion(SMSTemplateManager.java:238)
+	at pl.softace.sms2clipboard.net.http.impl.S3DBClientTest.replaceVersion(S3DBClientTest.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:702)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:894)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1219)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:768)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1188)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1113)
+	at org.testng.TestNG.run(TestNG.java:1025)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:177)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:103)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+10 mar 2013 23:41:48,303 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (0).
+10 mar 2013 23:41:48,303 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:85 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file.
+10 mar 2013 23:41:48,303 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:101 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file finished.
+10 mar 2013 23:41:48,309 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:113 - UDP Auto Discovery server started.
+10 mar 2013 23:41:48,310 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:124 - Received search packet from /192.168.1.103.
+10 mar 2013 23:41:48,311 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-SEARCH
+10 mar 2013 23:41:48,311 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:134 - Response packet sent.
+10 mar 2013 23:41:48,312 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-INSTANCE: dell-lnowak
+10 mar 2013 23:41:49,312 [Thread-1] ERROR pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:140 - Exception occured.
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:90)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:786)
+	at pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer.run(UDPAutoDiscoveryServer.java:120)
+10 mar 2013 23:41:49,313 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:145 - UDP Auto Discovery server stopped.
+10 mar 2013 23:41:49,329 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-SEARCH
+10 mar 2013 23:41:49,329 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:113 - UDP Auto Discovery server started.
+10 mar 2013 23:41:49,331 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:124 - Received search packet from /192.168.1.103.
+10 mar 2013 23:41:49,332 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:134 - Response packet sent.
+10 mar 2013 23:41:49,332 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-INSTANCE: dell-lnowak
+10 mar 2013 23:41:51,448 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: upnp:rootdevice
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-InternetGatewayDevice-192168135678900001::upnp:rootdevice
+10 mar 2013 23:41:51,451 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: uuid:upnp-InternetGatewayDevice-192168135678900001
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-InternetGatewayDevice-192168135678900001
+10 mar 2013 23:41:51,551 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:device:InternetGatewayDevice:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-InternetGatewayDevice-192168135678900001::urn:schemas-upnp-org:device:InternetGatewayDevice:1
+10 mar 2013 23:41:51,554 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:service:Layer3Forwarding:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-InternetGatewayDevice-192168135678900001::urn:schemas-upnp-org:service:Layer3Forwarding:1
+10 mar 2013 23:41:51,557 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: uuid:upnp-WANDevice-192168135678900001
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANDevice-192168135678900001
+10 mar 2013 23:41:51,561 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:device:WANDevice:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANDevice-192168135678900001::urn:schemas-upnp-org:device:WANDevice:1
+10 mar 2013 23:41:51,565 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANDevice-192168135678900001::urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1
+10 mar 2013 23:41:51,568 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: uuid:upnp-WANConnectionDevice-192168135678900001
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANConnectionDevice-192168135678900001
+10 mar 2013 23:41:51,653 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:device:WANConnectionDevice:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANConnectionDevice-192168135678900001::urn:schemas-upnp-org:device:WANConnectionDevice:1
+10 mar 2013 23:41:51,657 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=100
+LOCATION: http://192.168.1.3:1900/igd.xml
+NT: urn:schemas-upnp-org:service:WANIPConnection:1
+NTS: ssdp:alive
+SERVER: TP-LINK Wireless N Nano Router WR702N, UPnP/1.0
+USN: uuid:upnp-WANConnectionDevice-192168135678900001::urn:schemas-upnp-org:service:WANIPConnection:1
+10 mar 2013 23:41:54,331 [Thread-2] ERROR pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:140 - Exception occured.
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:90)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:786)
+	at pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer.run(UDPAutoDiscoveryServer.java:120)
+10 mar 2013 23:41:54,332 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:145 - UDP Auto Discovery server stopped.
+10 mar 2013 23:41:54,466 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,469 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,470 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,471 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,472 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,473 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,474 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,475 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,476 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,477 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,478 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,479 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,480 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,481 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,482 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,483 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,484 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,485 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,486 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,487 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,488 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,489 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,490 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,491 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,492 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,493 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,494 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,495 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,496 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,496 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,609 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,609 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,609 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:54,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:41:54,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:41:54,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:41:54,840 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:41:54,840 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:41:54,841 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:41:54,953 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:41:54,953 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:41:54,953 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:41:55,067 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:41:55,067 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:41:55,067 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:41:55,180 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:41:55,180 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:41:55,180 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:41:55,293 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:41:55,294 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:41:55,294 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:41:55,407 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:41:55,407 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:41:55,407 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:41:55,529 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:41:55,529 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:41:55,529 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:41:55,641 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:41:55,641 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:41:55,641 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:41:55,754 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:41:55,754 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:41:55,754 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:41:55,869 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:55,988 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:55,994 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:55,996 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:55,997 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,113 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,236 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,236 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,237 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,237 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,352 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,353 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,353 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,353 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,465 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,467 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,468 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,581 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,695 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,696 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,696 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,696 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,697 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,697 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,697 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:56,700 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:56,701 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:56,701 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:130 - Start saving templates to file (5.
+10 mar 2013 23:41:56,702 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:151 - Saving templates to file finished.
+10 mar 2013 23:41:56,702 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:56,702 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:56,728 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:56,728 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:56,729 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:56,729 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:56,730 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:41:56,746 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:41:56,876 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:56,989 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,060 [main] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServer:91 - Server started on port 8080.
+10 mar 2013 23:41:57,175 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,287 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,398 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:57,510 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:57,511 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:57,528 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000001: nio socket, server, /127.0.0.1:53646 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:57,529 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000002: nio socket, client, /127.0.0.1:53646 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:57,531 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:57,531 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:41:57,533 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x00000002: nio socket, client, /127.0.0.1:53646 => /127.0.0.1:8080).
+10 mar 2013 23:41:57,536 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,536 [NioProcessor-2] ERROR pl.softace.sms2clipboard.security.AESCrypter:171 - Exception during AES decrypting.
+javax.crypto.BadPaddingException: Given final block not properly padded
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:811)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:676)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:313)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2087)
+	at pl.softace.sms2clipboard.security.AESCrypter.decrypt(AESCrypter.java:168)
+	at pl.softace.sms2clipboard.net.api.packet.ReflectedPacket.decodeBody(ReflectedPacket.java:147)
+	at pl.softace.sms2clipboard.net.api.codec.ApiCodecDecoder.decode(ApiCodecDecoder.java:61)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:232)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+10 mar 2013 23:41:57,537 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:80 - Closing (0x00000001: nio socket, server, /127.0.0.1:53646 => /127.0.0.1:8080) because of decoding exception.
+10 mar 2013 23:41:57,538 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000001: nio socket, server, /127.0.0.1:53646 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:57,538 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000002: nio socket, client, 0.0.0.0/0.0.0.0:53646 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:57,652 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,771 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,771 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:57,774 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000003: nio socket, server, /127.0.0.1:53656 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:57,774 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000004: nio socket, client, /127.0.0.1:53656 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:57,774 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,774 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,775 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x00000004: nio socket, client, /127.0.0.1:53656 => /127.0.0.1:8080).
+10 mar 2013 23:41:57,887 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,887 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] received from (0x00000003: nio socket, server, /127.0.0.1:53656 => /127.0.0.1:8080).
+10 mar 2013 23:41:57,888 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,888 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,888 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] sent to (0x00000003: nio socket, server, /127.0.0.1:53656 => /127.0.0.1:8080).
+10 mar 2013 23:41:57,889 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:57,889 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] received from(0x00000004: nio socket, client, /127.0.0.1:53656 => /127.0.0.1:8080).
+10 mar 2013 23:41:57,890 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:41:57,890 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000004: nio socket, client, 0.0.0.0/0.0.0.0:53656 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:57,890 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000003: nio socket, server, /127.0.0.1:53656 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:58,005 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,118 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,118 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,121 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,121 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,122 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,122 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,122 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=0, text=test 0] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,123 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,123 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=0, text=test 0] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,123 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,123 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,123 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=0, text=test 0, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,124 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,124 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=0, text=test 0, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,125 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,125 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,125 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=test 1] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,125 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,125 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=test 1] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,126 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,126 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,126 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=test 1, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,126 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,126 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=test 1, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,127 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,127 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,127 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=2, text=test 2] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,127 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,128 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=2, text=test 2] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,128 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,128 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,128 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=2, text=test 2, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,129 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,129 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=2, text=test 2, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,130 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,130 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,130 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=3, text=test 3] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,130 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,130 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=3, text=test 3] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,131 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,131 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,131 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=3, text=test 3, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,131 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,131 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=3, text=test 3, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,133 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,133 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,133 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=4, text=test 4] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,133 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,133 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=4, text=test 4] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,134 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,134 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,134 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=4, text=test 4, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,134 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,134 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=4, text=test 4, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,135 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,135 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,135 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=5, text=test 5] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,135 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,135 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=5, text=test 5] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,136 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,136 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,136 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=5, text=test 5, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,136 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,136 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=5, text=test 5, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,137 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,137 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,137 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=6, text=test 6] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,137 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,137 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=6, text=test 6] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,138 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,138 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,138 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=6, text=test 6, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,138 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,138 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=6, text=test 6, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,140 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,140 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,140 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=7, text=test 7] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,140 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,140 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=7, text=test 7] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,141 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,141 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,141 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=7, text=test 7, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,141 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,141 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=7, text=test 7, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,143 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,143 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,143 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=8, text=test 8] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,143 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,143 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=8, text=test 8] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,144 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,144 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,144 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=8, text=test 8, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,144 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,144 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=8, text=test 8, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,145 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,145 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,145 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=9, text=test 9] sent to (0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,145 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,145 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=9, text=test 9] received from (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,146 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,146 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,146 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=9, text=test 9, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,146 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,146 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=9, text=test 9, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53665 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,147 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,147 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000006: nio socket, client, 0.0.0.0/0.0.0.0:53665 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:58,147 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000005: nio socket, server, /127.0.0.1:53665 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:58,261 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,377 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,377 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,380 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000007: nio socket, server, /127.0.0.1:53674 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,380 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000008: nio socket, client, /127.0.0.1:53674 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,381 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message DBRequest [type=DB_REQUEST, id=1] sent to (0x00000008: nio socket, client, /127.0.0.1:53674 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,381 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message DBRequest [type=DB_REQUEST, id=1] received from (0x00000007: nio socket, server, /127.0.0.1:53674 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,382 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,383 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,383 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message DBResponse [type=DB_RESPONSE, id=1, status=0] sent to (0x00000007: nio socket, server, /127.0.0.1:53674 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,383 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,385 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message DBResponse [type=DB_RESPONSE, id=1, status=0] received from(0x00000008: nio socket, client, /127.0.0.1:53674 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,386 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,386 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000008: nio socket, client, 0.0.0.0/0.0.0.0:53674 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:58,386 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000007: nio socket, server, /127.0.0.1:53674 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:58,502 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,620 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,621 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,624 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000009: nio socket, server, /127.0.0.1:53683 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,624 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x0000000A: nio socket, client, /127.0.0.1:53683 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,624 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message DBVersionRequest [type=DB_VERSION_REQUEST, id=1] sent to (0x0000000A: nio socket, client, /127.0.0.1:53683 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,624 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message DBVersionRequest [type=DB_VERSION_REQUEST, id=1] received from (0x00000009: nio socket, server, /127.0.0.1:53683 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,625 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,625 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,625 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message DBVersionResponse [type=DB_VERSION_RESPONSE, id=1, version=version, status=0] sent to (0x00000009: nio socket, server, /127.0.0.1:53683 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,626 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,626 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message DBVersionResponse [type=DB_VERSION_RESPONSE, id=1, version=version, status=0] received from(0x0000000A: nio socket, client, /127.0.0.1:53683 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,627 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,627 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x0000000A: nio socket, client, 0.0.0.0/0.0.0.0:53683 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:58,627 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000009: nio socket, server, /127.0.0.1:53683 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:58,742 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,855 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,856 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,862 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x0000000B: nio socket, server, /127.0.0.1:53692 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,863 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x0000000C: nio socket, client, /127.0.0.1:53692 => /127.0.0.1:8080) opened.
+10 mar 2013 23:41:58,863 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,863 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,864 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x0000000C: nio socket, client, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,864 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,864 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] received from (0x0000000B: nio socket, server, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,864 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,865 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,865 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] sent to (0x0000000B: nio socket, server, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,865 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,865 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] received from(0x0000000C: nio socket, client, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,871 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,871 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,872 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,872 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,872 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message SMSPacket [type=SMS_PACKET, id=1, timestamp=1362955318871, source=123123123, text=text] sent to (0x0000000C: nio socket, client, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,873 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,873 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:41:58,873 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message SMSPacket [type=SMS_PACKET, id=1, timestamp=1362955318871, source=123123123, text=text] received from (0x0000000B: nio socket, server, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,874 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message SMSConfirmation [type=SMS_CONFIRMATION, id=1, status=0] sent to (0x0000000B: nio socket, server, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,874 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message SMSConfirmation [type=SMS_CONFIRMATION, id=1, status=0] received from(0x0000000C: nio socket, client, /127.0.0.1:53692 => /127.0.0.1:8080).
+10 mar 2013 23:41:58,874 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:41:58,874 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x0000000C: nio socket, client, 0.0.0.0/0.0.0.0:53692 => /127.0.0.1:8080) closed.
+10 mar 2013 23:41:58,875 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x0000000B: nio socket, server, /127.0.0.1:53692 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:41:58,876 [main] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServer:100 - Server on port 8080 was stopped.
+10 mar 2013 23:42:26,086 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:26,089 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:108 - Loading configuration from file.
+10 mar 2013 23:42:26,102 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:124 - Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] loaded from file.
+10 mar 2013 23:42:26,102 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:85 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file.
+10 mar 2013 23:42:26,104 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:101 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file finished.
+10 mar 2013 23:42:26,105 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:108 - Loading configuration from file.
+10 mar 2013 23:42:26,105 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:124 - Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] loaded from file.
+10 mar 2013 23:42:28,516 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:28,517 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:28,519 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:28,520 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:28,521 [main] ERROR pl.softace.sms2clipboard.template.SMSTemplateManager:193 - Exception during templates reloading.
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.loadFromFile(SMSTemplateManager.java:186)
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.loadFromFile(SMSTemplateManager.java:158)
+	at pl.softace.sms2clipboard.template.SMSTemplateManager.replaceVersion(SMSTemplateManager.java:238)
+	at pl.softace.sms2clipboard.net.http.impl.S3DBClientTest.replaceVersion(S3DBClientTest.java:73)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:702)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:894)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1219)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:768)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:87)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1188)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1113)
+	at org.testng.TestNG.run(TestNG.java:1025)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:177)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:103)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+10 mar 2013 23:42:28,523 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (0).
+10 mar 2013 23:42:28,523 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:85 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file.
+10 mar 2013 23:42:28,524 [main] DEBUG pl.softace.sms2clipboard.config.ConfigurationManager:101 - Saving Configuration [templatesDBVersion=1.0.0, password=password, updateDelay=3600000] to file finished.
+10 mar 2013 23:42:28,530 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:113 - UDP Auto Discovery server started.
+10 mar 2013 23:42:28,532 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:124 - Received search packet from /192.168.56.1.
+10 mar 2013 23:42:28,532 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-SEARCH
+10 mar 2013 23:42:28,532 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:134 - Response packet sent.
+10 mar 2013 23:42:28,533 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-INSTANCE: dell-lnowak
+10 mar 2013 23:42:33,534 [Thread-1] ERROR pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:140 - Exception occured.
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:90)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:786)
+	at pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer.run(UDPAutoDiscoveryServer.java:120)
+10 mar 2013 23:42:33,535 [Thread-1] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:145 - UDP Auto Discovery server stopped.
+10 mar 2013 23:42:33,553 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-SEARCH
+10 mar 2013 23:42:33,554 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:113 - UDP Auto Discovery server started.
+10 mar 2013 23:42:33,555 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:124 - Received search packet from /192.168.56.1.
+10 mar 2013 23:42:33,557 [main] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient:95 - Received: SMS2CLIPBOARD-SERVER-INSTANCE: dell-lnowak
+10 mar 2013 23:42:33,559 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:134 - Response packet sent.
+10 mar 2013 23:42:34,555 [Thread-2] ERROR pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:140 - Exception occured.
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	at java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:90)
+	at java.net.DatagramSocket.receive(DatagramSocket.java:786)
+	at pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer.run(UDPAutoDiscoveryServer.java:120)
+10 mar 2013 23:42:34,555 [Thread-2] DEBUG pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer:145 - UDP Auto Discovery server stopped.
+10 mar 2013 23:42:34,709 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,709 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,710 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,711 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,712 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,713 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,714 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,715 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,716 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,717 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,718 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,719 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,720 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,721 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,722 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,723 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,724 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,725 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,726 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,727 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,728 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,729 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,730 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,731 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,732 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,733 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,734 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,735 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,736 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,736 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,736 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,736 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,736 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,737 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,738 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,738 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,738 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,738 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,738 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,850 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,851 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,851 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:34,962 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:42:34,963 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:42:34,963 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password0.
+10 mar 2013 23:42:35,083 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:42:35,084 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:42:35,084 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password1.
+10 mar 2013 23:42:35,194 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:42:35,195 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:42:35,195 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password2.
+10 mar 2013 23:42:35,306 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:42:35,306 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:42:35,306 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password3.
+10 mar 2013 23:42:35,416 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:42:35,416 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:42:35,417 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password4.
+10 mar 2013 23:42:35,527 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:42:35,528 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:42:35,528 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password5.
+10 mar 2013 23:42:35,638 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:42:35,638 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:42:35,638 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password6.
+10 mar 2013 23:42:35,748 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:42:35,748 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:42:35,749 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password7.
+10 mar 2013 23:42:35,860 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:42:35,860 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:42:35,860 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password8.
+10 mar 2013 23:42:35,973 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:42:35,974 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:42:35,974 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password9.
+10 mar 2013 23:42:36,088 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,201 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,208 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,210 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,210 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,323 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,445 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,445 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,445 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,446 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,557 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,558 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,558 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,558 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,669 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,671 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,671 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,671 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,789 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,902 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,902 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,903 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,903 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,903 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,904 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,904 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:36,906 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:36,907 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:36,907 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:130 - Start saving templates to file (5.
+10 mar 2013 23:42:36,908 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:151 - Saving templates to file finished.
+10 mar 2013 23:42:36,908 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:36,908 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:36,912 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:36,912 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:36,913 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:36,913 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:36,914 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:165 - Start reloading templates.
+10 mar 2013 23:42:36,915 [main] DEBUG pl.softace.sms2clipboard.template.SMSTemplateManager:196 - Reloading templates finished (5).
+10 mar 2013 23:42:37,032 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,144 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,219 [main] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServer:91 - Server started on port 8080.
+10 mar 2013 23:42:37,335 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,445 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,554 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:37,675 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:37,675 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:37,693 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000001: nio socket, server, /127.0.0.1:53720 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:37,693 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000002: nio socket, client, /127.0.0.1:53720 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:37,695 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:37,695 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password password.
+10 mar 2013 23:42:37,697 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x00000002: nio socket, client, /127.0.0.1:53720 => /127.0.0.1:8080).
+10 mar 2013 23:42:37,700 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,700 [NioProcessor-2] ERROR pl.softace.sms2clipboard.security.AESCrypter:171 - Exception during AES decrypting.
+javax.crypto.BadPaddingException: Given final block not properly padded
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:811)
+	at com.sun.crypto.provider.CipherCore.doFinal(CipherCore.java:676)
+	at com.sun.crypto.provider.AESCipher.engineDoFinal(AESCipher.java:313)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2087)
+	at pl.softace.sms2clipboard.security.AESCrypter.decrypt(AESCrypter.java:168)
+	at pl.softace.sms2clipboard.net.api.packet.ReflectedPacket.decodeBody(ReflectedPacket.java:147)
+	at pl.softace.sms2clipboard.net.api.codec.ApiCodecDecoder.decode(ApiCodecDecoder.java:61)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:232)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1200(DefaultIoFilterChain.java:47)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:765)
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:109)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:417)
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:410)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:710)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:664)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:653)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:67)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1124)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+10 mar 2013 23:42:37,701 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:80 - Closing (0x00000001: nio socket, server, /127.0.0.1:53720 => /127.0.0.1:8080) because of decoding exception.
+10 mar 2013 23:42:37,702 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000001: nio socket, server, /127.0.0.1:53720 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:37,703 [NioProcessor-6] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000002: nio socket, client, 0.0.0.0/0.0.0.0:53720 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:37,817 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,931 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,931 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:37,935 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000003: nio socket, server, /127.0.0.1:53729 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:37,935 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000004: nio socket, client, /127.0.0.1:53729 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:37,935 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,935 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:37,936 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x00000004: nio socket, client, /127.0.0.1:53729 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,045 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,046 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] received from (0x00000003: nio socket, server, /127.0.0.1:53729 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,046 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,046 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,047 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] sent to (0x00000003: nio socket, server, /127.0.0.1:53729 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,047 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,047 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] received from(0x00000004: nio socket, client, /127.0.0.1:53729 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,048 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,048 [NioProcessor-8] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000004: nio socket, client, 0.0.0.0/0.0.0.0:53729 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:38,048 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000003: nio socket, server, /127.0.0.1:53729 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:38,160 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,270 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,270 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,273 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,273 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,274 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,274 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,274 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=0, text=test 0] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,274 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,275 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=0, text=test 0] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,275 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,275 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,275 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=0, text=test 0, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,276 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,276 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=0, text=test 0, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,277 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,277 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,277 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=test 1] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,277 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,277 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=test 1] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,278 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,278 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,278 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=test 1, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,278 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,278 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=test 1, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,279 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,279 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,279 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=2, text=test 2] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,279 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,279 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=2, text=test 2] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,280 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,280 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,280 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=2, text=test 2, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,280 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,280 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=2, text=test 2, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,281 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,281 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,281 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=3, text=test 3] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,282 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,282 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=3, text=test 3] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,282 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,282 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,282 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=3, text=test 3, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,283 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,283 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=3, text=test 3, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,283 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,283 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,283 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=4, text=test 4] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,284 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,284 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=4, text=test 4] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,284 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,284 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,284 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=4, text=test 4, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,285 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,285 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=4, text=test 4, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,286 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,286 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,286 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=5, text=test 5] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,287 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,287 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=5, text=test 5] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,287 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,287 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,287 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=5, text=test 5, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,288 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,288 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=5, text=test 5, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,288 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,288 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,288 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=6, text=test 6] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,288 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,289 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=6, text=test 6] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,289 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,289 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,289 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=6, text=test 6, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,290 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,290 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=6, text=test 6, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,290 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,290 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,291 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=7, text=test 7] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,291 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,291 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=7, text=test 7] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,291 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,291 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,292 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=7, text=test 7, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,292 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,292 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=7, text=test 7, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,293 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,293 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,293 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=8, text=test 8] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,293 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,293 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=8, text=test 8] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,294 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,294 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,294 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=8, text=test 8, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,294 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,294 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=8, text=test 8, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,295 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,295 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,295 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=9, text=test 9] sent to (0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,295 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,295 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=9, text=test 9] received from (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,296 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,296 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,296 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=9, text=test 9, status=0] sent to (0x00000005: nio socket, server, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,296 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,296 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=9, text=test 9, status=0] received from(0x00000006: nio socket, client, /127.0.0.1:53738 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,297 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,297 [NioProcessor-10] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000006: nio socket, client, 0.0.0.0/0.0.0.0:53738 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:38,297 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000005: nio socket, server, /127.0.0.1:53738 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:38,409 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,519 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,519 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,522 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000007: nio socket, server, /127.0.0.1:53747 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,522 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x00000008: nio socket, client, /127.0.0.1:53747 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,523 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message DBRequest [type=DB_REQUEST, id=1] sent to (0x00000008: nio socket, client, /127.0.0.1:53747 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,523 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message DBRequest [type=DB_REQUEST, id=1] received from (0x00000007: nio socket, server, /127.0.0.1:53747 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,524 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,525 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,525 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message DBResponse [type=DB_RESPONSE, id=1, status=0] sent to (0x00000007: nio socket, server, /127.0.0.1:53747 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,526 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,527 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message DBResponse [type=DB_RESPONSE, id=1, status=0] received from(0x00000008: nio socket, client, /127.0.0.1:53747 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,528 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,528 [NioProcessor-15] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x00000008: nio socket, client, 0.0.0.0/0.0.0.0:53747 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:38,528 [NioProcessor-2] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000007: nio socket, server, /127.0.0.1:53747 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:38,642 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,760 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,760 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,763 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x00000009: nio socket, server, /127.0.0.1:53756 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,763 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x0000000A: nio socket, client, /127.0.0.1:53756 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:38,764 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message DBVersionRequest [type=DB_VERSION_REQUEST, id=1] received from (0x00000009: nio socket, server, /127.0.0.1:53756 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,764 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,765 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,765 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message DBVersionResponse [type=DB_VERSION_RESPONSE, id=1, version=version, status=0] sent to (0x00000009: nio socket, server, /127.0.0.1:53756 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,764 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message DBVersionRequest [type=DB_VERSION_REQUEST, id=1] sent to (0x0000000A: nio socket, client, /127.0.0.1:53756 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,766 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,766 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message DBVersionResponse [type=DB_VERSION_RESPONSE, id=1, version=version, status=0] received from(0x0000000A: nio socket, client, /127.0.0.1:53756 => /127.0.0.1:8080).
+10 mar 2013 23:42:38,767 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:42:38,767 [NioProcessor-17] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x0000000A: nio socket, client, 0.0.0.0/0.0.0.0:53756 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:38,767 [NioProcessor-1] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x00000009: nio socket, server, /127.0.0.1:53756 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:38,880 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,990 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:38,991 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:98 - Trying to connect to 127.0.0.1 on port 8080.
+10 mar 2013 23:42:39,001 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:46 - Session (0x0000000B: nio socket, server, /127.0.0.1:53765 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:39,002 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:162 - Session (0x0000000C: nio socket, client, /127.0.0.1:53765 => /127.0.0.1:8080) opened.
+10 mar 2013 23:42:39,002 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,003 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,003 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] sent to (0x0000000C: nio socket, client, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,004 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,004 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message PingRequest [type=PING_REQUEST_PACKET, id=1, text=text] received from (0x0000000B: nio socket, server, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,004 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,004 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,005 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] sent to (0x0000000B: nio socket, server, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,005 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,005 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message PingResponse [type=PING_RESPONSE_PACKET, id=1, text=text, status=0] received from(0x0000000C: nio socket, client, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,006 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,006 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,006 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,006 [main] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,007 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:188 - Message SMSPacket [type=SMS_PACKET, id=1, timestamp=1362955359006, source=123123123, text=text] sent to (0x0000000C: nio socket, client, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,007 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,008 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.security.AESCrypter:129 - Ciphers inicialized with password sms2clipboard.
+10 mar 2013 23:42:39,008 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:62 - Message SMSPacket [type=SMS_PACKET, id=1, timestamp=1362955359006, source=123123123, text=text] received from (0x0000000B: nio socket, server, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,008 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:75 - Message SMSConfirmation [type=SMS_CONFIRMATION, id=1, status=0] sent to (0x0000000B: nio socket, server, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,009 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:177 - Message SMSConfirmation [type=SMS_CONFIRMATION, id=1, status=0] received from(0x0000000C: nio socket, client, /127.0.0.1:53765 => /127.0.0.1:8080).
+10 mar 2013 23:42:39,009 [main] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:117 - Disconnecting from 127.0.0.1 on port 8080.
+10 mar 2013 23:42:39,009 [NioProcessor-19] DEBUG pl.softace.sms2clipboard.net.api.client.ApiClient:169 - Session (0x0000000C: nio socket, client, 0.0.0.0/0.0.0.0:53765 => /127.0.0.1:8080) closed.
+10 mar 2013 23:42:39,012 [NioProcessor-3] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServerIOHandler:54 - Session (0x0000000B: nio socket, server, /127.0.0.1:53765 => 0.0.0.0/0.0.0.0:8080) closed.
+10 mar 2013 23:42:39,014 [main] DEBUG pl.softace.sms2clipboard.net.api.server.ApiServer:100 - Server on port 8080 was stopped.

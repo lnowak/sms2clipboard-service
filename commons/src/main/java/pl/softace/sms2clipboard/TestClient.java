@@ -1,12 +1,17 @@
 package pl.softace.sms2clipboard;
 
 import pl.softace.sms2clipboard.net.api.client.ApiClient;
+import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
+import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 
 public class TestClient {
 
 	public static void main(String[] args) {	
-		ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
-		apiClient.connect();
+		//ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
+		//apiClient.connect();
+		
+		IAutoDiscoveryServer server = new UDPAutoDiscoveryServer();
+		server.startServer();
 		
 		/*IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
 		for (ServerInstance serverInstance : autoDiscoveryClient.findServer()) {

@@ -47,7 +47,7 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 	/**
 	 * Multicast group.
 	 */
-	private String multicastGroup = "239.255.255.128";
+	private String multicastGroup = "239.255.255.250";
 		
 
 	/**
