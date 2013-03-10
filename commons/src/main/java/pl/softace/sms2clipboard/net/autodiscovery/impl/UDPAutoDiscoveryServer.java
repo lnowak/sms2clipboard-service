@@ -3,9 +3,7 @@ package pl.softace.sms2clipboard.net.autodiscovery.impl;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
-import java.net.SocketAddress;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,11 +74,8 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	 */
 	@Override
 	public final void startServer() {
-		try {			
-			InetAddress inetAddress = InetAddress.getLocalHost();
-			
-			SocketAddress address = new InetSocketAddress(inetAddress, port);
-			socket = new MulticastSocket(address);
+		try {						
+			socket = new MulticastSocket(port);			
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
 		} catch (IOException e) {
 			LOG.error("Exception occured.", e);

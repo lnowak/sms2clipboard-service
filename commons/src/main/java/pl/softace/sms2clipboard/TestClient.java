@@ -8,7 +8,6 @@ public class TestClient {
 		ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
 		apiClient.connect();
 		
-		
 		/*IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
 		for (ServerInstance serverInstance : autoDiscoveryClient.findServer()) {
 			ApiClient apiClient = new ApiClient(serverInstance.getIp(), 8080);

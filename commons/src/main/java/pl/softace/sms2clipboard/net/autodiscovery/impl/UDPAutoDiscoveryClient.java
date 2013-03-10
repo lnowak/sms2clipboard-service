@@ -3,9 +3,7 @@ package pl.softace.sms2clipboard.net.autodiscovery.impl;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
-import java.net.SocketAddress;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +73,10 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 		List<ServerInstance> servers = new ArrayList<ServerInstance>();
 		
 		try {			
-			SocketAddress address = new InetSocketAddress(InetAddress.getLocalHost(), port);
-			socket = new MulticastSocket(address);
+			socket = new MulticastSocket(port);
+			//socket.setReuseAddress(true);
+			//socket.setBroadcast(true);
+			//socket.bind(new InetSocketAddress(port));
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
 											
 			byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();			

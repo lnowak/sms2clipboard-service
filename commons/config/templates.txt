@@ -2,3 +2,4 @@
 3388|Operacja nr \d+ z dn. [\d-]+ Przelew z rach.: ...\d+ na rach.: \d+...\d+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.|\\d+
 Alior Bank|Alior Bank: Doladowanie telefonu nr \d+; Kwota [\d,]+ PLN; Kod SMS nr \d+ z dn. [\d-]+: ${PASSWORD}|\\d+
 Alior Bank|Alior Bank: Przelew na rachunek [\d.]+; Odbiorca: [\w\s-.]+; Kwota [\d,]+ PLN ; Kod SMS nr \d+ z dn. [\d-]+: ${PASSWORD}|\\d+
+Alior Bank|Alior Bank: Przelew ZUS na rachunek [\d.]+; Odbiorca: [\w\s-.]+; Kwota [\d,]+ PLN ; Kod SMS nr \d+ z dn. [\d-]+: ${PASSWORD}|\\d+
