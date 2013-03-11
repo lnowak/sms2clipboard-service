@@ -74,7 +74,6 @@ public class SMSFrame extends JFrame {
 		StringBuilder text = new StringBuilder();
 		text.append(smsTemplate.getSMSPrefix(smsText));
 		text.append(StringUtils.linkIfy(smsTemplate.getSMSPassword(smsText)));
-		text.append(smsTemplate.getSMSSuffix(smsText));
 		
 		JLabel smsLabel = new JLabel(StringUtils.htmlIfy(text.toString()));		
 		smsPanel.add(smsLabel);
