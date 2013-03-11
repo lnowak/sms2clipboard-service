@@ -1,3 +1,4 @@
+Sms2Clipboard|Greetings from sms2clipboard creators! Sample password: ${PASSWORD}|\\d+
 3388|Operacja nr \d+ z dn. [\d-]+ mTransfer z rach.: [\d.]+ na rach.: [\d.]+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.|\\d+
 3388|Operacja nr \d+ z dn. [\d-]+ Przelew z rach.: [\d.]+ na rach.: [\d.]+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.|\\d+
 3388|Operacja nr \d+ z dn. [\d-]+ Zmiana odbiorcy zdef. z rach: [\d.]+ na rach: [\d.]+ haslo: ${PASSWORD} mBank.|\\d+

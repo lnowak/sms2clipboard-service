@@ -70,7 +70,7 @@ public class S3DBClientTest implements IDownloadListener {
 	@Test(dependsOnMethods = "downloadDatabase")
 	public final void replaceVersion() {		
 		// when
-		boolean replaced = SMSTemplateManager.getInstance().replaceVersion("1.0.3");
+		boolean replaced = SMSTemplateManager.getInstance().replaceVersion("1.0.4");
 		
 		// then		
 		Assert.assertTrue(replaced);
