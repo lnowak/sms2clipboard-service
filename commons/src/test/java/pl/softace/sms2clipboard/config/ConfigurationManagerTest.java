@@ -20,7 +20,7 @@ public class ConfigurationManagerTest {
 		// given 
 		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
 		configuration.setPassword("password");
-		configuration.setTemplatesDBVersion("1.0.0");
+		configuration.setTemplatesDBVersion("1.0.3");
 		configuration.setUpdateDelay(60 * 60 * 1000);
 		
 		// when
