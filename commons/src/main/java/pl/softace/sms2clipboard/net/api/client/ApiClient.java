@@ -26,7 +26,7 @@ import pl.softace.sms2clipboard.net.api.packet.Packet;
 public class ApiClient extends IoHandlerAdapter {
 
 	/**
-	 * Log4j logger.
+	 * SLF4J logger.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(ApiClient.class);
 	
