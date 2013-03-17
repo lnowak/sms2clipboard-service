@@ -16,6 +16,7 @@ import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 import pl.softace.sms2clipboard.template.SMSTemplateManager;
 import pl.softace.sms2clipboard.update.UpdateCheckingThread;
+import pl.softace.sms2clipboard.utils.Utilities;
 
 /**
  * 
@@ -44,7 +45,7 @@ public class SMS2Clipboard {
 	/**
 	 * API server.
 	 */
-	private ApiServer apiServer;
+	public static ApiServer API_SERVER;
 	
 	/**
 	 * Update checking thread.
@@ -72,12 +73,41 @@ public class SMS2Clipboard {
 	 * Starts API server.
 	 * @throws IOException 
 	 */
-	public final void startApiServer() throws IOException {
-		// TODO: search for free socket
+	public final void startApiServer() throws IOException {				
+		API_SERVER = new ApiServer();
+		API_SERVER.setPacketHandler(new SMS2ClipboardPacketHandler());
 		
-		apiServer = new ApiServer();
-		apiServer.setPacketHandler(new SMS2ClipboardPacketHandler());
-		apiServer.startServer();
+		int actualPort = ConfigurationManager.getInstance().getConfiguration().getServerPort();
+		if (actualPort > 0 && Utilities.checkPort(actualPort)) {
+			API_SERVER.setPort(actualPort);
+		} else {		
+			int port = findFreePort();
+			if (port == 0) {
+				throw new RuntimeException("No free port found.");
+			}
+			ConfigurationManager.getInstance().getConfiguration().setServerPort(port);
+			ConfigurationManager.getInstance().saveToFile();
+			API_SERVER.setPort(port);
+		}
+		
+		API_SERVER.startServer();
+	}
+	
+	/**
+	 * Finds free port.
+	 * 
+	 * @return	free port or 0
+	 */
+	private final int findFreePort() {
+		int port = 0;
+		for (int i = 1000; i < 10000; i++) {
+			if (Utilities.checkPort(i)) {
+				port = i;
+				break;
+			}
+		}
+		
+		return port;
 	}
 	
 	/**
@@ -119,7 +149,8 @@ public class SMS2Clipboard {
 	 * 
 	 * @param args		arguments
 	 */
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
+		LOG.info("Encoding: " + System.getProperty("file.encoding") + ".");
 		setUILookAndFeel();
 		
 		try {
@@ -142,7 +173,7 @@ public class SMS2Clipboard {
 	            	LOG.debug("Shutdown application.");
 	            	
 	                sms2Clipboard.autoDiscoveryServer.stopServer();
-	                sms2Clipboard.apiServer.stopServer();
+	                SMS2Clipboard.API_SERVER.stopServer();
 	                sms2Clipboard.updateCheckingThread.setRunning(false);
 	                
 	                LOG.debug("Shutdown finished.");

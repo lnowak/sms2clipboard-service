@@ -11,7 +11,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pl.softace.sms2clipboard.net.autodiscovery.Command;
+import pl.softace.sms2clipboard.net.autodiscovery.Action;
 import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryClient;
 import pl.softace.sms2clipboard.net.autodiscovery.ServerInstance;
 
@@ -74,12 +74,11 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 		
 		try {			
 			socket = new MulticastSocket(port);
-			//socket.setReuseAddress(true);
-			//socket.setBroadcast(true);
-			//socket.bind(new InetSocketAddress(port));
 			socket.joinGroup(InetAddress.getByName(multicastGroup));
-											
-			byte[] requestBuffer = Command.SEARCH_COMMAND.getData().getBytes();			
+									
+			AutoDiscoveryPacket searchPacket = new AutoDiscoveryPacket();
+			searchPacket.setAction(Action.SEARCH);
+			byte[] requestBuffer = searchPacket.buildPacket().getBytes();			
 			
 			DatagramPacket requestPacket = new DatagramPacket(requestBuffer, requestBuffer.length, 
 					InetAddress.getByName(multicastGroup), port);
@@ -92,11 +91,14 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 					DatagramPacket receivedPacket = new DatagramPacket(receivingBuffer, receivingBuffer.length);
 					socket.setSoTimeout(1);
 					socket.receive(receivedPacket);											
-					String receivedMessage = new String(receivedPacket.getData());
-					if (receivedMessage != null && receivedMessage.contains(Command.RESPONSE_COMMAND.getData())) {
+					AutoDiscoveryPacket responsePacket = AutoDiscoveryPacket.parsePacket(
+							new String(receivedPacket.getData()));
+					
+					if (responsePacket != null && responsePacket.getAction().equals(Action.SERVER_INSTANCE)) {
 						ServerInstance server = new ServerInstance();
 						server.setIp(receivedPacket.getAddress().getHostAddress());
-						server.setHostName(receivedMessage.split(": ")[1].trim());
+						server.setHostName(responsePacket.getHost());
+						server.setPort(responsePacket.getPort());
 						servers.add(server);
 					}								
 					

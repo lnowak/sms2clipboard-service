@@ -2,6 +2,7 @@ package pl.softace.sms2clipboard.locale;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -97,8 +98,17 @@ public class Translation {
 	 * @param key		key of the property
 	 * @return			value of the property
 	 */
-	public final synchronized String getProperty(String key) {
-		return properties.getProperty(key);
+	public final synchronized String getProperty(Category category) {
+		String finalValue = null;
+		
+		String value = properties.getProperty(category.getKey());		
+		try {
+			finalValue = new String(value.getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			LOG.error("Exception occured.", e);
+		} 
+		
+		return finalValue;
 	}
 	
 	/**

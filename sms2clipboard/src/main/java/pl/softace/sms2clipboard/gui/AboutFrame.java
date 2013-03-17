@@ -15,6 +15,8 @@ import javax.swing.border.EmptyBorder;
 
 import pl.softace.sms2clipboard.config.Configuration;
 import pl.softace.sms2clipboard.config.ConfigurationManager;
+import pl.softace.sms2clipboard.locale.Category;
+import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.utils.Icon;
 
 /**
@@ -41,7 +43,7 @@ public class AboutFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public AboutFrame() {
-		setTitle("About");
+		setTitle(Translation.getInstance().getProperty(Category.FRAME_ABOUT_WINDOW_TITLE));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);		
 		setMinimumSize(new Dimension(320, 0));
 		
@@ -58,44 +60,53 @@ public class AboutFrame extends JFrame {
 		contentPane.add(versionPanel);
 		versionPanel.setLayout(new BoxLayout(versionPanel, BoxLayout.PAGE_AXIS));
 		
-		JLabel lblSms2ClipboardVersion = new JLabel("SMS2Clipboard version " + getClass().getPackage().getImplementationVersion() + ".");
+		JLabel lblSms2ClipboardVersion = new JLabel(
+				Translation.getInstance().getProperty(Category.FRAME_ABOUT_MAIN_VERSION_TEXT_LABEL)
+				+ " " + getClass().getPackage().getImplementationVersion() + ".");
 		versionPanel.add(lblSms2ClipboardVersion);
 		lblSms2ClipboardVersion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
-		//if (configuration != null) {
-			JLabel lblDatbaseVersion = new JLabel("Database version " + configuration.getTemplatesDBVersion() + ".");
-			versionPanel.add(lblDatbaseVersion);
-			lblDatbaseVersion.setAlignmentX(Component.CENTER_ALIGNMENT);
-		//}
+		JLabel lblDatbaseVersion = new JLabel(
+				Translation.getInstance().getProperty(Category.FRAME_ABOUT_DB_VERSION_TEXT_LABEL)
+				+ " " + configuration.getTemplatesDBVersion() + ".");
+		versionPanel.add(lblDatbaseVersion);
+		lblDatbaseVersion.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		JPanel infoPanel = new JPanel();
-		infoPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
-		contentPane.add(infoPanel);
-		infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.PAGE_AXIS));
+		String link1 = Translation.getInstance().getProperty(Category.FRAME_ABOUT_LINK_1);
+		String link2 = Translation.getInstance().getProperty(Category.FRAME_ABOUT_LINK_2);
+		if (!link1.equals("") || !link2.equals("")) {			
+			JPanel infoPanel = new JPanel();
+			infoPanel.setBorder(new EmptyBorder(20, 5, 5, 5));
+			contentPane.add(infoPanel);
+			infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.PAGE_AXIS));
+			
+			JLabel lblForMoreInformation = new JLabel(Translation.getInstance().getProperty(Category.FRAME_ABOUT_MORE_LABEL));
+			lblForMoreInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
+			infoPanel.add(lblForMoreInformation);		
 		
-		JLabel lblForMoreInformation = new JLabel("For more information please visit:");
-		lblForMoreInformation.setAlignmentX(Component.CENTER_ALIGNMENT);
-		infoPanel.add(lblForMoreInformation);
-		
-		JPanel links = new JPanel();
-		contentPane.add(links);
-		links.setLayout(new BoxLayout(links, BoxLayout.PAGE_AXIS));
-		
-		//For more information visit 
-		LinkLabel linkLabelWeb = new LinkLabel("www.google.com");
-		linkLabelWeb.setForeground(Color.BLUE);
-		linkLabelWeb.setHorizontalAlignment(SwingConstants.CENTER);
-		linkLabelWeb.setAlignmentX(Component.CENTER_ALIGNMENT);
-		linkLabelWeb.addActionListener(new LinkActionListener());
-		links.add(linkLabelWeb);
-		
-		LinkLabel linkLabelFb = new LinkLabel("www.facebook.com/rocksmithgame");
-		linkLabelFb.setForeground(Color.BLUE);
-		linkLabelFb.setHorizontalAlignment(SwingConstants.CENTER);
-		linkLabelFb.setAlignmentX(Component.CENTER_ALIGNMENT);				
-		linkLabelFb.addActionListener(new LinkActionListener());
-		links.add(linkLabelFb);				
+			JPanel links = new JPanel();
+			contentPane.add(links);
+			links.setLayout(new BoxLayout(links, BoxLayout.PAGE_AXIS));
+			 
+			if (!link1.equals("")) {
+				LinkLabel linkLabelWeb = new LinkLabel(link1);
+				linkLabelWeb.setForeground(Color.BLUE);
+				linkLabelWeb.setHorizontalAlignment(SwingConstants.CENTER);
+				linkLabelWeb.setAlignmentX(Component.CENTER_ALIGNMENT);
+				linkLabelWeb.addActionListener(new LinkActionListener());
+				links.add(linkLabelWeb);
+			}
+			
+			if (!link2.equals("")) {
+				LinkLabel linkLabelFb = new LinkLabel(link2);
+				linkLabelFb.setForeground(Color.BLUE);
+				linkLabelFb.setHorizontalAlignment(SwingConstants.CENTER);
+				linkLabelFb.setAlignmentX(Component.CENTER_ALIGNMENT);				
+				linkLabelFb.addActionListener(new LinkActionListener());
+				links.add(linkLabelFb);
+			}
+		}
 		
 		pack();
 	}

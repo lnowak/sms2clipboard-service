@@ -8,7 +8,8 @@ import java.net.MulticastSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pl.softace.sms2clipboard.net.autodiscovery.Command;
+import pl.softace.sms2clipboard.config.ConfigurationManager;
+import pl.softace.sms2clipboard.net.autodiscovery.Action;
 import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 
 /**
@@ -119,17 +120,19 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 				DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 				socket.receive(packet);
 				
-				String receivedData = new String(packet.getData());			
-				if (receivedData.contains(Command.SEARCH_COMMAND.getData())) {
+				AutoDiscoveryPacket receivedPacket = AutoDiscoveryPacket.parsePacket(new String(packet.getData()));			
+				if (receivedPacket != null && receivedPacket.getAction().equals(Action.SEARCH)) {
 					LOG.debug("Received search packet from " + packet.getAddress() + ".");
 										
-					String hostName = InetAddress.getLocalHost().getHostName();
-					String responseData = new String(Command.RESPONSE_COMMAND.getData() + ": " + hostName);
-					byte[] responseBuffer = responseData.getBytes();
+					AutoDiscoveryPacket responsePacket = new AutoDiscoveryPacket();
+					responsePacket.setAction(Action.SERVER_INSTANCE);
+					responsePacket.setHost(InetAddress.getLocalHost().getHostName());
+					responsePacket.setPort(ConfigurationManager.getInstance().getConfiguration().getServerPort());
 					
-					DatagramPacket responsePacket = new DatagramPacket(responseBuffer, 
+					byte[] responseBuffer = responsePacket.buildPacket().getBytes();
+					DatagramPacket responseDatagram = new DatagramPacket(responseBuffer, 
 							responseBuffer.length, InetAddress.getByName(multicastGroup), port);
-					socket.send(responsePacket);
+					socket.send(responseDatagram);
 					
 					LOG.debug("Response packet sent.");
 				}			

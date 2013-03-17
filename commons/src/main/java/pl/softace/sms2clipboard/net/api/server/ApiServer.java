@@ -67,6 +67,14 @@ public class ApiServer {
 		this.packetHandler = packetHandler;
 	}
 
+	public final int getPort() {
+		return port;
+	}
+
+	public final void setPort(int port) {
+		this.port = port;
+	}
+
 	/**
 	 * Sets new AES password.
 	 * 

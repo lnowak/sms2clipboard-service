@@ -16,6 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.net.http.DBVersionInfo;
 import pl.softace.sms2clipboard.net.http.ErrorCode;
 import pl.softace.sms2clipboard.net.http.IDBClient;
@@ -49,7 +50,7 @@ public class S3DBClient implements IDBClient {
 	/**
 	 * URL of versions description.
 	 */
-	private static final String VERSION_URL = "https://s3.amazonaws.com/sms2clipboard/templates_db_version";
+	private static final String VERSION_URL = "https://s3.amazonaws.com/sms2clipboard/templates_db_version_";
 	
 	/**
 	 * URL of datbase files.
@@ -65,7 +66,7 @@ public class S3DBClient implements IDBClient {
 		DBVersionInfo versionInfo = null;		
 		HttpClient httpClient = new DefaultHttpClient();
 		try {			
-			HttpGet httpGet = new HttpGet(VERSION_URL);
+			HttpGet httpGet = new HttpGet(VERSION_URL + Translation.getInstance().getLanguage());
 			ResponseHandler<String> responseHandler = new UTF8BasicResponseHandler();
 			String responseBody = httpClient.execute(httpGet, responseHandler);
 			versionInfo = parseResponse(responseBody);

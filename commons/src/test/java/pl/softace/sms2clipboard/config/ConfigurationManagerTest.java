@@ -22,6 +22,7 @@ public class ConfigurationManagerTest {
 		configuration.setPassword("password");
 		configuration.setTemplatesDBVersion("1.0.3");
 		configuration.setUpdateDelay(60 * 60 * 1000);
+		configuration.setServerPort(10000);
 		
 		// when
 		ConfigurationManager.getInstance().saveToFile();

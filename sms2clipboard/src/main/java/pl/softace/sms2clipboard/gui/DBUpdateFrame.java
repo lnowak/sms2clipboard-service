@@ -26,6 +26,8 @@ import javax.swing.border.EmptyBorder;
 
 import pl.softace.sms2clipboard.SMS2Clipboard;
 import pl.softace.sms2clipboard.config.ConfigurationManager;
+import pl.softace.sms2clipboard.locale.Category;
+import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.net.http.DBVersionInfo;
 import pl.softace.sms2clipboard.net.http.ErrorCode;
 import pl.softace.sms2clipboard.net.http.IDBClient;
@@ -47,16 +49,6 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	 * Serial ID.
 	 */
 	private static final long serialVersionUID = 2158347433231559828L;
-	
-	/**
-	 * Regex used to set title label for new version.
-	 */
-	private static final String NEW_VERSION_TITLE_REGEX = "New version ${VERSION} published at ${DATE} is available.";
-	
-	/**
-	 * Regex used to set title label for latest version.
-	 */
-	private static final String LATEST_VERSION_TITLE_REGEX = "You have the latest version ${VERSION} published at ${DATE}.";
 	
 	/**
 	 * Version tag.
@@ -122,7 +114,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 	 */
 	public DBUpdateFrame() {				
 		setResizable(false);
-		setTitle("Database update");
+		setTitle(Translation.getInstance().getProperty(Category.FRAME_UPDATE_WINDOW_TITLE));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		//setBounds(100, 100, 450, 290);
 		contentPane = new JPanel();
@@ -140,7 +132,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		gbl_versionPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		versionPanel.setLayout(gbl_versionPanel);				
 		
-		titleLabel = new JLabel("Update service is temporairly unavailabel. Please try again later.");	
+		titleLabel = new JLabel(Translation.getInstance().getProperty(Category.FRAME_UPDATE_SERVICE_NOT_AVAILABLE_LABEL));
 		titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		GridBagConstraints gbc_titleLabel = new GridBagConstraints();
 		gbc_titleLabel.insets = new Insets(0, 0, 5, 0);
@@ -148,7 +140,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		gbc_titleLabel.gridy = 0;
 		versionPanel.add(titleLabel, gbc_titleLabel);
 		
-		JLabel lblChanges = new JLabel("Changes:");
+		JLabel lblChanges = new JLabel(Translation.getInstance().getProperty(Category.FRAME_UPDATE_CHANGES_LABEL));
 		lblChanges.setHorizontalAlignment(SwingConstants.LEFT);
 		lblChanges.setVerticalAlignment(SwingConstants.TOP);
 		GridBagConstraints gbc_lblChanges = new GridBagConstraints();
@@ -182,10 +174,14 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		updatePanel.add(progressBar);
 		updatePanel.add(Box.createRigidArea(new Dimension(10, 10)));
 		
-		btnUpdate = new JButton("Close");
+		final String buttonUpdateLabel = Translation.getInstance().getProperty(Category.FRAME_UPDATE_BUTTON_UPDATE_LABEL);
+		final String buttonCancelLabel = Translation.getInstance().getProperty(Category.FRAME_UPDATE_BUTTON_CANCEL_LABEL);
+		final String buttonCloseLabel = Translation.getInstance().getProperty(Category.FRAME_UPDATE_BUTTON_CLOSE_LABEL);
+		
+		btnUpdate = new JButton(buttonCloseLabel);
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (btnUpdate.getText().equals("Update")) {
+				if (btnUpdate.getText().equals(buttonUpdateLabel)) {
 					download = true;
 					new Thread() {
 						@Override
@@ -194,11 +190,11 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 							client.downloadDatabase(versionInfo.getVersion(), updateFrame);
 						}
 					}.start();
-					btnUpdate.setText("Cancel");
-				} else if (btnUpdate.getText().equals("Cancel")) {
+					btnUpdate.setText(buttonCancelLabel);
+				} else if (btnUpdate.getText().equals(buttonCancelLabel)) {
 					download = false;
-					btnUpdate.setText("Update");
-				} else if (btnUpdate.getText().equals("Close")) {
+					btnUpdate.setText(buttonUpdateLabel);
+				} else if (btnUpdate.getText().equals(buttonCloseLabel)) {
 					dispose();
 				}
 			}
@@ -219,7 +215,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 		
 		if (versionInfo != null) {
 			if (!versionInfo.getVersion().equals(ConfigurationManager.getInstance().getConfiguration().getTemplatesDBVersion())) {			
-				String titleLabelText = NEW_VERSION_TITLE_REGEX;
+				String titleLabelText = Translation.getInstance().getProperty(Category.FRAME_UPDATE_NEW_VERSION_IS_AVAILABLE_LABEL);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
 				titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));			
@@ -227,9 +223,9 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 								
 				changesTextArea.setText(versionInfo.getDescription());
 				
-				btnUpdate.setText("Update");
+				btnUpdate.setText(Translation.getInstance().getProperty(Category.FRAME_UPDATE_BUTTON_UPDATE_LABEL));
 			} else {
-				String titleLabelText = LATEST_VERSION_TITLE_REGEX;
+				String titleLabelText = Translation.getInstance().getProperty(Category.FRAME_UPDATE_LATEST_VERSION_LABEL);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				titleLabelText = titleLabelText.replace(VERSION_TAG, versionInfo.getVersion());
 				titleLabelText = titleLabelText.replace(DATE_TAG, sdf.format(versionInfo.getDate()));			
@@ -237,7 +233,7 @@ public class DBUpdateFrame extends JFrame implements IDownloadListener {
 				
 				changesTextArea.setText(versionInfo.getDescription());
 				
-				btnUpdate.setText("Close");
+				btnUpdate.setText(Translation.getInstance().getProperty(Category.FRAME_UPDATE_BUTTON_CLOSE_LABEL));
 			}
 		}
 	}

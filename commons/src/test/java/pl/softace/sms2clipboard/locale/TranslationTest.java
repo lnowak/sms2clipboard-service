@@ -20,17 +20,14 @@ public class TranslationTest {
 	 * @throws IOException 
 	 */
 	@Test
-	public final void getTranslationTextInPlLanguage() throws IOException {
-		// given
-		String key = "test1";
-		
+	public final void getTranslationTextInPlLanguage() throws IOException {		
 		// when
-		String value = Translation.getInstance().getProperty(key);
+		String value = Translation.getInstance().getProperty(Category.NEW_DB_VERSION_AVAILABLE);
 		
 		// then
 		Properties properties = new Properties();
 		properties.load(ClassLoader.getSystemResourceAsStream("locale_pl.properties"));
-		Assert.assertEquals(value, properties.getProperty(key));
+		Assert.assertEquals(value, properties.getProperty(Category.NEW_DB_VERSION_AVAILABLE.getKey()));
 	}
 	
 	/**
@@ -38,16 +35,13 @@ public class TranslationTest {
 	 * @throws IOException 
 	 */
 	@Test(dependsOnMethods = "getTranslationTextInPlLanguage")
-	public final void getTranslationTextInEnLanguage() throws IOException {
-		// given
-		String key = "test1";
-		
+	public final void getTranslationTextInEnLanguage() throws IOException {		
 		// when		
-		String value = Translation.getInstance("en").getProperty(key);
+		String value = Translation.getInstance("en").getProperty(Category.NEW_DB_VERSION_AVAILABLE);
 		
 		// then
 		Properties properties = new Properties();
 		properties.load(ClassLoader.getSystemResourceAsStream("locale_en.properties"));
-		Assert.assertEquals(value, properties.getProperty(key));
+		Assert.assertEquals(value, properties.getProperty(Category.NEW_DB_VERSION_AVAILABLE.getKey()));
 	}
 }

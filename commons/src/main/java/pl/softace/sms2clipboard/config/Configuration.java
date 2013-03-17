@@ -31,6 +31,11 @@ public class Configuration implements Serializable {
 	 */
 	private long updateDelay;
 	
+	/**
+	 * Port used for server.
+	 */
+	private int serverPort;
+	
 	
 	/**
 	 * Default constructor.
@@ -63,6 +68,14 @@ public class Configuration implements Serializable {
 		this.updateDelay = updateDelay;
 	}
 
+	public final int getServerPort() {
+		return serverPort;
+	}
+
+	public final void setServerPort(int serverPort) {
+		this.serverPort = serverPort;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -72,6 +85,7 @@ public class Configuration implements Serializable {
 		int result = 1;
 		result = prime * result
 				+ ((password == null) ? 0 : password.hashCode());
+		result = prime * result + serverPort;
 		result = prime
 				* result
 				+ ((templatesDBVersion == null) ? 0 : templatesDBVersion
@@ -97,6 +111,8 @@ public class Configuration implements Serializable {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (serverPort != other.serverPort)
+			return false;
 		if (templatesDBVersion == null) {
 			if (other.templatesDBVersion != null)
 				return false;
@@ -119,6 +135,8 @@ public class Configuration implements Serializable {
 		builder.append(password);
 		builder.append(", updateDelay=");
 		builder.append(updateDelay);
+		builder.append(", serverPort=");
+		builder.append(serverPort);
 		builder.append("]");
 		return builder.toString();
 	}

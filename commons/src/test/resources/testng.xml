@@ -4,6 +4,7 @@
     <classes>
         <class name="pl.softace.sms2clipboard.config.ConfigurationManagerTest"/>
         <class name="pl.softace.sms2clipboard.net.http.impl.S3DBClientTest"/>
+        <class name="pl.softace.sms2clipboard.net.autodiscovery.impl.AutoDiscoveryPacketTest"/>
 		<class name="pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServerTest"/>
 		<class name="pl.softace.sms2clipboard.security.AESCryptTest"/>
 		<class name="pl.softace.sms2clipboard.net.api.packet.PacketTest"/>		

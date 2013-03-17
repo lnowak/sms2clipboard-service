@@ -19,6 +19,11 @@ public class ServerInstance {
 	 */
 	private String hostName;
 	
+	/**
+	 * Port of the server.
+	 */
+	private int port;
+	
 	
 	/**
 	 * Default constructor.
@@ -43,6 +48,14 @@ public class ServerInstance {
 		this.hostName = hostName;
 	}
 
+	public final int getPort() {
+		return port;
+	}
+
+	public final void setPort(int port) {
+		this.port = port;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -53,6 +66,8 @@ public class ServerInstance {
 		builder.append(ip);
 		builder.append(", hostName=");
 		builder.append(hostName);
+		builder.append(", port=");
+		builder.append(port);
 		builder.append("]");
 		return builder.toString();
 	}

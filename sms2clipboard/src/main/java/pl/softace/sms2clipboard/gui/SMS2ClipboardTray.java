@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import pl.softace.sms2clipboard.locale.Translation;
+import pl.softace.sms2clipboard.locale.Category;
 import pl.softace.sms2clipboard.utils.Icon;
 
 /**
@@ -45,7 +47,7 @@ public class SMS2ClipboardTray {
 	 */
 	public final void setInfoIcon() {
 		trayIcon.setImage(Icon.getImage(Icon.FRONT_INFO_16));
-		trayIcon.setToolTip("New version of database is available.");
+		trayIcon.setToolTip(Translation.getInstance().getProperty(Category.NEW_DB_VERSION_AVAILABLE));
 	}
 	
 	/**
@@ -53,7 +55,7 @@ public class SMS2ClipboardTray {
 	 */
 	public final void setStandardIcon() {
 		trayIcon.setImage(Icon.getImage(Icon.FRONT_STANDARD_16));
-		trayIcon.setToolTip("SMS2Clipboard.");
+		trayIcon.setToolTip(Translation.getInstance().getProperty(Category.TRAY_APPLICATION_NAME));
 	}
 	
 	/**
@@ -63,11 +65,14 @@ public class SMS2ClipboardTray {
 		if (SystemTray.isSupported()) {         
 			try {			
 				PopupMenu popup = new PopupMenu();
-		        trayIcon = new TrayIcon(Icon.getImage(Icon.FRONT_STANDARD_16), "SMS2Clipboard", popup);
+		        trayIcon = new TrayIcon(
+		        		Icon.getImage(Icon.FRONT_STANDARD_16), 
+		        		Translation.getInstance().getProperty(Category.TRAY_APPLICATION_NAME), 
+		        		popup);
 		        SystemTray tray = SystemTray.getSystemTray();
 		        
 		        // settings menu
-		        MenuItem settingsItem = new MenuItem("Settings");
+		        MenuItem settingsItem = new MenuItem(Translation.getInstance().getProperty(Category.TRAY_MENU_SETTINGS));
 		        settingsItem.addActionListener(new ActionListener() {
 					
 					/* (non-Javadoc)
@@ -82,7 +87,7 @@ public class SMS2ClipboardTray {
 		        popup.add(settingsItem);
 		        
 		        // update menu
-		        MenuItem updateItem = new MenuItem("Check for update");
+		        MenuItem updateItem = new MenuItem(Translation.getInstance().getProperty(Category.TRAY_MENU_UPDATE));
 		        updateItem.addActionListener(new ActionListener() {
 					
 					/* (non-Javadoc)
@@ -97,7 +102,7 @@ public class SMS2ClipboardTray {
 		        popup.add(updateItem);
 		        
 		        // about menu
-		        MenuItem aboutItem = new MenuItem("About");
+		        MenuItem aboutItem = new MenuItem(Translation.getInstance().getProperty(Category.TRAY_MENU_ABOUT));
 		        aboutItem.addActionListener(new ActionListener() {
 					
 					/* (non-Javadoc)
@@ -113,7 +118,7 @@ public class SMS2ClipboardTray {
 		        popup.addSeparator();
 		        
 		        // exit menu
-		        MenuItem exitItem = new MenuItem("Exit");
+		        MenuItem exitItem = new MenuItem(Translation.getInstance().getProperty(Category.TRAY_MENU_EXIT));
 		        exitItem.addActionListener(new ActionListener() {
 					
 					/* (non-Javadoc)

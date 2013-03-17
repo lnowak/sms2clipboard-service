@@ -8,18 +8,24 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import pl.softace.sms2clipboard.SMS2Clipboard;
 import pl.softace.sms2clipboard.config.Configuration;
 import pl.softace.sms2clipboard.config.ConfigurationManager;
+import pl.softace.sms2clipboard.locale.Category;
+import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.utils.Icon;
+import pl.softace.sms2clipboard.utils.Utilities;
 
 /**
  * 
@@ -48,7 +54,7 @@ public class SettingsFrame extends JFrame {
 	/**
 	 * Text field with update delay.
 	 */
-	private JTextField textFieldUpdateDelay;
+	private JTextField textFieldPort;
 
 	
 	/**
@@ -56,7 +62,7 @@ public class SettingsFrame extends JFrame {
 	 */
 	public SettingsFrame() {
 		setResizable(false);
-		setTitle("Settings");
+		setTitle(Translation.getInstance().getProperty(Category.FRAME_SETTINGS_WINDOW_TITLE));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 354, 131);
 		contentPane = new JPanel();
@@ -73,7 +79,7 @@ public class SettingsFrame extends JFrame {
 		gbl_settingsPanel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		settingsPanel.setLayout(gbl_settingsPanel);
 		
-		JLabel lblPassword = new JLabel("Password:");
+		JLabel lblPassword = new JLabel(Translation.getInstance().getProperty(Category.FRAME_SETTINGS_PASSWORD_LABEL));
 		GridBagConstraints gbc_lblPassword = new GridBagConstraints();
 		gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
 		gbc_lblPassword.anchor = GridBagConstraints.EAST;
@@ -90,7 +96,7 @@ public class SettingsFrame extends JFrame {
 		settingsPanel.add(textFieldPassword, gbc_textFieldPassword);
 		textFieldPassword.setColumns(10);
 		
-		JLabel lblUpdateDelay = new JLabel("Update delay:");
+		JLabel lblUpdateDelay = new JLabel(Translation.getInstance().getProperty(Category.FRAME_SETTINGS_PORT_LABEL));
 		GridBagConstraints gbc_lblUpdateDelay = new GridBagConstraints();
 		gbc_lblUpdateDelay.anchor = GridBagConstraints.EAST;
 		gbc_lblUpdateDelay.insets = new Insets(0, 0, 0, 5);
@@ -98,18 +104,19 @@ public class SettingsFrame extends JFrame {
 		gbc_lblUpdateDelay.gridy = 1;
 		settingsPanel.add(lblUpdateDelay, gbc_lblUpdateDelay);
 		
-		textFieldUpdateDelay = new JTextField();
-		GridBagConstraints gbc_textFieldUpdateDelay = new GridBagConstraints();
-		gbc_textFieldUpdateDelay.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textFieldUpdateDelay.gridx = 1;
-		gbc_textFieldUpdateDelay.gridy = 1;
-		settingsPanel.add(textFieldUpdateDelay, gbc_textFieldUpdateDelay);
-		textFieldUpdateDelay.setColumns(10);
+		textFieldPort = new JTextField();
+		GridBagConstraints gbc_textFieldPort = new GridBagConstraints();
+		gbc_textFieldPort.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldPort.gridx = 1;
+		gbc_textFieldPort.gridy = 1;
+		settingsPanel.add(textFieldPort, gbc_textFieldPort);
+		textFieldPort.setColumns(10);
 		
 		JPanel buttonsPanel = new JPanel();
 		contentPane.add(buttonsPanel);
 		
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnCancel = new JButton(
+				Translation.getInstance().getProperty(Category.FRAME_SETTINGS_BUTTON_CANCEL_LABEL));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -117,12 +124,14 @@ public class SettingsFrame extends JFrame {
 			}
 		});
 		
-		JButton btnSave = new JButton("Save");
+		JButton btnSave = new JButton(
+				Translation.getInstance().getProperty(Category.FRAME_SETTINGS_BUTTON_SAVE_LABEL));
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				save();
-				setVisible(false);
-			    dispose();
+				if (save()) {
+					setVisible(false);
+			    	dispose();
+				}
 			}
 		});
 		buttonsPanel.add(btnSave);
@@ -161,20 +170,40 @@ public class SettingsFrame extends JFrame {
 		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
 		if (configuration != null) {
 			textFieldPassword.setText(configuration.getPassword());
-			textFieldUpdateDelay.setText(String.valueOf(configuration.getUpdateDelay()));
+			textFieldPort.setText(String.valueOf(configuration.getServerPort()));
 		}
 	}
 	
 	/**
 	 * Save configuration to file.
 	 */
-	private final void save() {
+	private final boolean save() {
+		boolean saved = true;		
 		Configuration configuration = ConfigurationManager.getInstance().getConfiguration();
 		if (configuration != null) {
 			configuration.setPassword(textFieldPassword.getText());
-			configuration.setUpdateDelay(Long.parseLong(textFieldUpdateDelay.getText()));
+			int port = Integer.parseInt(textFieldPort.getText());
+			if (!Utilities.checkPort(port)) {
+				JOptionPane.showMessageDialog(this, 
+						Translation.getInstance().getProperty(Category.FRAME_SETTINGS_PORT_SELECTED_ERROR));
+				saved = false;
+			}			
+			
+			configuration.setServerPort(port);
+			if (SMS2Clipboard.API_SERVER != null && SMS2Clipboard.API_SERVER.getPort() != port) {
+				try {
+					SMS2Clipboard.API_SERVER.stopServer();
+					SMS2Clipboard.API_SERVER.setPort(port);
+					SMS2Clipboard.API_SERVER.startServer();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(this, 
+							Translation.getInstance().getProperty(Category.FRAME_SETTINGS_PORT_SELECTED_ERROR));
+				}
+			}
 		}
 		ConfigurationManager.getInstance().saveToFile();
+
+		return saved;
 	}
 	
 	/**

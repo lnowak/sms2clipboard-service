@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import pl.softace.sms2clipboard.locale.Category;
+import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.template.SMSTemplate;
 import pl.softace.sms2clipboard.utils.Icon;
 import pl.softace.sms2clipboard.utils.StringUtils;
@@ -35,11 +37,6 @@ public class SMSFrame extends JFrame {
 	 * Serial ID.
 	 */
 	private static final long serialVersionUID = -808936437971092539L;
-	
-	/**
-	 * Title of the label.
-	 */
-	private static final String LABEL_TITLE = "Received SMS:";	
 
 	/**
 	 * SMS template.
@@ -58,15 +55,15 @@ public class SMSFrame extends JFrame {
 		this.smsTemplate = smsTemplate;
 		this.smsText = smsText;
 		
-		//TODO: smsSource
-		
-		setTitle("SMS2Clipboard");
+		setTitle(Translation.getInstance().getProperty(Category.FRAME_SMS_WINDOW_TILTE));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// label and text
 		JPanel smsPanel = new JPanel();
 		smsPanel.setLayout(new BoxLayout(smsPanel, BoxLayout.PAGE_AXIS));		
-		JLabel titleLabel = new JLabel(LABEL_TITLE);		
+		JLabel titleLabel = new JLabel(
+				Translation.getInstance().getProperty(Category.FRAME_SMS_MAIN_LABEL) 
+				+ " " + smsSource + ":");		
 		smsPanel.add(titleLabel);		
 
 		smsPanel.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -74,6 +71,7 @@ public class SMSFrame extends JFrame {
 		StringBuilder text = new StringBuilder();
 		text.append(smsTemplate.getSMSPrefix(smsText));
 		text.append(StringUtils.linkIfy(smsTemplate.getSMSPassword(smsText)));
+		text.append(smsTemplate.getSMSSuffix(smsText));
 		
 		JLabel smsLabel = new JLabel(StringUtils.htmlIfy(text.toString()));		
 		smsPanel.add(smsLabel);
@@ -82,7 +80,7 @@ public class SMSFrame extends JFrame {
 		// buttons
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
-		JButton copyButton = new JButton("Copy password");
+		JButton copyButton = new JButton(Translation.getInstance().getProperty(Category.FRAME_SMS_BUTTON_LABEL));
 		copyButton.addActionListener(new ActionListener() {
 			
 			/* (non-Javadoc)
