@@ -162,7 +162,7 @@ public class SMSTemplateManager {
 	 * Load templates from encrypted file.
 	 */
 	public final synchronized void loadFromFile(boolean encrypted, String fileName) {		
-		LOG.debug("Start reloading templates.");
+		LOG.debug("Start reloading templates from fileName: " + fileName + " (" + encrypted + ").");
 		
 		templates.clear();
 		try {

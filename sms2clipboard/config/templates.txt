@@ -1,2 +1,0 @@
-3388;Operacja nr \d+ z dn. [\d-]+ mTransfer z rach.: ...\d+ na rach.: \d+...\d+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.;\\d+
-3388;Operacja nr \d+ z dn. [\d-]+ Przelew z rach.: ...\d+ na rach.: \d+...\d+ kwota: [\d,]+ PLN haslo: ${PASSWORD} mBank.;\\d+

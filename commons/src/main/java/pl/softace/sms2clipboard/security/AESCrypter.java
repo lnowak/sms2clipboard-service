@@ -2,20 +2,19 @@ package pl.softace.sms2clipboard.security;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.slf4j.Logger;
@@ -92,12 +91,17 @@ public class AESCrypter {
 	 * @return			secret key
 	 * @throws InvalidKeySpecException 
 	 * @throws NoSuchAlgorithmException 
+	 * @throws UnsupportedEncodingException 
 	 */
-	private final SecretKey generateKey(String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
-		SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-		KeySpec spec = new PBEKeySpec(password.toCharArray(), SALT.getBytes(), 65536, 128);
-		SecretKey tmp = factory.generateSecret(spec);
-		return new SecretKeySpec(tmp.getEncoded(), "AES");
+	private final SecretKey generateKey(String password) throws InvalidKeySpecException, NoSuchAlgorithmException, UnsupportedEncodingException {
+		MessageDigest digester = MessageDigest.getInstance("SHA");
+	    digester.update(String.valueOf(SALT + password).getBytes("UTF-8"));
+	    byte[] key = digester.digest();
+	    byte[] shortKey = new byte[16];
+	    for (int i = 0; i < 16; i++) {
+	    	shortKey[i] = key[i];
+	    }
+	    return new SecretKeySpec(shortKey, "AES");
 	}	
 
 	/**
@@ -218,5 +222,34 @@ public class AESCrypter {
 			LOG.error("Exception during AES decrypting.", e);			
 			throw new CryptException("Exception during AES decrypting.", e);
 		}
+	}
+	
+	/**
+	 * Generates SHA-256 hash from string.
+	 * 
+	 * @param text		text string
+	 * @return			hash
+	 */
+	public final String generateHash(String text) {
+		String hashString = null;
+		if (text != null) {
+	        MessageDigest md = null;
+			try {
+				md = MessageDigest.getInstance("SHA-256");
+			} catch (NoSuchAlgorithmException e) {
+				LOG.error("Exception occured.", e);
+			}
+	        md.update(text.getBytes());
+	        byte byteData[] = md.digest();
+	 
+	        StringBuffer hash = new StringBuffer();
+	        for (int i = 0; i < byteData.length; i++) {
+	        	hash.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+	        }
+	        
+	        hashString = hash.toString();
+		}
+		
+		return hashString;
 	}
 }
