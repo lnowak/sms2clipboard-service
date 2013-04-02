@@ -153,13 +153,15 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 	 * @return			prefix
 	 */
 	public final String getSMSSuffix(String text) {
-		String suffix = null;		
+		String suffix = "";		
 		Matcher passwordMatcher = Pattern.compile(PASSWORD_TAG).matcher(smsRegex);
 		if (passwordMatcher.find()) {
-			String suffixRegex = smsRegex.substring(passwordMatcher.end(), smsRegex.length());			
-			Matcher suffixMatcher = Pattern.compile(suffixRegex).matcher(text);					
-			if (suffixMatcher.find()) {
-				suffix = text.substring(suffixMatcher.start(), text.length());
+			String suffixRegex = smsRegex.substring(passwordMatcher.end(), smsRegex.length());
+			if (suffixRegex.length() > 0) {
+				Matcher suffixMatcher = Pattern.compile(suffixRegex).matcher(text);					
+				if (suffixMatcher.find()) {
+					suffix = text.substring(suffixMatcher.start(), text.length());
+				}
 			}
 		}
 		

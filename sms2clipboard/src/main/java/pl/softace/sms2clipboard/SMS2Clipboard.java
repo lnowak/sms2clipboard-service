@@ -77,6 +77,7 @@ public class SMS2Clipboard {
 		API_SERVER = new ApiServer();
 		API_SERVER.setPacketHandler(new SMS2ClipboardPacketHandler());
 		
+		
 		int actualPort = ConfigurationManager.getInstance().getConfiguration().getServerPort();
 		if (actualPort > 0 && Utilities.checkPort(actualPort)) {
 			API_SERVER.setPort(actualPort);

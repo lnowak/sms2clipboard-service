@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>sms2clipboard-service</artifactId>
+		<artifactId>sms2clipboard</artifactId>
 		<groupId>com.softace</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
@@ -26,7 +26,7 @@
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>sun_checks.xml</exclude>
-					<exclude>log4j.xml</exclude>
+					<!-- <exclude>log4j.xml</exclude> -->
                 </excludes>
                 <filtering>false</filtering>
             </resource>

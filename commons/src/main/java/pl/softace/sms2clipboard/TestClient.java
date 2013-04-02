@@ -7,19 +7,25 @@ import pl.softace.sms2clipboard.net.api.packet.PingResponse;
 import pl.softace.sms2clipboard.net.api.packet.SMSPacket;
 import pl.softace.sms2clipboard.net.api.packet.enums.Status;
 import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryClient;
+import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.sms2clipboard.net.autodiscovery.ServerInstance;
 import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryClient;
+import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
 
 public class TestClient {
 
-	public static void main(String[] args) {	
-		//ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
+	public static void main(String[] args) {
+		IAutoDiscoveryServer server = new UDPAutoDiscoveryServer();
+		server.startServer();
+		
+		
+		/*//ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
 		//apiClient.connect();
 		
 		IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
 		for (ServerInstance serverInstance : autoDiscoveryClient.findServer()) {
 			System.out.println(serverInstance);
-			ApiClient apiClient = new ApiClient(serverInstance.getIp(), 8080);
+			ApiClient apiClient = new ApiClient(serverInstance.getIp(), serverInstance.getPort());
 			apiClient.connect();
 			
 			PingRequest ping = new PingRequest();
@@ -38,6 +44,6 @@ public class TestClient {
 			}
 			
 			apiClient.disconnect();
-		}
+		}*/
 	}
 }

@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import pl.softace.sms2clipboard.SMS2Clipboard;
 import pl.softace.sms2clipboard.locale.Category;
 import pl.softace.sms2clipboard.locale.Translation;
 import pl.softace.sms2clipboard.template.SMSTemplate;
@@ -161,12 +162,14 @@ public class SMSFrame extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		SMS2Clipboard.setUILookAndFeel();
+		
 		SMSTemplate smsTemplate = new SMSTemplate();
 		smsTemplate.setSource("3388");
-		smsTemplate.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ mTransfer z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD} mBank.");
+		smsTemplate.setSmsRegex("Operacja nr \\d+ z dn. [\\d-]+ mTransfer z rach.: ...\\d+ na rach.: \\d+...\\d+ kwota: [\\d,]+ PLN haslo: ${PASSWORD}");
 		smsTemplate.setPasswordRegex("\\\\d+");
 		
-		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528 mBank.";
+		String smsText = "Operacja nr 1 z dn. 17-02-2013 mTransfer z rach.: ...55060959 na rach.: 8111...746759 kwota: 60,00 PLN haslo: 98066528";
 		
 		SMSFrame.createAndShow(smsTemplate, "3388", smsText);
 	}
