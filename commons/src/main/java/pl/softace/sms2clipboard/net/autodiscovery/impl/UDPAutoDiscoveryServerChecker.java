@@ -19,6 +19,11 @@ public class UDPAutoDiscoveryServerChecker extends Thread {
 	private static final Logger LOG = Logger.getLogger(UDPAutoDiscoveryServerChecker.class);
 	
 	/**
+	 * Start delay.
+	 */
+	private long startDelay = 5 * 1000;
+	
+	/**
 	 * Delay between sending ping packet and checking response.
 	 */
 	private long pingDelay = 10 * 1000;
@@ -44,8 +49,8 @@ public class UDPAutoDiscoveryServerChecker extends Thread {
 	 * 
 	 * @param autoDiscoveryServer	auto discovery server
 	 */
-	public UDPAutoDiscoveryServerChecker(IAutoDiscoveryServer autoDiscoveryServer) {
-		this.autoDiscoveryServer = autoDiscoveryServer;
+	public UDPAutoDiscoveryServerChecker() {
+
 	}
 	
 	public final IAutoDiscoveryServer getAutoDiscoveryServer() {
@@ -82,9 +87,18 @@ public class UDPAutoDiscoveryServerChecker extends Thread {
 	 */
 	@Override
 	public final void run() {
+		LOG.debug("UDP Auto Discovery server checker started.");
+		
 		isRunning = true;
 		while (isRunning) {
-			if (!autoDiscoveryServer.isRunning()) {
+			try {
+				sleep(startDelay);
+			} catch (InterruptedException e) {
+				LOG.error("Exception ocurred.", e);
+			}
+			
+			if (autoDiscoveryServer == null || !autoDiscoveryServer.isRunning()) {
+				autoDiscoveryServer = new UDPAutoDiscoveryServer();
 				autoDiscoveryServer.startServer();
 			}
 			
@@ -98,7 +112,9 @@ public class UDPAutoDiscoveryServerChecker extends Thread {
 			
 			if (checkForResponse) {
 				if (!autoDiscoveryServer.wasPingReceived()) {
+					LOG.debug("AutoDiscovey server is not working. Restarting...");
 					autoDiscoveryServer.stopServer();
+					autoDiscoveryServer = new UDPAutoDiscoveryServer();
 					autoDiscoveryServer.startServer();
 				}
 			}
@@ -109,5 +125,7 @@ public class UDPAutoDiscoveryServerChecker extends Thread {
 				LOG.error("Exception ocurred.", e);
 			}
 		}
+		
+		LOG.debug("UDP Auto Discovery server checker stopped.");
 	}
 }

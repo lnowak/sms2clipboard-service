@@ -65,7 +65,7 @@ public class SMS2Clipboard {
 	 * Starts the auto discovery server.
 	 */
 	public final void startAutoDiscovery() {			
-		autoDiscoveryChecker = new UDPAutoDiscoveryServerChecker(new UDPAutoDiscoveryServer());
+		autoDiscoveryChecker = new UDPAutoDiscoveryServerChecker();
 		autoDiscoveryChecker.start();
 	}
 	

@@ -24,8 +24,6 @@ public class ApiServer {
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(ApiServer.class);
 	
-	
-	
 	/**
 	 * Default port.
 	 */
@@ -91,7 +89,6 @@ public class ApiServer {
 	public final void startServer() throws IOException {
 		acceptor = new NioSocketAcceptor();
 		acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(codecFactory));
-		//acceptor.getFilterChain().addLast("logger", new LoggingFilter());
 		
 		acceptor.setHandler(new ApiServerIOHandler(packetHandler));
 		acceptor.bind(new InetSocketAddress(port));

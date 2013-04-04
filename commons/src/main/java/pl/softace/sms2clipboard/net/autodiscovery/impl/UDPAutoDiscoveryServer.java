@@ -200,9 +200,9 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 				byte[] responseBuffer = packet.buildPacket().getBytes();
 				DatagramPacket responseDatagram = new DatagramPacket(responseBuffer, 
 						responseBuffer.length, InetAddress.getByName(multicastGroup), port);
-				socket.send(responseDatagram);
-						
-				LOG.debug(packet + " was sent.");
+				
+				LOG.debug("Sending " + packet + ".");
+				socket.send(responseDatagram);										
 				sent = true;
 			}
 		} catch (IOException e) {

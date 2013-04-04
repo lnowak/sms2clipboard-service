@@ -26,12 +26,12 @@ public class UpdateCheckingThread extends Thread {
 	/**
 	 * Start delay.
 	 */
-	private static final long START_DELAY = 1 * 1000;
+	private static final long START_DELAY = 5 * 1000;
 	
 	/**
 	 * Delay used to check for updates.
 	 */
-	private static final long DELAY = 1 * 60 * 60 * 1000;
+	private static final long DELAY = 2 * 60 * 60 * 1000;
 	
 	/**
 	 * Flag indicating that the thread is running. 
