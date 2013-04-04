@@ -17,9 +17,8 @@ public class TestClient {
 	public static void main(String[] args) {
 		IAutoDiscoveryServer server = new UDPAutoDiscoveryServer();
 		server.startServer();
-		
-		
-		/*//ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
+				
+		//ApiClient apiClient = new ApiClient("192.168.55.2", 8080);
 		//apiClient.connect();
 		
 		IAutoDiscoveryClient autoDiscoveryClient = new UDPAutoDiscoveryClient(0);
@@ -44,6 +43,6 @@ public class TestClient {
 			}
 			
 			apiClient.disconnect();
-		}*/
+		}
 	}
 }

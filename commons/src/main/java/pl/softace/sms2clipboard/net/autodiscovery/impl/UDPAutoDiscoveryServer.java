@@ -48,6 +48,11 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	 */
 	private boolean isRunning; 
 	
+	/**
+	 * Indicates that ping packet was received.
+	 */
+	private boolean wasPingReceived;
+	
 	
 	/**
 	 * Default constructor.
@@ -55,6 +60,15 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	public UDPAutoDiscoveryServer() {
 		
 	}
+
+	/* (non-Javadoc)
+	 * @see pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer#isRunning()
+	 */
+	@Override
+	public final boolean isRunning() {
+		return isRunning;
+	}
+
 	
 	public final int getPort() {
 		return port;
@@ -77,9 +91,12 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	 */
 	@Override
 	public final void startServer() {
+		LOG.debug("Starting auto discovery server.");
+		
 		try {						
 			SocketAddress address = new InetSocketAddress(port); 
-			socket = new MulticastSocket(address);					
+			socket = new MulticastSocket(address);
+			socket.setLoopbackMode(false);
 			socket.joinGroup(InetAddress.getByName(multicastGroup));			
 		} catch (IOException e) {
 			LOG.error("Exception occured.", e);
@@ -94,7 +111,10 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 	 */
 	@Override
 	public final void stopServer() {
-		try {
+		LOG.debug("Stopping auto discovery server.");
+		
+		isRunning = false;
+		try {			
 			socket.leaveGroup(InetAddress.getByName(multicastGroup));
 			socket.close();
 		} catch (IOException e) {
@@ -118,26 +138,24 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 		
 		try {					
 			while (isRunning) {
-				// listening for datagram
 				byte buffer[] = new byte[1024];
 				DatagramPacket packet = new DatagramPacket(buffer, buffer.length);				
 				socket.receive(packet);
-				
+					
 				AutoDiscoveryPacket receivedPacket = AutoDiscoveryPacket.parsePacket(new String(packet.getData()));			
-				if (receivedPacket != null && receivedPacket.getAction().equals(Action.SEARCH)) {
-					LOG.debug("Received search packet from " + packet.getAddress() + ".");
-										
-					AutoDiscoveryPacket responsePacket = new AutoDiscoveryPacket();
-					responsePacket.setAction(Action.SERVER_INSTANCE);
-					responsePacket.setHost(InetAddress.getLocalHost().getHostName());
-					responsePacket.setPort(ConfigurationManager.getInstance().getConfiguration().getServerPort());
-					
-					byte[] responseBuffer = responsePacket.buildPacket().getBytes();
-					DatagramPacket responseDatagram = new DatagramPacket(responseBuffer, 
-							responseBuffer.length, InetAddress.getByName(multicastGroup), port);
-					socket.send(responseDatagram);
-					
-					LOG.debug("Response packet sent.");
+				if (receivedPacket != null) {
+					if (receivedPacket.getAction().equals(Action.SEARCH)) {
+						LOG.debug("Received search packet from " + packet.getAddress() + ".");
+						
+						AutoDiscoveryPacket responsePacket = new AutoDiscoveryPacket();
+						responsePacket.setAction(Action.SERVER_INSTANCE);
+						responsePacket.setHost(InetAddress.getLocalHost().getHostName());
+						responsePacket.setPort(ConfigurationManager.getInstance().getConfiguration().getServerPort());						
+						sendPacket(responsePacket);								
+					} else if (receivedPacket.getAction().equals(Action.PING)) {
+						LOG.debug("Received ping packet from " + packet.getAddress() + ".");
+						wasPingReceived = true;
+					}
 				}			
 								
 				sleep(1);				
@@ -149,5 +167,48 @@ public class UDPAutoDiscoveryServer extends Thread implements IAutoDiscoveryServ
 		}
 		
 		LOG.debug("UDP Auto Discovery server stopped.");
+	}
+
+	/* (non-Javadoc)
+	 * @see pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer#sendPingPacket()
+	 */
+	@Override
+	public final boolean sendPingPacket() {
+		wasPingReceived = false;
+		AutoDiscoveryPacket packet = new AutoDiscoveryPacket();
+		packet.setAction(Action.PING);
+		return sendPacket(packet);
+	}
+
+	/* (non-Javadoc)
+	 * @see pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer#wasPingReceived()
+	 */
+	@Override
+	public final boolean wasPingReceived() {
+		return wasPingReceived;
+	}
+	
+	/**
+	 * Sends packet.
+	 * 
+	 * @param packet		packet to send
+	 */
+	private boolean sendPacket(AutoDiscoveryPacket packet) {
+		boolean sent = false;
+		try {								
+			if (socket != null && socket.isBound()) {
+				byte[] responseBuffer = packet.buildPacket().getBytes();
+				DatagramPacket responseDatagram = new DatagramPacket(responseBuffer, 
+						responseBuffer.length, InetAddress.getByName(multicastGroup), port);
+				socket.send(responseDatagram);
+						
+				LOG.debug(packet + " was sent.");
+				sent = true;
+			}
+		} catch (IOException e) {
+			LOG.error("Exception occured.", e);
+		}
+		
+		return sent;
 	}
 }

@@ -12,8 +12,8 @@ import pl.softace.sms2clipboard.config.ConfigurationManager;
 import pl.softace.sms2clipboard.gui.SMS2ClipboardTray;
 import pl.softace.sms2clipboard.net.SMS2ClipboardPacketHandler;
 import pl.softace.sms2clipboard.net.api.server.ApiServer;
-import pl.softace.sms2clipboard.net.autodiscovery.IAutoDiscoveryServer;
 import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServer;
+import pl.softace.sms2clipboard.net.autodiscovery.impl.UDPAutoDiscoveryServerChecker;
 import pl.softace.sms2clipboard.template.SMSTemplateManager;
 import pl.softace.sms2clipboard.update.UpdateCheckingThread;
 import pl.softace.sms2clipboard.utils.Utilities;
@@ -38,9 +38,9 @@ public class SMS2Clipboard {
 	public static SMS2ClipboardTray TRAY;
 	
 	/**
-	 * Auto discovery server.
+	 * Auto discovery checker.
 	 */
-	private IAutoDiscoveryServer autoDiscoveryServer;
+	private UDPAutoDiscoveryServerChecker autoDiscoveryChecker;
 	
 	/**
 	 * API server.
@@ -64,9 +64,9 @@ public class SMS2Clipboard {
 	/**
 	 * Starts the auto discovery server.
 	 */
-	public final void startAutoDiscovery() {
-		autoDiscoveryServer = new UDPAutoDiscoveryServer();
-		autoDiscoveryServer.startServer();	
+	public final void startAutoDiscovery() {			
+		autoDiscoveryChecker = new UDPAutoDiscoveryServerChecker(new UDPAutoDiscoveryServer());
+		autoDiscoveryChecker.start();
 	}
 	
 	/**
@@ -173,7 +173,8 @@ public class SMS2Clipboard {
 	            public final void run(){
 	            	LOG.debug("Shutdown application.");
 	            	
-	                sms2Clipboard.autoDiscoveryServer.stopServer();
+	            	sms2Clipboard.autoDiscoveryChecker.getAutoDiscoveryServer().stopServer();
+	                sms2Clipboard.autoDiscoveryChecker.stopChecker();
 	                SMS2Clipboard.API_SERVER.stopServer();
 	                sms2Clipboard.updateCheckingThread.setRunning(false);
 	                

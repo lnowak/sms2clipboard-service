@@ -17,7 +17,13 @@ public enum Action {
 	/**
 	 * Instance was found.
 	 */
-	SERVER_INSTANCE		("SERVER-INSTANCE");
+	SERVER_INSTANCE		("SERVER-INSTANCE"),
+	
+	/**
+	 * Ping.
+	 */
+	PING				("PING");
+	
 	
 	/**
 	 * Action text.

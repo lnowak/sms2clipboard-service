@@ -99,7 +99,9 @@ public class UDPAutoDiscoveryClient implements IAutoDiscoveryClient {
 						server.setIp(receivedPacket.getAddress().getHostAddress());
 						server.setHostName(responsePacket.getHost());
 						server.setPort(responsePacket.getPort());
-						servers.add(server);
+						if (!servers.contains(server)) {
+							servers.add(server);
+						}
 					}								
 					
 					try {

@@ -46,6 +46,22 @@ public class AutoDiscoveryPacketTest {
 	}
 	
 	/**
+	 * Creates ping packet and parses it.
+	 */
+	@Test
+	public final void checkPingPacket() {
+		// given
+		AutoDiscoveryPacket packet = new AutoDiscoveryPacket();
+		packet.setAction(Action.PING);
+		
+		// when
+		String packetString = packet.buildPacket();
+		
+		// then
+		Assert.assertEquals(AutoDiscoveryPacket.parsePacket(packetString), packet);
+	}
+	
+	/**
 	 * Parses incorrect packet.
 	 */
 	@Test
