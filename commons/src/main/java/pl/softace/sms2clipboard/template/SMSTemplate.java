@@ -92,6 +92,7 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 	 * @return			true if matches
 	 */
 	public final boolean matchText(String text) {
+		text = normalizeText(text);
 		String tempRegex = smsRegex.replaceAll(PASSWORD_TAG, passwordRegex);
 		Pattern pattern = Pattern.compile(tempRegex);
 		
@@ -105,6 +106,7 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 	 * @return			prefix
 	 */
 	public final String getSMSPrefix(String text) {
+		text = normalizeText(text);
 		String prefix = null;		
 		Matcher passwordMatcher = Pattern.compile(PASSWORD_TAG).matcher(smsRegex);
 		if (passwordMatcher.find()) {
@@ -125,6 +127,7 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 	 * @return			password
 	 */
 	public final String getSMSPassword(String text) {
+		text = normalizeText(text);
 		String password = null;		
 		Matcher passwordMatcher = Pattern.compile(PASSWORD_TAG).matcher(smsRegex);
 		if (passwordMatcher.find()) {
@@ -153,6 +156,7 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 	 * @return			prefix
 	 */
 	public final String getSMSSuffix(String text) {
+		text = normalizeText(text);
 		String suffix = "";		
 		Matcher passwordMatcher = Pattern.compile(PASSWORD_TAG).matcher(smsRegex);
 		if (passwordMatcher.find()) {
@@ -168,6 +172,16 @@ public class SMSTemplate extends ReflectedPacket implements Serializable {
 		return suffix;
 	}
 
+	/**
+	 * Normalizes whitespace characters.
+	 * 
+	 * @param text		text to normalize
+	 * @return normalized text
+	 */
+	private final String normalizeText(String text) {
+		return text.trim().replaceAll(" +", " ");
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

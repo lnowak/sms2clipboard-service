@@ -67,7 +67,7 @@ public class SMSPacket extends ReflectedPacket {
 	public final void setSource(String source) {
 		this.source = source;
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
